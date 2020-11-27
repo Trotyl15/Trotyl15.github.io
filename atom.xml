@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Trotyl&#39;s Blog</title>
+  <icon>http://trotyl.xyz/icon.png</icon>
+  
+  <link href="http://trotyl.xyz/atom.xml" rel="self"/>
+  
+  <link href="http://trotyl.xyz/"/>
+  <updated>2020-10-30T19:15:40.000Z</updated>
+  <id>http://trotyl.xyz/</id>
+  
+  <author>
+    <name>Trotyl</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Grade 12 Chemistry</title>
+    <link href="http://trotyl.xyz/2020/09/10/Grade-12-Chem/"/>
+    <id>http://trotyl.xyz/2020/09/10/Grade-12-Chem/</id>
+    <published>2020-09-10T19:54:00.000Z</published>
+    <updated>2020-10-30T19:15:40.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;A note for my grade 12 chem class.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;heimu&quot; title=&quot;你知道的太多了&quot;&gt;因为这学科太tm恶心了，我怕我不认真搞会凉所以专门弄一篇呜呜呜&lt;/span&gt;&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="RHHS" scheme="http://trotyl.xyz/categories/RHHS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>好用的油猴脚本推荐｜持续更新</title>
+    <link href="http://trotyl.xyz/2020/09/02/%E5%A5%BD%E7%94%A8%E7%9A%84%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E6%8E%A8%E8%8D%90/"/>
+    <id>http://trotyl.xyz/2020/09/02/%E5%A5%BD%E7%94%A8%E7%9A%84%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E6%8E%A8%E8%8D%90/</id>
+    <published>2020-09-02T05:58:43.000Z</published>
+    <updated>2020-09-04T15:28:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;惊闻Edge出了新版，火速去试了试，没想到比safari和chrome好用了不止一点。立马转战Edge。重新下插件的时候正好又看了看油猴脚本，就想着最近反正也不咋更新了，要不就出一期油猴脚本的推荐（会持续更新）。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;因为到现在百度还没收录我的网址，所以</summary>
+        
+      
+    
+    
+    
+    
+    <category term="杂七杂八" scheme="http://trotyl.xyz/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图｜Graph</title>
+    <link href="http://trotyl.xyz/2020/08/16/%E5%9B%BE%EF%BD%9Cgraph/"/>
+    <id>http://trotyl.xyz/2020/08/16/%E5%9B%BE%EF%BD%9Cgraph/</id>
+    <published>2020-08-17T01:40:05.000Z</published>
+    <updated>2020-08-18T15:36:28.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是在看b站上的韩顺平老师的数据结构与算法&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    
+    <category term="图｜Graph" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%9B%BE%EF%BD%9CGraph/"/>
+    
+    
+    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多路查找树｜Multi-Way Search Tree</title>
+    <link href="http://trotyl.xyz/2020/08/14/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BD%9CMuitl-Way-Search-Tree/"/>
+    <id>http://trotyl.xyz/2020/08/14/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BD%9CMuitl-Way-Search-Tree/</id>
+    <published>2020-08-15T03:53:57.000Z</published>
+    <updated>2020-09-19T19:19:48.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是在看b站上的韩顺平老师的数据结构与算法&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    
+    <category term="多路查找树｜Multi-Way Search Tree" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BD%9CMulti-Way-Search-Tree/"/>
+    
+    
+    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>平衡二叉树｜AVL Tree</title>
+    <link href="http://trotyl.xyz/2020/08/08/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-AVL-Tree/"/>
+    <id>http://trotyl.xyz/2020/08/08/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-AVL-Tree/</id>
+    <published>2020-08-08T20:13:40.000Z</published>
+    <updated>2020-10-21T13:42:38.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是在看b站上的韩顺平老师的数据结构与算法&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    
+    <category term="树结构的应用｜Application of Tree Structures" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/"/>
+    
+    
+    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二叉排序树｜Binary Sort Tree</title>
+    <link href="http://trotyl.xyz/2020/08/07/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BD%9CBinary%20Sort%20Tree/"/>
+    <id>http://trotyl.xyz/2020/08/07/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BD%9CBinary%20Sort%20Tree/</id>
+    <published>2020-08-07T15:32:49.000Z</published>
+    <updated>2020-08-18T15:36:18.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是在看b站上的韩顺平老师的数据结构与算法&lt;sup id=&quot;fnref:1&quot; class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;&lt;span class=&quot;hint--top hint--rounded&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    
+    <category term="树结构的应用｜Application of Tree Structures" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/"/>
+    
+    
+    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="http://trotyl.xyz/2020/08/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://trotyl.xyz/2020/08/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <published>2020-08-04T00:46:00.000Z</published>
+    <updated>2020-10-28T03:54:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是用来练习markdown语法的一篇博客&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h1&gt;&lt;h2 id=&quot;1-先来张图&quot;&gt;&lt;a href=&quot;#1-先来张图&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="杂七杂八" scheme="http://trotyl.xyz/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+    
+  </entry>
+  
+</feed>
