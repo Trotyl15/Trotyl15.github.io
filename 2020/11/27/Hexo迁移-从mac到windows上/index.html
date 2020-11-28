@@ -33,7 +33,7 @@
   <meta name="description" content="一个小博客">
   <meta name="author" content="Trotyl">
   <meta name="keywords" content="">
-  <title>二叉排序树｜Binary Sort Tree - Trotyl&#39;s Blog</title>
+  <title>Hexo迁移｜mac到windows - Trotyl&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -201,8 +201,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-08-07 11:32" pubdate>
-      August 7, 2020 11:32 AM
+    <time datetime="2020-11-27 17:19" pubdate>
+      November 27, 2020 5:19 PM
     </time>
   </div>
 
@@ -212,7 +212,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      950 字
     </span>
   
 
@@ -222,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      21
+      11
        分钟
     </span>
   
@@ -260,320 +260,61 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">二叉排序树｜Binary Sort Tree</h1>
+            <h1 style="display: none">Hexo迁移｜mac到windows</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：August 18, 2020 11:36 AM
+                  本文最后更新于：November 28, 2020 12:58 AM
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>这是在看b站上的韩顺平老师的数据结构与算法<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="尚硅谷Java数据结构与java算法，韩顺平数据结构与算法
-">[1]</span></a></sup>时做的笔记。等我把后面的都更新完了以后会陆续把前面的补上。</p>
+              <p>最近换电脑了嘛，就想着得把博客搬到这个电脑上，网上找了找，都是windows迁到mac上的，完全没有从mac到win的。。<span class="heimu" title="你知道的太多了">windows现在已经这么过气了吗？泪目</span></p>
+<p>既然这样我就写一下步骤吧，虽然其实和别的系统差不多，但是毕竟我还是遇到了蛮多坑的。<img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/1.jpg" srcset="/img/loading.gif" width = "150"   align=justify /></p>
 <hr>
-<h1 id="一、实际案例"><a href="#一、实际案例" class="headerlink" title="一、实际案例"></a>一、实际案例</h1><p>给你一个数列（7，3，10，12，5，1，9）要求能够高效地完成对数组的查找与添加</p>
-<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><ul>
-<li>使用数组｜ArrayList<ol>
-<li>数组未排序时：<ul>
-<li>优点：直接在尾部添加，速度快</li>
-<li>缺点：查找速度慢</li>
-</ul>
-</li>
-<li>数组排序时：<ul>
-<li>优点：用二分查找时，查找速度快</li>
-<li>缺点 ：为了保证数组有序，添加新数据时速度慢</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>链式存储-链表｜LinkedList<ul>
-<li>优点：添加数据速度比数组快，因为不需要整体移动</li>
-<li>缺点：查找速度慢</li>
-</ul>
-</li>
-<li>二叉排序树｜BST<ul>
-<li>增删改查效率都比较高</li>
-</ul>
-</li>
-</ul>
-<h1 id="三、基本介绍"><a href="#三、基本介绍" class="headerlink" title="三、基本介绍"></a>三、基本介绍</h1><p><a target="_blank" rel="noopener" href="http://btv.melezinek.cz/binary-search-tree.html">一个很好用的BST的可视化网站</a></p>
-<p>二叉排序树：BST(Binary Sort(Search) Tree)， 对于它的任何一个非叶子结点｜leaf node，要求左子结点的值比当前结点的值小，有子结点的值比当前结点的值大。</p>
-<p>特别说明：如有相同的值，可以将该结点放在左子结点或右子结点（最好避免相同的值）</p>
-<h1 id="四、构建BST"><a href="#四、构建BST" class="headerlink" title="四、构建BST"></a>四、构建BST</h1><p>针对前面的数据（7，3，10，12，5，1，9），对应的二叉排序树为：</p>
-<center>
-
-![](https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&a/BST.png)
-</center>
-
-<p>当插入结点“2”时，“2”应该放在“1”的右子结点</p>
-<h1 id="五、删除结点的思路"><a href="#五、删除结点的思路" class="headerlink" title="五、删除结点的思路"></a>五、删除结点的思路</h1><h2 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h2><h3 id="——删除叶子结点（如：2，5，9，12）"><a href="#——删除叶子结点（如：2，5，9，12）" class="headerlink" title="——删除叶子结点（如：2，5，9，12）"></a>——删除叶子结点（如：2，5，9，12）</h3><p>1） 定位结点 targetNode</p>
-<p>2）找到targetNode的父结点 parent</p>
-<p>3）确定targetNode是parent的左子结点还是右子结点</p>
-<p>4）根据前面的情况对应删除</p>
-<p>左子结点：<code>parent.left = null</code>;</p>
-<p>右子结点：<code>parent.right = =null</code>;</p>
-<h2 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h2><h3 id="——删除只有一颗子树的结点（如：1）"><a href="#——删除只有一颗子树的结点（如：1）" class="headerlink" title="——删除只有一颗子树的结点（如：1）"></a>——删除只有一颗子树的结点（如：1）</h3><p>1） 定位结点 targetNode</p>
-<p>2）找到targetNode的父结点 parent</p>
-<p>3）确定targetNode的子结点是左结点还是右子结点</p>
+<h1 id="在旧电脑（mac）上应该做的事"><a href="#在旧电脑（mac）上应该做的事" class="headerlink" title="在旧电脑（mac）上应该做的事"></a>在旧电脑（mac）上应该做的事</h1><p>搞个u盘或者之类的东西，把以下这些文件复制一下</p>
 <ul>
-<li>如果targetNode有左子结点    <ol>
-<li>targetNode是parent的左子结点<br><code>parent.left = targetNode.left ;</code></li>
-<li>targetNode是parent的右子结点<br><code>parent.right = targetNode.left ;</code></li>
-</ol>
-</li>
-<li>如果targetNode有右子结点<ol>
-<li>targetNode是parent的左子结点<br><code>parent.left = targetNode.right ;</code></li>
-<li>targetNode是parent的右子结点<br><code>parent.right = targetNode.right ;</code></li>
-</ol>
-</li>
+<li>source(文件夹)</li>
+<li>themes/主题文件</li>
+<li>_config.yml</li>
+<li>package.json</li>
+<li>如果你有下一些需要你配置文件的插件，把那些需要的东西也复制下<ul>
+<li>比如说你有live2d的插件并且用的是自定义的模型，复制放模型的文件夹：live2d_models</li>
 </ul>
-<h2 id="第三种情况"><a href="#第三种情况" class="headerlink" title="第三种情况"></a>第三种情况</h2><h3 id="——删除有两颗子树的结点（如：7，3，10）"><a href="#——删除有两颗子树的结点（如：7，3，10）" class="headerlink" title="——删除有两颗子树的结点（如：7，3，10）"></a>——删除有两颗子树的结点（如：7，3，10）</h3><ul>
-<li>这里用“10”举例，并且假设“12”下面还有两个子结点</li>
+</li>
+<li>如果你有CNAME文件，复制它</li>
 </ul>
-<p>1） 定位结点 targetNode</p>
-<p>2）找到targetNode的父结点 parent</p>
-<p>3）从targetNode的右子树找到最小的结点</p>
-<p>4）用一个临时变量，将右子树最小的结点值保存 temp = 12</p>
-<p>5）删除该最小结点</p>
-<p>6）<code>targetNode.value = temp;</code>    </p>
-<center>
+<h1 id="在新电脑（win）上"><a href="#在新电脑（win）上" class="headerlink" title="在新电脑（win）上"></a>在新电脑（win）上</h1><h2 id="一、安装node-js"><a href="#一、安装node-js" class="headerlink" title="一、安装node.js"></a>一、安装node.js</h2><h3 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1.下载nodejs"></a>1.下载nodejs</h3><p>建议手动下载，<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">这是官网链接</a><br>LTS的这个<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201127232937.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h3><p>安装就不用我教了吧，点就完事了<img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/tieba-17.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="二、下载git并向Github添加SSH-Key"><a href="#二、下载git并向Github添加SSH-Key" class="headerlink" title="二、下载git并向Github添加SSH Key"></a>二、下载git并向Github添加SSH Key</h2><h3 id="1-创建SSH-Key"><a href="#1-创建SSH-Key" class="headerlink" title="1. 创建SSH Key"></a>1. 创建SSH Key</h3><p>1) 打开Gitbash<br>2) 输入<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br>这里得把你自己的邮箱地址替换上去<br>3) 一路回车<br>4) 在用户目录（user/xxx)下找到.ssh的文件夹<br>5) 找到<code>id_rsa.pub</code>的文件打开<strong>(一定要后缀是.pub的那个)</strong>，复制里面的东西</p>
+<h3 id="2-添加SSH-Key"><a href="#2-添加SSH-Key" class="headerlink" title="2. 添加SSH Key"></a>2. 添加SSH Key</h3><p>1) 登录GitHub<br>2) 点头像<br>3) 点开Settings<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201128001321.png" srcset="/img/loading.gif" alt=""><br>class=”heimu” title=”你知道的太多了”&gt;话说再次让我感叹一下QQ截图真他娘的好用&lt;/span&gt;<br>4)左侧栏找到SSH and GPG keys，点进去<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201128001610.png" srcset="/img/loading.gif" alt=""><br>5)点New SSH key然后把刚才从<code>id_rsa.pub</code>文件里复制的东西复制到Key的那一栏里，Title那栏随便写<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201128001721.png" srcset="/img/loading.gif" alt=""><br>6)点击Add key，完成</p>
+<h2 id="三、以管理员模式打开cmd"><a href="#三、以管理员模式打开cmd" class="headerlink" title="三、以管理员模式打开cmd"></a>三、以管理员模式打开cmd</h2><p><strong>要管理员模式哈！！</strong></p>
+<h3 id="1-先check一下node和npm有没有安装成功"><a href="#1-先check一下node和npm有没有安装成功" class="headerlink" title="1.先check一下node和npm有没有安装成功"></a>1.先check一下node和npm有没有安装成功</h3><p>分别输入<code>node -v</code>回车和<code>npm -v</code>回车，如果显示版本号，那就说明成功了</p>
+<h3 id="2-国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）"><a href="#2-国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）" class="headerlink" title="2.国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）"></a>2.国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）</h3><p>输入<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>回车</p>
+<p>如果安装了cnpm，后面我用npm的时候请自行替换成cnpm</p>
+<h2 id="四-安装和搭建Hexo"><a href="#四-安装和搭建Hexo" class="headerlink" title="四. 安装和搭建Hexo"></a>四. 安装和搭建Hexo</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>输入<code>npm install -g hexo-cli</code><br>可以用<code>hexo -v</code>验证一下是否成功。如果显示版本号，说明成功</p>
+<h3 id="2-建立一个放博客的文件夹"><a href="#2-建立一个放博客的文件夹" class="headerlink" title="2. 建立一个放博客的文件夹"></a>2. 建立一个放博客的文件夹</h3><p>我是在C盘下面建的（因为我不喜欢分盘），你可以在D盘或者别的什么地方建都可以<br>1) cd到那个地方<code>mkdir blog</code><br>不叫blog也行，有的人喜欢叫hexo什么的<br>2) 建立好了以后<code>cd blog</code>进去执行<code>hexo init</code>建立一个新的Hexo目录<br>3)将之前从旧电脑上复制的package.json复制到新的目录下，把原来的文件覆盖掉</p>
+<p><strong>因为mac系统的原因，它会生成很多奇奇怪怪的隐藏文件，得先把那些.打头的文件删掉，所有文件夹里都看一遍，所有文件夹里的都得删除，否则会出现<code>hexo err: YAMLException: null byte is not allowed in input at line 1, column 1</code>等错误提示</strong></p>
+<p>4)执行<code>hexo install</code><br>把剩下的那些从旧电脑上复制的文件和文件夹放到对应的位置<br>6)<code>hexo g</code>然后<code>hexo s</code>，打开<a target="_blank" rel="noopener" href="http://localhost:4000/看看有没有生成好">http://localhost:4000/看看有没有生成好</a></p>
+<h2 id="四、hexo-d一下看看能不能成功部署"><a href="#四、hexo-d一下看看能不能成功部署" class="headerlink" title="四、hexo d一下看看能不能成功部署"></a>四、hexo d一下看看能不能成功部署</h2><p>如果出现了<br><pre><code class="hljs dockerfile">Please tell me who you are.
 
-![](https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&a/BST2.png)
+<span class="hljs-keyword">Run</span>
 
-</center>
+<span class="bash">	git config --global user.email <span class="hljs-string">&quot;you@example.com&quot;</span></span>
+    git config --global <span class="hljs-keyword">user</span>.name <span class="hljs-string">&quot;Your Name&quot;</span></code></pre><br>1)输入<code>git config --global user.email &quot;你的邮箱“</code>这个邮箱得是你在GitHub里用的那个<br>2)输入`git config —global user.name “你的名字”<br><span class="heimu" title="草">砸瓦鲁多！</span><br>这个名字随便起就行了</p>
+<p>完事！！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/%EF%BC%92.gif" srcset="/img/loading.gif" width = "200" alt="好耶"  /></p>
 
-<p><del>容我说一句：妙啊！</del></p>
-<h1 id="六、代码实现"><a href="#六、代码实现" class="headerlink" title="六、代码实现"></a>六、代码实现</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinarySortTreeDemo</span> </span>&#123;
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">main</span>(<span class="hljs-params"><span class="hljs-built_in">String</span>[] args</span>)</span> &#123;
-        int[] arr = &#123; <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span> &#125;;
-        BinarySortTree binarySortTree = <span class="hljs-keyword">new</span> BinarySortTree();
-        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;
-            binarySortTree.add(<span class="hljs-keyword">new</span> Node(arr[i]));
-        &#125;
-        binarySortTree.infixOrder();<span class="hljs-comment">// 1, 2, 3, 5, 7, 9, 10, 12</span>
-		binarySortTree.delNode(<span class="hljs-number">2</span>);
-		binarySortTree.delNode(<span class="hljs-number">5</span>);
-		binarySortTree.delNode(<span class="hljs-number">9</span>);
-		binarySortTree.delNode(<span class="hljs-number">12</span>);
-		binarySortTree.delNode(<span class="hljs-number">7</span>);
-		binarySortTree.delNode(<span class="hljs-number">3</span>);
-		binarySortTree.delNode(<span class="hljs-number">10</span>);
-		System.out.println(<span class="hljs-string">&quot;After:&quot;</span>);
-		binarySortTree.infixOrder();
-    &#125;
-&#125;
-
-<span class="hljs-comment">// 创建树</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinarySortTree</span> </span>&#123;
-    <span class="hljs-keyword">private</span> Node root;
-
-    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">search</span>(<span class="hljs-params">int value</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-keyword">return</span> root.search(value);
-        &#125;
-    &#125;
-
-    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">searchParent</span>(<span class="hljs-params">int value</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-keyword">return</span> root.searchParent(value);
-        &#125;
-    &#125;
-
-    <span class="hljs-keyword">public</span> int <span class="hljs-function"><span class="hljs-title">delRightTreeMin</span>(<span class="hljs-params">Node node</span>)</span> &#123;
-        Node target = node;
-        <span class="hljs-keyword">while</span> (target.left != <span class="hljs-literal">null</span>) &#123;
-            target = target.left;
-        &#125;
-
-        delNode(target.value);
-        <span class="hljs-keyword">return</span> target.value;
-    &#125;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">delNode</span>(<span class="hljs-params">int value</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-keyword">return</span>;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            Node targetNode = search(value);
-            <span class="hljs-keyword">if</span> (targetNode == <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-keyword">return</span>;
-            &#125;
-            <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span> &amp;&amp; root.right == <span class="hljs-literal">null</span>) &#123;
-                root = <span class="hljs-literal">null</span>;
-                <span class="hljs-keyword">return</span>;
-            &#125;
-            Node parent = searchParent(value);
-            <span class="hljs-keyword">if</span> (targetNode.left == <span class="hljs-literal">null</span> &amp;&amp; targetNode.right == <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-keyword">if</span> (parent.left != <span class="hljs-literal">null</span> &amp;&amp; parent.left.value == value) &#123;
-                    parent.left = <span class="hljs-literal">null</span>;
-                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parent.right != <span class="hljs-literal">null</span> &amp;&amp; parent.right.value == value) &#123;
-                    parent.right = <span class="hljs-literal">null</span>;
-                &#125;
-            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (targetNode.left != <span class="hljs-literal">null</span> &amp;&amp; targetNode.right != <span class="hljs-literal">null</span>) &#123;
-                int minVal = delRightTreeMin(targetNode.right);
-                targetNode.value = minVal;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-keyword">if</span> (targetNode.left != <span class="hljs-literal">null</span>) &#123;
-                    <span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;
-                        <span class="hljs-keyword">if</span> (parent.left.value == value) &#123;
-                            parent.left = targetNode.left;
-                        &#125; <span class="hljs-keyword">else</span> &#123;
-                            parent.right = targetNode.left;
-                        &#125;
-                    &#125; <span class="hljs-keyword">else</span> &#123;
-                        root = targetNode.left;
-                    &#125;
-                &#125; <span class="hljs-keyword">else</span> &#123;
-                    <span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;
-                        <span class="hljs-keyword">if</span> (parent.left.value == value) &#123;
-                            parent.left = targetNode.right;
-                        &#125; <span class="hljs-keyword">else</span> &#123;
-                            parent.right = targetNode.right;
-                        &#125;
-                    &#125; <span class="hljs-keyword">else</span> &#123;
-                        root = targetNode.right;
-                    &#125;
-                &#125;
-            &#125;
-        &#125;
-    &#125;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">Node node</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<span class="hljs-comment">// 如果是空树，直接让root指向node</span>
-            root = node;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            root.add(node);
-        &#125;
-    &#125;
-
-    <span class="hljs-comment">// 中序遍历</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">infixOrder</span>(<span class="hljs-params"></span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (root != <span class="hljs-literal">null</span>) &#123;
-            root.infixOrder();
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            System.out.println(<span class="hljs-string">&quot;Tree is Empty.&quot;</span>);
-        &#125;
-    &#125;
-&#125;
-
-<span class="hljs-comment">// 创建Node节点</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>&#123;
-    int value;
-    Node left;
-    Node right;
-
-    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">Node</span>(<span class="hljs-params">int value</span>)</span> &#123;
-        <span class="hljs-built_in">this</span>.value = value;
-    &#125;
-
-    <span class="hljs-comment">/**</span>
-<span class="hljs-comment">     * </span>
-<span class="hljs-comment">     * <span class="hljs-doctag">@param </span>value 希望删除的值</span>
-<span class="hljs-comment">     * <span class="hljs-doctag">@return </span>如果找到返回该结点，否则返回null</span>
-<span class="hljs-comment">     */</span>
-    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">search</span>(<span class="hljs-params">int value</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (value == <span class="hljs-built_in">this</span>.value) &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
-        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-built_in">this</span>.value) &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left == <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-            &#125;
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.left.search(value);
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right == <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-            &#125;
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.right.search(value);
-        &#125;
-    &#125;
-
-    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">searchParent</span>(<span class="hljs-params">int value</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> ((<span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-built_in">this</span>.left.value == value) || (<span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-built_in">this</span>.right.value == value)) &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-built_in">this</span>.value &amp;&amp; <span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.left.searchParent(value);
-            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &gt;= <span class="hljs-built_in">this</span>.value &amp;&amp; <span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.right.searchParent(value);
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-            &#125;
-        &#125;
-
-    &#125;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">String</span> <span class="hljs-function"><span class="hljs-title">toString</span>(<span class="hljs-params"></span>)</span> &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Node [value=&quot;</span> + value + <span class="hljs-string">&quot;]&quot;</span>;
-    &#125;
-
-    <span class="hljs-comment">// 添加节点</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">Node node</span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-keyword">return</span>;
-        &#125;
-        <span class="hljs-keyword">if</span> (node.value &lt; <span class="hljs-built_in">this</span>.value) &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left == <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-built_in">this</span>.left = node;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-built_in">this</span>.left.add(node);<span class="hljs-comment">// 递归</span>
-            &#125;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right == <span class="hljs-literal">null</span>) &#123;
-                <span class="hljs-built_in">this</span>.right = node;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-built_in">this</span>.right.add(node);<span class="hljs-comment">// 递归</span>
-            &#125;
-        &#125;
-    &#125;
-
-    <span class="hljs-comment">// 中序遍历</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">infixOrder</span>(<span class="hljs-params"></span>)</span> &#123;
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-built_in">this</span>.left.infixOrder();
-        &#125;
-        System.out.println(<span class="hljs-built_in">this</span>);
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span>) &#123;
-            <span class="hljs-built_in">this</span>.right.infixOrder();
-        &#125;
-    &#125;
-&#125;</code></pre>
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><pre><code class="hljs crmsh"><span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">1</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">2</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">3</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">5</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">7</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">9</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">10</span>]
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">12</span>]
-After:
-<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">1</span>]</code></pre>
-<hr>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1E4411H73v?p=127">尚硅谷Java数据结构与java算法，韩顺平数据结构与算法</a>
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/">数据结构与算法｜Data Structures and Algorithms</a>
-                    
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/">树结构的应用｜Application of Tree Structures</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
                     
                   </div>
                 
@@ -584,15 +325,15 @@ After:
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/08/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-AVL-Tree/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">平衡二叉树｜AVL Tree</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2020/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -1189,7 +930,7 @@ document.body.addEventListener('input', POWERMODE);
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/08/07/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BD%9CBinary%20Sort%20Tree/');
+          var target = decodeURI('/2020/11/27/Hexo%E8%BF%81%E7%A7%BB-%E4%BB%8Emac%E5%88%B0windows%E4%B8%8A/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -1283,7 +1024,7 @@ document.body.addEventListener('input', POWERMODE);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "二叉排序树｜Binary Sort Tree&nbsp;",
+        "Hexo迁移｜mac到windows&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

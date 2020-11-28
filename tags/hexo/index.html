@@ -33,7 +33,7 @@
   <meta name="description" content="一个小博客">
   <meta name="author" content="Trotyl">
   <meta name="keywords" content="">
-  <title>Tags - Trotyl&#39;s Blog</title>
+  <title>Tags - hexo - Trotyl&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -207,9 +207,22 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="text-center tagcloud">
-  <a href="/tags/hexo/" style="font-size: 15px; color: #bbe">hexo</a> <a href="/tags/java/" style="font-size: 30px; color: #337ab7">java</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 15px; color: #bbe">杂七杂八</a>
+<div class="list-group">
+  <p class="h4">1 posts in total.</p>
+  <hr>
+  
+    
+      
+      <p class="h5">2020</p>
+    
+    <a href="/2020/11/27/Hexo%E8%BF%81%E7%A7%BB-%E4%BB%8Emac%E5%88%B0windows%E4%B8%8A/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Hexo迁移｜mac到windows</span>
+      <time style="float: right;">11-27</time>
+    </a>
+  
 </div>
+
+
 
               </div>
             </div>
@@ -498,7 +511,7 @@ document.body.addEventListener('input', POWERMODE);
       if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/tags/index.html');
+          var target = decodeURI('/tags/hexo/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -567,7 +580,7 @@ document.body.addEventListener('input', POWERMODE);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Tag&nbsp;",
+        "Tag - hexo&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
