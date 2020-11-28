@@ -264,7 +264,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：November 28, 2020 11:37 AM
+                  本文最后更新于：November 28, 2020 12:54 PM
                 
               </p>
             
@@ -293,9 +293,9 @@
 <h3 id="2-国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）"><a href="#2-国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）" class="headerlink" title="2.国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）"></a>2.国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）</h3><p>输入<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>回车</p>
 <p>如果安装了cnpm，后面我用npm的时候请自行替换成cnpm</p>
 <h2 id="四-安装和搭建Hexo"><a href="#四-安装和搭建Hexo" class="headerlink" title="四. 安装和搭建Hexo"></a>四. 安装和搭建Hexo</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>输入<code>npm install -g hexo-cli</code><br>可以用<code>hexo -v</code>验证一下是否成功。如果显示版本号，说明成功</p>
-<h3 id="2-建立一个放博客的文件夹"><a href="#2-建立一个放博客的文件夹" class="headerlink" title="2. 建立一个放博客的文件夹"></a>2. 建立一个放博客的文件夹</h3><p>我是在C盘下面建的（因为我不喜欢分盘），你可以在D盘或者别的什么地方建都可以<br>1) cd到那个地方<code>mkdir blog</code><br>不叫blog也行，有的人喜欢叫hexo什么的<br>2) 建立好了以后<code>cd blog</code>进去执行<code>hexo init</code>建立一个新的Hexo目录<br>3)将之前从旧电脑上复制的package.json复制到新的目录下，把原来的文件覆盖掉</p>
+<h3 id="2-建立一个放博客的文件夹"><a href="#2-建立一个放博客的文件夹" class="headerlink" title="2. 建立一个放博客的文件夹"></a>2. 建立一个放博客的文件夹</h3><p>我是在C盘下面建的（因为我不喜欢分盘），你可以在D盘或者别的什么地方建都可以<br>1) cd到那个地方<code>mkdir blog</code><br>不叫blog也行，有的人喜欢叫hexo什么的<br>2) 建立好了以后<code>cd blog</code>进去执行<code>hexo init</code>建立一个新的Hexo目录<br>3) 将之前从旧电脑上复制的package.json复制到新的目录下，把原来的文件覆盖掉</p>
 <p><strong>因为mac系统的原因，它会生成很多奇奇怪怪的隐藏文件，得先把那些.打头的文件删掉，所有文件夹里都看一遍，所有文件夹里的都得删除，否则会出现<code>hexo err: YAMLException: null byte is not allowed in input at line 1, column 1</code>等错误提示</strong></p>
-<p>4)执行<code>hexo install</code><br>把剩下的那些从旧电脑上复制的文件和文件夹放到对应的位置<br>6)<code>hexo g</code>然后<code>hexo s</code>，打开<a target="_blank" rel="noopener" href="http://localhost:4000/看看有没有生成好">http://localhost:4000/看看有没有生成好</a></p>
+<p>4) 执行<code>hexo install</code><br>把剩下的那些从旧电脑上复制的文件和文件夹放到对应的位置<br>6) <code>hexo g</code>然后<code>hexo s</code>，打开<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a><br>看看有没有生成好</p>
 <h2 id="四、hexo-d一下看看能不能成功部署"><a href="#四、hexo-d一下看看能不能成功部署" class="headerlink" title="四、hexo d一下看看能不能成功部署"></a>四、hexo d一下看看能不能成功部署</h2><p>如果出现了<br><pre><code class="hljs dockerfile">Please tell me who you are.
 
 <span class="hljs-keyword">Run</span>
