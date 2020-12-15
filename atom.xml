@@ -6,7 +6,7 @@
   <link href="http://trotyl.xyz/atom.xml" rel="self"/>
   
   <link href="http://trotyl.xyz/"/>
-  <updated>2020-12-11T23:54:11.177Z</updated>
+  <updated>2020-12-15T02:05:59.385Z</updated>
   <id>http://trotyl.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Server and Client实现聊天室</title>
+    <link href="http://trotyl.xyz/2020/12/14/Java-Server-and-Client%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
+    <id>http://trotyl.xyz/2020/12/14/Java-Server-and-Client%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E5%AE%A4/</id>
+    <published>2020-12-15T01:49:45.000Z</published>
+    <updated>2020-12-15T02:05:59.385Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;cs的作业，这里放一下吧。肝了两天两夜，要写吐了。&lt;/p&gt;
+&lt;p&gt;用java socket实现简易聊天室， 因为server端不是我写的，我就发下client端的.&lt;/p&gt;
+&lt;p&gt;这是几个截图:&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo迁移｜mac到windows</title>
