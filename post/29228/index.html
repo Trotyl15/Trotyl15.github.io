@@ -33,7 +33,7 @@
   <meta name="description" content="一个小博客">
   <meta name="author" content="Trotyl">
   <meta name="keywords" content="">
-  <title>图｜Graph - Trotyl&#39;s Blog</title>
+  <title>二叉排序树｜Binary Sort Tree - Trotyl&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -201,8 +201,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-08-16 21:40" pubdate>
-      August 16, 2020 9:40 PM
+    <time datetime="2020-08-07 11:32" pubdate>
+      August 7, 2020 11:32 AM
     </time>
   </div>
 
@@ -212,7 +212,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      1.4k 字
     </span>
   
 
@@ -222,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      26
+      21
        分钟
     </span>
   
@@ -260,7 +260,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">图｜Graph</h1>
+            <h1 style="display: none">二叉排序树｜Binary Sort Tree</h1>
             
               <p class="note note-info">
                 
@@ -272,251 +272,288 @@
               <p>这是在看b站上的韩顺平老师的数据结构与算法<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="尚硅谷Java数据结构与java算法，韩顺平数据结构与算法
 ">[1]</span></a></sup>时做的笔记。等我把后面的都更新完了以后会陆续把前面的补上。</p>
 <hr>
-<h1 id="一、基本介绍"><a href="#一、基本介绍" class="headerlink" title="一、基本介绍"></a>一、基本介绍</h1><h2 id="为什么要有图"><a href="#为什么要有图" class="headerlink" title="为什么要有图"></a>为什么要有图</h2><ol>
-<li>前面我们学了线性表和树</li>
-<li>线性表局限于一个前驱和一个后继的关系</li>
-<li>树也只能有一个直接前驱也就是父结点</li>
-<li>当我们需要表示多对多的关系时，这里我们就用到了图<br>图是一种数据结构，其中结点可以具有零个或者多个相邻元素。两个结点直接的链接称为边。结点也可以称为顶点。如图：<br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G1.png" srcset="/img/loading.gif" alt=""></li>
-</ol>
-<h1 id="二、常用概念"><a href="#二、常用概念" class="headerlink" title="二、常用概念"></a>二、常用概念</h1><p><strong>1） 顶点｜vertex</strong></p>
-<p><strong>2） 边｜edge</strong></p>
-<p><strong>3） 路径｜path</strong></p>
-<p><strong>4）无向图｜Undirected Graph（下图）</strong><br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G2.png" srcset="/img/loading.gif" alt=""></p>
-<p>无向图：顶点之间的链接没有方向，比如A-B，既可以是A→B，也可以是B←A。</p>
-<p>路径：比如D→C的路径有</p>
-<ol>
-<li>D→B→C</li>
-<li>D→A→B→C</li>
-</ol>
-<p><strong>5） 有向图｜Directed Graph（下图）</strong><br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G3.png" srcset="/img/loading.gif" alt=""><br>有向图：顶点之间的链接有方向，比如A-B，只能是A→B，不能是B←A。</p>
-<p><strong>6）带权图｜Weighted Graph（下图）</strong><br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G4.png" srcset="/img/loading.gif" alt=""><br>带权图：这种边带权值的图也叫网</p>
-<h1 id="三、表示方式"><a href="#三、表示方式" class="headerlink" title="三、表示方式"></a>三、表示方式</h1><p>图的表示方式有两种：二维数组表示（邻接矩阵）；链表表示（邻接表）。</p>
-<h2 id="1-邻接矩阵"><a href="#1-邻接矩阵" class="headerlink" title="1. 邻接矩阵"></a>1. 邻接矩阵</h2><p>邻接矩阵是表示图形中顶点之间相邻关系的矩阵，对于n个顶点的图而言，矩阵的row和col表示的是1…n个点。<br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G5.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="2-邻接表"><a href="#2-邻接表" class="headerlink" title="2. 邻接表"></a>2. 邻接表</h2><p>1）邻接矩阵需要为每个顶点都分配n个边的空间，其实有很多边都是不存在,会造成空间的一定损失。</p>
-<p>2）邻接表的实现只关心存在的边，不关心不存在的边。因此没有空间浪费，邻接表由数组+链表组成。<br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G6.png" srcset="/img/loading.gif" alt=""></p>
-<p><strong>说明：</strong></p>
-<ol>
-<li>标号为0的结点的相关联的结点为 1 2 3 4</li>
-<li>标号为1的结点的相关联结点为0 4，</li>
-<li>标号为2的结点相关联的结点为 0 4 5</li>
-<li>….</li>
-</ol>
-<h1 id="四、快速入门案例"><a href="#四、快速入门案例" class="headerlink" title="四、快速入门案例"></a>四、快速入门案例</h1><h2 id="1-要求"><a href="#1-要求" class="headerlink" title="1. 要求"></a>1. 要求</h2><p>代码实现如下图结构。<br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G2.png" srcset="/img/loading.gif" alt=""></p>
-<pre><code class="hljs tap">  A B C D E
-A<span class="hljs-number"> 0 </span>1<span class="hljs-number"> 1 </span>0 0
-B<span class="hljs-number"> 1 </span>0<span class="hljs-number"> 1 </span>1 1
-C<span class="hljs-number"> 1 </span>1<span class="hljs-number"> 0 </span>0 0
-D<span class="hljs-number"> 0 </span>1<span class="hljs-number"> 0 </span>0 0
-E<span class="hljs-number"> 0 </span>1<span class="hljs-number"> 0 </span>0 0
-
-//说明
-//（1）1表示能直接链接
-//（2）0表示不能直接链接
-</code></pre>
-<h2 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h2><ol>
-<li>存储顶点 String 使用 ArrayList</li>
-<li>保存 int[][] edges</li>
-</ol>
-<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs arduino"><span class="hljs-keyword">import</span> java.util.ArrayList;
-<span class="hljs-keyword">import</span> java.util.Arrays;
-
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Graph</span> &#123;</span>
-
-	<span class="hljs-keyword">private</span> ArrayList&lt;<span class="hljs-keyword">String</span>&gt; vertexList;
-	<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[][] edges;
-	<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> numOfEdges;
-
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">String</span>[] args)</span> </span>&#123;
-		<span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>;<span class="hljs-comment">// number of nodes</span>
-		<span class="hljs-keyword">String</span> vertices[] = &#123; <span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span> &#125;;
-		Graph graph = <span class="hljs-keyword">new</span> Graph(n);
-		<span class="hljs-comment">// add nodes</span>
-		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">String</span> vertex : vertices) &#123;
-			graph.insertVertex(vertex);
-		&#125;
-		<span class="hljs-comment">// add edges</span>
-		<span class="hljs-comment">// A-B A-C B-C B-D B-E</span>
-		graph.insertEdge(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
-		graph.insertEdge(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>);
-		graph.insertEdge(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>);
-		graph.insertEdge(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>);
-		graph.insertEdge(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>);
-
-		graph.showGraph();
-	&#125;
-
-	<span class="hljs-comment">// constructor</span>
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Graph</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;
-		edges = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n][n];
-		vertexList = <span class="hljs-keyword">new</span> ArrayList&lt;<span class="hljs-keyword">String</span>&gt;(n);
-		numOfEdges = <span class="hljs-number">0</span>;
-	&#125;
-
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showGraph</span><span class="hljs-params">()</span> </span>&#123;
-		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span>[] link : edges) &#123;
-			System.out.<span class="hljs-built_in">println</span>(Arrays.toString(link));
-		&#125;
-	&#125;
-
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNumOfVertex</span><span class="hljs-params">()</span> </span>&#123;
-		<span class="hljs-keyword">return</span> vertexList.<span class="hljs-built_in">size</span>();
-	&#125;
-
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNumOfEdges</span><span class="hljs-params">()</span> </span>&#123;
-		<span class="hljs-keyword">return</span> numOfEdges;
-	&#125;
-
-	<span class="hljs-comment">// 返回下标对应的数据 0-&gt;“A”</span>
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> <span class="hljs-title">getValueByIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span> </span>&#123;
-		<span class="hljs-keyword">return</span> vertexList.<span class="hljs-built_in">get</span>(i);
-	&#125;
-
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getWeight</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v1, <span class="hljs-keyword">int</span> v2)</span> </span>&#123;
-		<span class="hljs-keyword">return</span> edges[v1][v2];
-	&#125;
-
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertVertex</span><span class="hljs-params">(<span class="hljs-keyword">String</span> vertex)</span> </span>&#123;
-		vertexList.add(vertex);
-	&#125;
-
-	<span class="hljs-comment">/**</span>
-<span class="hljs-comment">	 * </span>
-<span class="hljs-comment">	 * @param v1 点的下标，以及是第几个顶点 “A”-“B” “A”-&gt;0 “B”-&gt;1</span>
-<span class="hljs-comment">	 * @param v2 第二个顶点对应的下标</span>
-<span class="hljs-comment">	 * @param weight 权值</span>
-<span class="hljs-comment">	 */</span>
-	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertEdge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v1, <span class="hljs-keyword">int</span> v2, <span class="hljs-keyword">int</span> weight)</span> </span>&#123;
-		edges[v1][v2] = weight;
-		edges[v2][v1] = weight;
-	&#125;
-
-&#125;</code></pre>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><pre><code class="hljs json">[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
-[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]
-[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
-[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
-[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]</code></pre>
-<h1 id="五、图的遍历"><a href="#五、图的遍历" class="headerlink" title="五、图的遍历"></a>五、图的遍历</h1><p>所谓图的遍历，既是对结点的访问。一个图有那么多结点，如何遍历这些结点，需要特定策略，一般有两种访问策略：</p>
-<ul>
-<li>深度优先遍历｜Depth First Search</li>
-<li>广度优先遍历｜Broad First Search</li>
+<h1 id="一、实际案例"><a href="#一、实际案例" class="headerlink" title="一、实际案例"></a>一、实际案例</h1><p>给你一个数列（7，3，10，12，5，1，9）要求能够高效地完成对数组的查找与添加</p>
+<h1 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h1><ul>
+<li>使用数组｜ArrayList<ol>
+<li>数组未排序时：<ul>
+<li>优点：直接在尾部添加，速度快</li>
+<li>缺点：查找速度慢</li>
 </ul>
-<h2 id="深度优先遍历｜DFS"><a href="#深度优先遍历｜DFS" class="headerlink" title="深度优先遍历｜DFS"></a>深度优先遍历｜DFS</h2><h3 id="1-基本思想"><a href="#1-基本思想" class="headerlink" title="1. 基本思想"></a>1. 基本思想</h3><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G7.gif" srcset="/img/loading.gif" alt=""><br>图的深度优先搜索</p>
-<ol>
-<li>深度优先遍历，从初始访问结点出发，初始访问结点可能有多个邻接结点，深度优先遍历的策略就是首先访问第一个邻接结点，然后再以这个被访问的邻接结点作为初始结点，访问它的第一个邻接结点， 可以这样理解：每次都在访问完<strong>当前结点</strong>后首先访问<strong>当前结点的第一个邻接结点</strong>。</li>
-<li>我们可以看到，这样的访问策略是优先往纵向挖掘深入，而不是对一个结点的所有邻接结点进行横向访问。</li>
-<li>显然，深度优先搜索是一个递归的过程</li>
-</ol>
-<h3 id="2-算法步骤"><a href="#2-算法步骤" class="headerlink" title="2. 算法步骤"></a>2. 算法步骤</h3><ol>
-<li>访问初始结点v，并标记结点v为已访问。</li>
-<li>查找结点v的第一个邻接结点w。</li>
-<li>若w存在，则继续执行4，如果w不存在，则回到第1步，将从v的下一个结点继续。</li>
-<li>若w未被访问，对w进行深度优先遍历递归（即把w当做另一个v，然后进行步骤123）。</li>
-<li>查找结点v的w邻接结点的下一个邻接结点，转到步骤3。 </li>
-</ol>
-<h3 id="3-代码实现-1"><a href="#3-代码实现-1" class="headerlink" title="3.代码实现"></a>3.代码实现</h3><h4 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h4><pre><code class="hljs angelscript"><span class="hljs-keyword">private</span> <span class="hljs-built_in">bool</span>ean[] isVisited;</code></pre>
-<pre><code class="hljs arduino"><span class="hljs-comment">/**</span>
-<span class="hljs-comment"> * </span>
-<span class="hljs-comment"> * @param index</span>
-<span class="hljs-comment"> * @return 如果存在就返回对应的下标，否则返回-1</span>
-<span class="hljs-comment"> */</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFirstNeighbor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>&#123;
-	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; vertexList.<span class="hljs-built_in">size</span>(); j++) &#123;
-		<span class="hljs-keyword">if</span> (edges[index][j] &gt; <span class="hljs-number">0</span>) &#123;
-			<span class="hljs-keyword">return</span> j;
-		&#125;
-	&#125;
-	<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-&#125;</code></pre>
-<pre><code class="hljs arduino"><span class="hljs-comment">// 根据前一个邻接结点的下标来获取下一个邻接结点</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNextNeighbor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v1, <span class="hljs-keyword">int</span> v2)</span> </span>&#123;
-	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = v2 + <span class="hljs-number">1</span>; j &lt; vertexList.<span class="hljs-built_in">size</span>(); j++) &#123;
-		<span class="hljs-keyword">if</span> (edges[v2][j] &gt; <span class="hljs-number">0</span>) &#123;
-			<span class="hljs-keyword">return</span> j;
-		&#125;
-	&#125;
-	<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-&#125;</code></pre>
-<pre><code class="hljs reasonml"><span class="hljs-comment">// DFS</span>
-<span class="hljs-keyword">private</span> void dfs(boolean<span class="hljs-literal">[]</span> isVisited, <span class="hljs-built_in">int</span> i) &#123;
-	<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(get<span class="hljs-constructor">ValueByIndex(<span class="hljs-params">i</span>)</span> + <span class="hljs-string">&quot;-&gt;&quot;</span>);
-	isVisited<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span> = <span class="hljs-literal">true</span>;
-	<span class="hljs-built_in">int</span> w = get<span class="hljs-constructor">FirstNeighbor(<span class="hljs-params">i</span>)</span>;
-	<span class="hljs-keyword">while</span> (w != -<span class="hljs-number">1</span>) &#123;
-		<span class="hljs-keyword">if</span> (!isVisited<span class="hljs-literal">[<span class="hljs-identifier">w</span>]</span>) &#123;
-			dfs(isVisited, w);
-		&#125;
-		w = get<span class="hljs-constructor">NextNeighbor(<span class="hljs-params">i</span>, <span class="hljs-params">w</span>)</span>;
-	&#125;
-&#125;</code></pre>
-<pre><code class="hljs typescript"><span class="hljs-comment">// 对dfs进行重载，因为要考虑不联通图的情况</span>
-<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">dfs</span>(<span class="hljs-params"></span>)</span> &#123;
-	<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; getNumOfVertex(); i++) &#123;
-		<span class="hljs-keyword">if</span> (!isVisited[i]) &#123;
-			dfs(isVisited, i);
-		&#125;
-	&#125;
-&#125;</code></pre>
-<pre><code class="hljs elixir">System.out.println(<span class="hljs-string">&quot;DFS:&quot;</span>);
-graph.dfs();<span class="hljs-regexp">//</span> A-&gt;B-&gt;C-&gt;D-&gt;E</code></pre>
-<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><pre><code class="hljs accesslog"><span class="hljs-string">[0, 1, 1, 0, 0]</span>
-<span class="hljs-string">[1, 0, 1, 1, 1]</span>
-<span class="hljs-string">[1, 1, 0, 0, 0]</span>
-<span class="hljs-string">[0, 1, 0, 0, 0]</span>
-<span class="hljs-string">[0, 1, 0, 0, 0]</span>
-DFS:
-A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;</code></pre>
-<h2 id="广度优先遍历｜BFS"><a href="#广度优先遍历｜BFS" class="headerlink" title="广度优先遍历｜BFS"></a>广度优先遍历｜BFS</h2><h3 id="1-基本思想-1"><a href="#1-基本思想-1" class="headerlink" title="1. 基本思想"></a>1. 基本思想</h3><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G8.gif" srcset="/img/loading.gif" alt=""><br>图的广度优先搜索</p>
-<p>类似于一个分层搜索的过程，广度优先遍历需要使用一个队列保持访问过的结点的顺序，以便按照这个顺序来访问这些结点的邻接结点。</p>
-<h3 id="2-算法步骤-1"><a href="#2-算法步骤-1" class="headerlink" title="2. 算法步骤"></a>2. 算法步骤</h3><ol>
-<li>访问初始结点v并标记结点v为已访问。</li>
-<li>结点v入队列</li>
-<li>当队列非空时，继续执行，否则算法结束。</li>
-<li>出队列，取得队头结点u。</li>
-<li>查找结点u的第一个邻接结点w。</li>
-<li>若结点u的邻接结点w不存在，则转到步骤3；否则循环执行以下三个步骤：<ol>
-<li>若结点w尚未被访问，则访问结点w并标记为已访问。 </li>
-<li>结点w入队列 </li>
-<li>查找结点u的继w邻接结点后的下一个邻接结点w，转到步骤6。<br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/G9.gif" srcset="/img/loading.gif" alt=""></li>
-</ol>
+</li>
+<li>数组排序时：<ul>
+<li>优点：用二分查找时，查找速度快</li>
+<li>缺点 ：为了保证数组有序，添加新数据时速度慢</li>
+</ul>
 </li>
 </ol>
-<h3 id="3-代码实现-2"><a href="#3-代码实现-2" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h3><h4 id="添加代码-1"><a href="#添加代码-1" class="headerlink" title="添加代码"></a>添加代码</h4><pre><code class="hljs reasonml"><span class="hljs-keyword">private</span> void bfs(boolean<span class="hljs-literal">[]</span> isVisited, <span class="hljs-built_in">int</span> i) &#123;
-	<span class="hljs-built_in">int</span> u;<span class="hljs-comment">// head node&#x27;s index</span>
-	<span class="hljs-built_in">int</span> w;
-	LinkedList queue = <span class="hljs-keyword">new</span> <span class="hljs-constructor">LinkedList()</span>;
-	<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(get<span class="hljs-constructor">ValueByIndex(<span class="hljs-params">i</span>)</span> + <span class="hljs-string">&quot;-&gt;&quot;</span>);
-	isVisited<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span> = <span class="hljs-literal">true</span>;
-	queue.add<span class="hljs-constructor">Last(<span class="hljs-params">i</span>)</span>;
-	<span class="hljs-keyword">while</span> (!queue.is<span class="hljs-constructor">Empty()</span>) &#123;
-		u = (Integer) queue.remove<span class="hljs-constructor">First()</span>;
-		w = get<span class="hljs-constructor">FirstNeighbor(<span class="hljs-params">u</span>)</span>;
-		<span class="hljs-keyword">while</span> (w != -<span class="hljs-number">1</span>) &#123;
-			<span class="hljs-keyword">if</span> (!isVisited<span class="hljs-literal">[<span class="hljs-identifier">w</span>]</span>) &#123;
-				<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(get<span class="hljs-constructor">ValueByIndex(<span class="hljs-params">w</span>)</span> + <span class="hljs-string">&quot;-&gt;&quot;</span>);
-				isVisited<span class="hljs-literal">[<span class="hljs-identifier">w</span>]</span> = <span class="hljs-literal">true</span>;
-				queue.add<span class="hljs-constructor">Last(<span class="hljs-params">w</span>)</span>;
-			&#125;
-			w = get<span class="hljs-constructor">NextNeighbor(<span class="hljs-params">u</span>, <span class="hljs-params">w</span>)</span>;
-		&#125;
-	&#125;
+</li>
+<li>链式存储-链表｜LinkedList<ul>
+<li>优点：添加数据速度比数组快，因为不需要整体移动</li>
+<li>缺点：查找速度慢</li>
+</ul>
+</li>
+<li>二叉排序树｜BST<ul>
+<li>增删改查效率都比较高</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、基本介绍"><a href="#三、基本介绍" class="headerlink" title="三、基本介绍"></a>三、基本介绍</h1><p><a target="_blank" rel="noopener" href="http://btv.melezinek.cz/binary-search-tree.html">一个很好用的BST的可视化网站</a></p>
+<p>二叉排序树：BST(Binary Sort(Search) Tree)， 对于它的任何一个非叶子结点｜leaf node，要求左子结点的值比当前结点的值小，有子结点的值比当前结点的值大。</p>
+<p>特别说明：如有相同的值，可以将该结点放在左子结点或右子结点（最好避免相同的值）</p>
+<h1 id="四、构建BST"><a href="#四、构建BST" class="headerlink" title="四、构建BST"></a>四、构建BST</h1><p>针对前面的数据（7，3，10，12，5，1，9），对应的二叉排序树为：</p>
+<center>
+
+![](https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&a/BST.png)
+</center>
+
+<p>当插入结点“2”时，“2”应该放在“1”的右子结点</p>
+<h1 id="五、删除结点的思路"><a href="#五、删除结点的思路" class="headerlink" title="五、删除结点的思路"></a>五、删除结点的思路</h1><h2 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h2><h3 id="——删除叶子结点（如：2，5，9，12）"><a href="#——删除叶子结点（如：2，5，9，12）" class="headerlink" title="——删除叶子结点（如：2，5，9，12）"></a>——删除叶子结点（如：2，5，9，12）</h3><p>1） 定位结点 targetNode</p>
+<p>2）找到targetNode的父结点 parent</p>
+<p>3）确定targetNode是parent的左子结点还是右子结点</p>
+<p>4）根据前面的情况对应删除</p>
+<p>左子结点：<code>parent.left = null</code>;</p>
+<p>右子结点：<code>parent.right = =null</code>;</p>
+<h2 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h2><h3 id="——删除只有一颗子树的结点（如：1）"><a href="#——删除只有一颗子树的结点（如：1）" class="headerlink" title="——删除只有一颗子树的结点（如：1）"></a>——删除只有一颗子树的结点（如：1）</h3><p>1） 定位结点 targetNode</p>
+<p>2）找到targetNode的父结点 parent</p>
+<p>3）确定targetNode的子结点是左结点还是右子结点</p>
+<ul>
+<li>如果targetNode有左子结点    <ol>
+<li>targetNode是parent的左子结点<br><code>parent.left = targetNode.left ;</code></li>
+<li>targetNode是parent的右子结点<br><code>parent.right = targetNode.left ;</code></li>
+</ol>
+</li>
+<li>如果targetNode有右子结点<ol>
+<li>targetNode是parent的左子结点<br><code>parent.left = targetNode.right ;</code></li>
+<li>targetNode是parent的右子结点<br><code>parent.right = targetNode.right ;</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="第三种情况"><a href="#第三种情况" class="headerlink" title="第三种情况"></a>第三种情况</h2><h3 id="——删除有两颗子树的结点（如：7，3，10）"><a href="#——删除有两颗子树的结点（如：7，3，10）" class="headerlink" title="——删除有两颗子树的结点（如：7，3，10）"></a>——删除有两颗子树的结点（如：7，3，10）</h3><ul>
+<li>这里用“10”举例，并且假设“12”下面还有两个子结点</li>
+</ul>
+<p>1） 定位结点 targetNode</p>
+<p>2）找到targetNode的父结点 parent</p>
+<p>3）从targetNode的右子树找到最小的结点</p>
+<p>4）用一个临时变量，将右子树最小的结点值保存 temp = 12</p>
+<p>5）删除该最小结点</p>
+<p>6）<code>targetNode.value = temp;</code>    </p>
+<center>
+
+![](https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&a/BST2.png)
+
+</center>
+
+<p><del>容我说一句：妙啊！</del></p>
+<h1 id="六、代码实现"><a href="#六、代码实现" class="headerlink" title="六、代码实现"></a>六、代码实现</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinarySortTreeDemo</span> </span>&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">main</span>(<span class="hljs-params"><span class="hljs-built_in">String</span>[] args</span>)</span> &#123;
+        int[] arr = &#123; <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span> &#125;;
+        BinarySortTree binarySortTree = <span class="hljs-keyword">new</span> BinarySortTree();
+        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;
+            binarySortTree.add(<span class="hljs-keyword">new</span> Node(arr[i]));
+        &#125;
+        binarySortTree.infixOrder();<span class="hljs-comment">// 1, 2, 3, 5, 7, 9, 10, 12</span>
+		binarySortTree.delNode(<span class="hljs-number">2</span>);
+		binarySortTree.delNode(<span class="hljs-number">5</span>);
+		binarySortTree.delNode(<span class="hljs-number">9</span>);
+		binarySortTree.delNode(<span class="hljs-number">12</span>);
+		binarySortTree.delNode(<span class="hljs-number">7</span>);
+		binarySortTree.delNode(<span class="hljs-number">3</span>);
+		binarySortTree.delNode(<span class="hljs-number">10</span>);
+		System.out.println(<span class="hljs-string">&quot;After:&quot;</span>);
+		binarySortTree.infixOrder();
+    &#125;
+&#125;
+
+<span class="hljs-comment">// 创建树</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinarySortTree</span> </span>&#123;
+    <span class="hljs-keyword">private</span> Node root;
+
+    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">search</span>(<span class="hljs-params">int value</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">return</span> root.search(value);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">searchParent</span>(<span class="hljs-params">int value</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">return</span> root.searchParent(value);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> int <span class="hljs-function"><span class="hljs-title">delRightTreeMin</span>(<span class="hljs-params">Node node</span>)</span> &#123;
+        Node target = node;
+        <span class="hljs-keyword">while</span> (target.left != <span class="hljs-literal">null</span>) &#123;
+            target = target.left;
+        &#125;
+
+        delNode(target.value);
+        <span class="hljs-keyword">return</span> target.value;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">delNode</span>(<span class="hljs-params">int value</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            Node targetNode = search(value);
+            <span class="hljs-keyword">if</span> (targetNode == <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">return</span>;
+            &#125;
+            <span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span> &amp;&amp; root.right == <span class="hljs-literal">null</span>) &#123;
+                root = <span class="hljs-literal">null</span>;
+                <span class="hljs-keyword">return</span>;
+            &#125;
+            Node parent = searchParent(value);
+            <span class="hljs-keyword">if</span> (targetNode.left == <span class="hljs-literal">null</span> &amp;&amp; targetNode.right == <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">if</span> (parent.left != <span class="hljs-literal">null</span> &amp;&amp; parent.left.value == value) &#123;
+                    parent.left = <span class="hljs-literal">null</span>;
+                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parent.right != <span class="hljs-literal">null</span> &amp;&amp; parent.right.value == value) &#123;
+                    parent.right = <span class="hljs-literal">null</span>;
+                &#125;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (targetNode.left != <span class="hljs-literal">null</span> &amp;&amp; targetNode.right != <span class="hljs-literal">null</span>) &#123;
+                int minVal = delRightTreeMin(targetNode.right);
+                targetNode.value = minVal;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-keyword">if</span> (targetNode.left != <span class="hljs-literal">null</span>) &#123;
+                    <span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;
+                        <span class="hljs-keyword">if</span> (parent.left.value == value) &#123;
+                            parent.left = targetNode.left;
+                        &#125; <span class="hljs-keyword">else</span> &#123;
+                            parent.right = targetNode.left;
+                        &#125;
+                    &#125; <span class="hljs-keyword">else</span> &#123;
+                        root = targetNode.left;
+                    &#125;
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    <span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;
+                        <span class="hljs-keyword">if</span> (parent.left.value == value) &#123;
+                            parent.left = targetNode.right;
+                        &#125; <span class="hljs-keyword">else</span> &#123;
+                            parent.right = targetNode.right;
+                        &#125;
+                    &#125; <span class="hljs-keyword">else</span> &#123;
+                        root = targetNode.right;
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">Node node</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<span class="hljs-comment">// 如果是空树，直接让root指向node</span>
+            root = node;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            root.add(node);
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">// 中序遍历</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">infixOrder</span>(<span class="hljs-params"></span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (root != <span class="hljs-literal">null</span>) &#123;
+            root.infixOrder();
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            System.out.println(<span class="hljs-string">&quot;Tree is Empty.&quot;</span>);
+        &#125;
+    &#125;
+&#125;
+
+<span class="hljs-comment">// 创建Node节点</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>&#123;
+    int value;
+    Node left;
+    Node right;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">Node</span>(<span class="hljs-params">int value</span>)</span> &#123;
+        <span class="hljs-built_in">this</span>.value = value;
+    &#125;
+
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * </span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@param </span>value 希望删除的值</span>
+<span class="hljs-comment">     * <span class="hljs-doctag">@return </span>如果找到返回该结点，否则返回null</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">search</span>(<span class="hljs-params">int value</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (value == <span class="hljs-built_in">this</span>.value) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-built_in">this</span>.value) &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left == <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+            &#125;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.left.search(value);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right == <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+            &#125;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.right.search(value);
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">searchParent</span>(<span class="hljs-params">int value</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> ((<span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-built_in">this</span>.left.value == value) || (<span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-built_in">this</span>.right.value == value)) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-built_in">this</span>.value &amp;&amp; <span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.left.searchParent(value);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &gt;= <span class="hljs-built_in">this</span>.value &amp;&amp; <span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.right.searchParent(value);
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+            &#125;
+        &#125;
+
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">String</span> <span class="hljs-function"><span class="hljs-title">toString</span>(<span class="hljs-params"></span>)</span> &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Node [value=&quot;</span> + value + <span class="hljs-string">&quot;]&quot;</span>;
+    &#125;
+
+    <span class="hljs-comment">// 添加节点</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">Node node</span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">if</span> (node.value &lt; <span class="hljs-built_in">this</span>.value) &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left == <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-built_in">this</span>.left = node;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-built_in">this</span>.left.add(node);<span class="hljs-comment">// 递归</span>
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right == <span class="hljs-literal">null</span>) &#123;
+                <span class="hljs-built_in">this</span>.right = node;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-built_in">this</span>.right.add(node);<span class="hljs-comment">// 递归</span>
+            &#125;
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">// 中序遍历</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">infixOrder</span>(<span class="hljs-params"></span>)</span> &#123;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-built_in">this</span>.left.infixOrder();
+        &#125;
+        System.out.println(<span class="hljs-built_in">this</span>);
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span>) &#123;
+            <span class="hljs-built_in">this</span>.right.infixOrder();
+        &#125;
+    &#125;
 &#125;</code></pre>
-<pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">bfs</span>(<span class="hljs-params"></span>)</span> &#123;
-	<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; getNumOfVertex(); i++) &#123;
-		<span class="hljs-keyword">if</span> (!isVisited[i]) &#123;
-			bfs(isVisited, i);
-		&#125;
-	&#125;
-&#125;</code></pre>
-<h4 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h4><pre><code class="hljs accesslog"><span class="hljs-string">[0, 1, 1, 0, 0]</span>
-<span class="hljs-string">[1, 0, 1, 1, 1]</span>
-<span class="hljs-string">[1, 1, 0, 0, 0]</span>
-<span class="hljs-string">[0, 1, 0, 0, 0]</span>
-<span class="hljs-string">[0, 1, 0, 0, 0]</span>
-BFS:
-A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;</code></pre>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><pre><code class="hljs crmsh"><span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">1</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">2</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">3</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">5</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">7</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">9</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">10</span>]
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">12</span>]
+After:
+<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">1</span>]</code></pre>
 <hr>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1E4411H73v?p=146">尚硅谷Java数据结构与java算法，韩顺平数据结构与算法</a>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1E4411H73v?p=127">尚硅谷Java数据结构与java算法，韩顺平数据结构与算法</a>
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
@@ -528,7 +565,7 @@ A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;</code></pre>
                     
                       <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/">数据结构与算法｜Data Structures and Algorithms</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%9B%BE%EF%BD%9CGraph/">图｜Graph</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/">树结构的应用｜Application of Tree Structures</a>
                     
                   </div>
                 
@@ -547,9 +584,9 @@ A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;</code></pre>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/02/%E5%A5%BD%E7%94%A8%E7%9A%84%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E6%8E%A8%E8%8D%90/">
+                      <a href="/post/8178/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">好用的油猴脚本推荐｜持续更新</span>
+                        <span class="hidden-mobile">平衡二叉树｜AVL Tree</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -557,8 +594,8 @@ A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;</code></pre>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/08/14/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BD%9CMuitl-Way-Search-Tree/">
-                        <span class="hidden-mobile">多路查找树｜Multi-Way Search Tree</span>
+                      <a href="/post/63785/">
+                        <span class="hidden-mobile">我的第一篇博客</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1158,7 +1195,7 @@ document.body.addEventListener('input', POWERMODE);
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/08/16/%E5%9B%BE%EF%BD%9Cgraph/');
+          var target = decodeURI('/post/29228/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -1252,7 +1289,7 @@ document.body.addEventListener('input', POWERMODE);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "图｜Graph&nbsp;",
+        "二叉排序树｜Binary Sort Tree&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

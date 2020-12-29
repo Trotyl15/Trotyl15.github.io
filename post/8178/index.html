@@ -33,7 +33,7 @@
   <meta name="description" content="一个小博客">
   <meta name="author" content="Trotyl">
   <meta name="keywords" content="">
-  <title>Grade 12 Chemistry（坑了） - Trotyl&#39;s Blog</title>
+  <title>平衡二叉树｜AVL Tree - Trotyl&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -201,8 +201,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-09-10 15:54" pubdate>
-      September 10, 2020 3:54 PM
+    <time datetime="2020-08-08 16:13" pubdate>
+      August 8, 2020 4:13 PM
     </time>
   </div>
 
@@ -212,7 +212,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      1.9k 字
     </span>
   
 
@@ -222,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      35
+      28
        分钟
     </span>
   
@@ -260,401 +260,356 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Grade 12 Chemistry（坑了）</h1>
+            <h1 style="display: none">平衡二叉树｜AVL Tree</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：December 14, 2020 9:23 PM
+                  本文最后更新于：November 28, 2020 12:57 PM
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>坑了，懒得写了，遛了遛了<img src="https://imgsa.baidu.com/forum/w%3D580/sign=8568e233d888d43ff0a991fa4d1fd2aa/0fed89eef01f3a29549e90889725bc315d607c5f.jpg" srcset="/img/loading.gif" alt=""></p>
+              <p>这是在看b站上的韩顺平老师的数据结构与算法<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="尚硅谷Java数据结构与java算法，韩顺平数据结构与算法
+">[1]</span></a></sup>时做的笔记。等我把后面的都更新完了以后会陆续把前面的补上。</p>
 <hr>
-<p>A note for my grade 12 chem class.</p>
-<p><span class="heimu" title="你知道的太多了">因为这学科太tm恶心了，我怕我不认真搞会凉所以专门弄一篇呜呜呜</span></p>
-<h1 id="Grade-9-11-Review"><a href="#Grade-9-11-Review" class="headerlink" title="Grade 9-11 Review"></a>Grade 9-11 Review</h1><h2 id="Significant-digit"><a href="#Significant-digit" class="headerlink" title="Significant digit"></a>Significant digit</h2><h3 id="Adding-and-Subtracting"><a href="#Adding-and-Subtracting" class="headerlink" title="Adding and Subtracting"></a>Adding and Subtracting</h3><p>小数点最少的那个</p>
-<h3 id="Multiplying-and-Dividing"><a href="#Multiplying-and-Dividing" class="headerlink" title="Multiplying and Dividing"></a>Multiplying and Dividing</h3><p>significant digit最少的那个</p>
-<h2 id="Nomenclature"><a href="#Nomenclature" class="headerlink" title="Nomenclature"></a>Nomenclature</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>oxyacid</th>
-<th>anion</th>
-<th>anion name</th>
-<th>oxyacid</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HClO</td>
-<td>ClO<sup>-</sup></td>
-<td>hypochlorite</td>
-<td>hypochlorous acid</td>
-</tr>
-<tr>
-<td>HClO<sub>2<sub></td>
-<td>ClO<sub>2</sub><sup>-</sup></td>
-<td>chlorite</td>
-<td>chlorous acid</td>
-</tr>
-<tr>
-<td>HClO<sub>3<sub></td>
-<td>ClO<sub>3</sub><sup>-</sup></td>
-<td>chlorate</td>
-<td>chloric acid</td>
-</tr>
-<tr>
-<td>HClO<sub>4<sub></td>
-<td>ClO<sub>4</sub><sup>-</sup></td>
-<td>perchlorate</td>
-<td>perchloric acid</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<h3 id="1-ic-acid"><a href="#1-ic-acid" class="headerlink" title="1) -ic acid"></a>1) -ic acid</h3><p><strong>HNO<sub>3</sub></strong> nitric acid</p>
-<p><strong>H<sub>2</sub>CO<sub>3</sub></strong> carbonic acid</p>
-<p><strong>HClO<sub>3</sub></strong> chloric acid</p>
-<p><strong>H<sub>3</sub>SO<sub>4</sub></strong> sulphuric acid</p>
-<p><strong>H<sub>3</sub>PO<sub>4</sub></strong> phosphuric acid</p>
-<h3 id="2-per-ic-acid-1-oxygen-from-ic"><a href="#2-per-ic-acid-1-oxygen-from-ic" class="headerlink" title="2)per-ic acid (+1 oxygen from -ic)"></a>2)per-ic acid (+1 oxygen from -ic)</h3><p><strong>HClO<sub>4</sub></strong> percholric acid</p>
-<h3 id="3-ate-ion-1-2-3-H-from-ic-not-stable"><a href="#3-ate-ion-1-2-3-H-from-ic-not-stable" class="headerlink" title="3) -ate ion (-1/2/3 H from -ic)(not stable)"></a>3) -ate ion (-1/2/3 H from -ic)(not stable)</h3><p><strong>NO<sub>3</sub><sup>-</sup></strong> nitrate ion</p>
-<p><strong>HCO<sub>3</sub><sup>-</sup></strong> hydrogen carbonate / bicarbonate</p>
-<ul>
-<li><strong>CO<sub>3</sub><sup>2-</sup></strong> carbonate</li>
-</ul>
-<p><strong>HClO<sub>2</sub><sup>-</sup></strong> chlorate</p>
-<p><strong>HSO<sub>4</sub><sup>-</sup></strong> hydrogen sulphate / bisulphate</p>
-<ul>
-<li><strong>SO<sub>4</sub><sup>2-</sup></strong> sulphate</li>
-</ul>
-<p><strong>H<sub>2</sub>PO<sub>4</sub><sup>-</sup></strong> dihydrogen phosphate </p>
-<ul>
-<li><strong>HPO<sub>4</sub><sup>2-</sup></strong> hydrogen phosphate / biphosphate</li>
-<li><strong>PO<sub>4</sub><sup>3-</sup></strong> phosphate</li>
-</ul>
-<p><strong>CH<sub>3</sub>COO</strong> acetate</p>
-<h3 id="4-per-ate-ions-1-H-from-per-ic"><a href="#4-per-ate-ions-1-H-from-per-ic" class="headerlink" title="4) per-ate ions (-1 H from per-ic)"></a>4) per-ate ions (-1 H from per-ic)</h3><p><strong>ClO<sub>4</sub><sup>-</sup></strong> perchlorate ion</p>
-<h3 id="5-ous-acid-1-O-from-ic"><a href="#5-ous-acid-1-O-from-ic" class="headerlink" title="5) -ous acid (-1 O from -ic)"></a>5) -ous acid (-1 O from -ic)</h3><p><strong>HNO<sub>2</sub></strong> nitrous acid</p>
-<p><strong>HClO<sub>2</sub></strong> clorous acid</p>
-<p><strong>H<sub>2</sub>SO<sub>3</sub></strong> sulphurous acid</p>
-<p><strong>H<sub>3</sub>PO<sub>3</sub></strong> Phosphurous acid</p>
-<h3 id="6-ite-ion-1-2-3-H-remove-from-ous"><a href="#6-ite-ion-1-2-3-H-remove-from-ous" class="headerlink" title="6) -ite ion (-1/2/3 H remove from -ous)"></a>6) -ite ion (-1/2/3 H remove from -ous)</h3><p><strong>NO<sub>2</sub><sup>-</sup></strong> nitrite ion</p>
-<p><strong>ClO<sub>2</sub><sup>-</sup></strong> cholorite</p>
-<p><strong>HSO<sub>3</sub><sup>-</sup></strong> hydrogen sulphite / bisulphite</p>
-<ul>
-<li><strong>SO<sub>3</sub><sup>2-</sup></strong> sulphite</li>
-</ul>
-<p><strong>H<sub>2</sub>PO<sub>3</sub><sup>-</sup></strong> dihydrogen phosphite </p>
-<ul>
-<li><strong>HPO<sub>3</sub><sup>2-</sup></strong> hydrogen phosphite / biphosphite</li>
-<li><strong>PO<sub>3</sub><sup>3-</sup></strong> phosphite</li>
-</ul>
-<h3 id="7-hypo-ous-1-O-from-ous"><a href="#7-hypo-ous-1-O-from-ous" class="headerlink" title="7) hypo-ous (-1 O from -ous)"></a>7) hypo-ous (-1 O from -ous)</h3><p><strong>HClO</strong> hypochlorous acid (Halogens)</p>
-<h3 id="8-hypo-ite-1-H-from-hypo-ous"><a href="#8-hypo-ite-1-H-from-hypo-ous" class="headerlink" title="8) hypo-ite (-1 H from hypo-ous)"></a>8) hypo-ite (-1 H from hypo-ous)</h3><p><strong>ClO<sup>-</sup></strong> hypochlorite acid</p>
-<h2 id="Relating-Mass-to-Moles"><a href="#Relating-Mass-to-Moles" class="headerlink" title="Relating Mass to Moles"></a>Relating Mass to Moles</h2><p><strong>m</strong> = mass(g)</p>
-<p><strong>n</strong> = number of moles</p>
-<p><strong>Mm</strong> =molar mass(g)(Some people use MM as abbreviation</p>
-<p>$n=\frac{m}{Mm}$ or $m=n\times Mn$</p>
-<hr>
-<p><strong>N</strong> = number of individual particle</p>
-<p><strong>n</strong> = number of moles</p>
-<p><strong>N<sub>AV</sub></strong> = Avogadro’s Number</p>
-<p>$N=n\times N_{AV}$</p>
-<hr>
-<p>for solutions:</p>
-<p>$n = c\times v$</p>
-<hr>
-<p>for gases:</p>
-<p><strong>P</strong> = pressure(kPa)</p>
-<p><strong>V</strong> = volumn(L)</p>
-<p><strong>n</strong> = Number of moles of gas(mol)</p>
-<p><strong>T</strong> = Temperature</p>
-<p><strong>R</strong> = Gas constant = $\frac{8.31kPa\times L}{mol\times K}$</p>
-<p>$PV=nRT$</p>
-<p>$n=\frac{PV}{RT}$</p>
-<h2 id="Types-of-Reactions"><a href="#Types-of-Reactions" class="headerlink" title="Types of Reactions"></a>Types of Reactions</h2><h3 id="Synthesis-Reaction"><a href="#Synthesis-Reaction" class="headerlink" title="Synthesis Reaction"></a>Synthesis Reaction</h3><p><strong>X + Y → XY</strong></p>
-<h4 id="1-Simple-oxidation-reactions-heating-with-oxygen"><a href="#1-Simple-oxidation-reactions-heating-with-oxygen" class="headerlink" title="1) Simple oxidation reactions (heating with oxygen)"></a>1) Simple oxidation reactions (heating with oxygen)</h4><p>Metal or non-metal + oxygen → an oxide</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem1.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="2-Binary-compound-formation"><a href="#2-Binary-compound-formation" class="headerlink" title="2) Binary compound formation"></a>2) Binary compound formation</h4><p>Metal or non-metal + oxygen → binary compound</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem2.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="3-Acid-and-Base-formation"><a href="#3-Acid-and-Base-formation" class="headerlink" title="3) Acid and Base formation"></a>3) Acid and Base formation</h4><p>Non-metal oxide + water → nonmetal oxyacid</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem4.png" srcset="/img/loading.gif" alt=""></p>
-<p>Metal oxide + water → the metal hydroxide</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem3.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="4-Metal-carbonate-formation"><a href="#4-Metal-carbonate-formation" class="headerlink" title="4) Metal carbonate formation"></a>4) Metal carbonate formation</h4><p>Metal oxide + carbon dioxide → metal carbonate</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem5.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="Decomposition-Reactions"><a href="#Decomposition-Reactions" class="headerlink" title="Decomposition Reactions"></a>Decomposition Reactions</h3><p><strong>XY → X + Y ( + Z )</strong></p>
-<h4 id="1-Binary-Compounds-decompose-into-two-elements"><a href="#1-Binary-Compounds-decompose-into-two-elements" class="headerlink" title="1) Binary Compounds decompose into two elements"></a>1) Binary Compounds decompose into two elements</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem6.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="2-Metal-carbonates-→-metal-oxide-carbon"><a href="#2-Metal-carbonates-→-metal-oxide-carbon" class="headerlink" title="2) Metal carbonates → metal oxide + carbon"></a>2) Metal carbonates → metal oxide + carbon</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem7.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="3-Metal-hydrogen-carbonates-bicarbonates-→-metal-carbonate-water-carbon-dioxide"><a href="#3-Metal-hydrogen-carbonates-bicarbonates-→-metal-carbonate-water-carbon-dioxide" class="headerlink" title="3) Metal hydrogen carbonates (bicarbonates) → metal carbonate + water+ carbon dioxide"></a>3) Metal hydrogen carbonates (bicarbonates) → metal carbonate + water+ carbon dioxide</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem8.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="4-Metal-nitrate-→-into-metal-nitrite-and-oxygen-gas"><a href="#4-Metal-nitrate-→-into-metal-nitrite-and-oxygen-gas" class="headerlink" title="4) Metal nitrate → into metal nitrite and oxygen gas"></a>4) Metal nitrate → into metal nitrite and oxygen gas</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem9.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="5-Metal-hydroxide-→-into-metal-oxide-and-water"><a href="#5-Metal-hydroxide-→-into-metal-oxide-and-water" class="headerlink" title="5) Metal hydroxide → into metal oxide and water"></a>5) Metal hydroxide → into metal oxide and water</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem10.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="Metal-chlorates-→-metal-chloride-oxygen-gas"><a href="#Metal-chlorates-→-metal-chloride-oxygen-gas" class="headerlink" title="Metal chlorates → metal chloride + oxygen gas"></a>Metal chlorates → metal chloride + oxygen gas</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem11.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="Double-Displacement-Precipitation-Reactions"><a href="#Double-Displacement-Precipitation-Reactions" class="headerlink" title="Double Displacement Precipitation Reactions"></a>Double Displacement Precipitation Reactions</h3><ul>
-<li>Must have percipitates</li>
-<li>Need to use solubility table to predict if these reactions will or occur.</li>
-</ul>
-<p><strong>WX<sub>(aq)</sub> +YZ<sub>(aq)</sub> → WZ + YX</strong></p>
-<h4 id="1-Double-Displacement-Neutralizaton-Reaction"><a href="#1-Double-Displacement-Neutralizaton-Reaction" class="headerlink" title="1) Double Displacement Neutralizaton Reaction"></a>1) Double Displacement Neutralizaton Reaction</h4><p>acid + base → salt +water</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/RHHS/chem/chem12.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="2-Neutralization-–-Decomposition-Reactions-also-called-Double-Displacement-neutralization-reactions-producing-gas"><a href="#2-Neutralization-–-Decomposition-Reactions-also-called-Double-Displacement-neutralization-reactions-producing-gas" class="headerlink" title="2) Neutralization – Decomposition Reactions (also called Double Displacement neutralization reactions producing gas)"></a>2) Neutralization – Decomposition Reactions (also called Double Displacement neutralization reactions producing gas)</h4><ul>
-<li>Acids mixed with carbonates or bicarbonates will undergo a double displacement reaction producing a salt and carbonic acid (H<sub>2</sub>CO<sub>3</sub>).</li>
-<li>The carbonic acid decomposes<br>into water and carbon dioxide gas. The carbonic acid<br>intermediate is not usually written in the chemical<br>equation.</li>
-</ul>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/alu/chem13.png" srcset="/img/loading.gif" alt=""></p>
-<ul>
-<li>Other reactions of this type include a sulphite or a hydrogen sulphite mixed with acid.</li>
-</ul>
-<h3 id="Singel-Displacement-Reaction"><a href="#Singel-Displacement-Reaction" class="headerlink" title="Singel Displacement Reaction"></a>Singel Displacement Reaction</h3><p><strong>X + YZ → XZ + Y</strong></p>
-<ul>
-<li>Some metals will react with water. These are indicated on the metal activity series. If a metal reacts with water the products are the metal hydroxide and hydrogen gas.</li>
-</ul>
-<p>Metal + water → metal hydroxide + hydrogen gas</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/alu/chem14.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="Combustion-of-Organic-Compounds-Containing-only-C-and-H-or-only-C-H-and-O"><a href="#Combustion-of-Organic-Compounds-Containing-only-C-and-H-or-only-C-H-and-O" class="headerlink" title="Combustion of Organic Compounds Containing only C and H or only C, H and O"></a>Combustion of Organic Compounds Containing only C and H or only C, H and O</h3><p>If oxygen supply is limited, products are carbon monoxide and water; carbon and water; or carbon dioixde, carbon monoxide, carbon, and water</p>
-<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/alu/chem15.png" srcset="/img/loading.gif" alt=""></p>
-<h1 id="Unit-1-Thermochemistry"><a href="#Unit-1-Thermochemistry" class="headerlink" title="Unit 1|Thermochemistry"></a>Unit 1|Thermochemistry</h1><details>
-  <summary>course pack</summary>
-
-
-
-	<div class="row">
-		<iframe src="https://drive.google.com/file/d/1zQ_aSPdv-nqYamR2SzauVYxZOJKlturU/preview" style="width:100%; height:550px"></iframe>
-	</div>
-
-
-
-
-</details>
-
-
-<details>
-  <summary>thermo data table</summary>
-
-
-
-	<div class="row">
-		<iframe src="https://drive.google.com/file/d/1K3Q0ZjB0ggTgmnzkNOUaRG0A2JyVersK/preview" style="width:100%; height:550px"></iframe>
-	</div>
-
-
-
-
-</details>
-
-
-<h2 id="Energy-Definitions"><a href="#Energy-Definitions" class="headerlink" title="Energy Definitions"></a>Energy Definitions</h2><p>low temperture = low movement</p>
-<p>high temperture = high movement</p>
-<p><img src="https://lh3.googleusercontent.com/qZQWfYPmcwbqm01DxYccX8FST12pGeFkjnHdOmbJlzKYUVJ0nt-sQa9WKnb0xqsh0vqiS0d9CyewLcK9gpyWBHc7VUk0uK6zrmaU1HNS99at13ewczSWUr2JKITaUYPc1-8GDHW7" srcset="/img/loading.gif" alt=""></p>
-<p><strong>Specific Heat</strong> Specific heat is a physical property of matter. It is defined as the energy needed to raise the temperature of one gram of substance by one ℃</p>
-<p>$Specific Heat =\frac{energy\ absorbed}{mass\ of\ sample\times temperture\ change\ in\ _{}^{o}\textrm{C}}$ or $c=\frac{q}{m\times \Delta T}$</p>
-<p>Rearranging the equation $q=m\times c\times\Delta T$</p>
-<p><strong>Molar heat capacity:</strong> is the energy required to raise the temperature of on mole of a substance by 1 ℃(J/mol×℃)</p>
-<h2 id="Calorimetry"><a href="#Calorimetry" class="headerlink" title="Calorimetry"></a>Calorimetry</h2><p><img src="https://letstalkscience.ca/sites/default/files/styles/x_large/public/2020-06/system_surroundings_by_reaction_type.png?itok=NZXFzRPZ" srcset="/img/loading.gif" alt=""></p>
-<ul>
-<li>Exothermic q<sub>sys</sub> &lt;0</li>
-<li>Endothermic q<sub>sys</sub> &gt;0 </li>
-<li>q<sub>sys</sub> = -q<sub>surr</sub></li>
-</ul>
-<h2 id="Enthalpy-Changes"><a href="#Enthalpy-Changes" class="headerlink" title="Enthalpy Changes"></a>Enthalpy Changes</h2><ul>
-<li><strong>q for the system is positive</strong> if energy goes into the system and the temperature of the surroundings decreases.</li>
-<li><strong>q for the system is negative</strong> if the system loses heat to the surrounding and the temperature of the surroundings increases</li>
-<li>the overall energy must be conserved <strong>q<sub>sys</sub> = -q<sub>surr</sub></strong></li>
-</ul>
-<hr>
-<p>When a physical or chemical change occurs that releases or absorbs energy</p>
-<ul>
-<li>thermal energy from the surroundings is converted to bond energy for the system in endothermic reactions</li>
-<li>bond energy from the system is converted to thermal energy in the surroundings in an exothermic reactions</li>
-<li>The overall energy must be conseved <strong>ΔH<sub>system</sub> = -q<sub>surroundings</sub></strong><ul>
-<li>ΔH is the transfer of energy in a reaction</li>
-<li>The units of enthalpy are kilojoules <strong>(kJ)</strong></li>
-</ul>
-</li>
-<li>If the amount of substance that reacted is given, the enthalpy can be expresses as a molar quantity of molar enthalpy <strong>(ΔH<sub>rxn</sub>)</strong>. <ul>
-<li><strong>n × ΔH<sub>rxn</sub> = ΔH<sub>system</sub></strong></li>
-<li>The units of molar enthalpy are kilojoules per mol <strong>(kJ/mol)</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="Writing-Thermochemical-Equations"><a href="#Writing-Thermochemical-Equations" class="headerlink" title="Writing Thermochemical Equations"></a>Writing Thermochemical Equations</h2><p>A thermochemical equation is a clear way of communicationg informations about the enthalpy change in a reaction</p>
-<p>Ex. The synthesis of water from its elements is an exothermic reaction and can be represented by two thermochemical equations.</p>
-<p><img src="https://latex.codecogs.com/gif.latex?H_{2(g)}&plus;\frac{1}{2}O_2\rightarrow&space;H_{2}O_{(l)}&plus;285kJ" srcset="/img/loading.gif" title="H_{2(g)}+\frac{1}{2}O_2\rightarrow H_{2}O_{(l)}+285kJ" /></p>
-<p><img src="https://latex.codecogs.com/gif.latex?H_{2(g)}&plus;\frac{1}{2}O_{2}\rightarrow&space;H_{2}O_{(l)}\quad\Delta&space;H=-285kJ" srcset="/img/loading.gif" title="H_{2(g)}+\frac{1}{2}O_{2}\rightarrow H_{2}O_{(l)}\quad\Delta H=-285kJ" /></p>
-<h2 id="Hess’s-law"><a href="#Hess’s-law" class="headerlink" title="Hess’s law"></a>Hess’s law</h2><p>In going from a particular set of reactants to<br>a particular set of products, the change in enthalpy is the same whether the reaction takes place in one<br>step or in a series of steps.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/Img/note/RHHS/chem/chem16.png" srcset="/img/loading.gif" alt=""></p>
-<p>The first equation equals to the sum of the latter 2 equations.</p>
-<h2 id="Standard-Enthalpies-of-Formation"><a href="#Standard-Enthalpies-of-Formation" class="headerlink" title="Standard Enthalpies of Formation"></a>Standard Enthalpies of Formation</h2><p><strong>Formation reactions</strong> are reactions in which a compound is formed from its element.</p>
-<p>Ex.<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/Img/note/RHHS/chem/chem17.png" srcset="/img/loading.gif" alt=""></p>
-<hr>
-<p>The superscript <strong>°</strong>, refers to a specific set of conditions. Standard ambient temperature (in <strong>SATP</strong>) is <strong>25 °C = 298 K</strong>.</p>
-<p><strong>For a compound:</strong></p>
-<ul>
-<li>for a gaseous substance is at a pressure of 1 atm or 101.3 kPa.</li>
-<li>for non-gaseous pure substances, the standard state is pure liquid or solid</li>
-<li>for a dissolved substance in solution, the standard state is at a concentration of exactly 1.0 M.</li>
-</ul>
-<p><strong>For an element:</strong></p>
-<ul>
-<li>the standard state of an element is the form in which the element exists under STAP conditions of 1 atm (101.3 kPa) and 25°C = 298K.</li>
-</ul>
-<hr>
-<p><strong>Standard Enthalpy Change</strong>, ΔH°, is the enthalpy change that accompanies a reaction when the<br>reactants and products are in their standard states.</p>
-<p><strong>Standard Enthalpy of Formation</strong>, ΔH°<sub>f</sub> , is the enthalpy change that results when one mole of the substance is formed from its elements with all substances in their standard states.</p>
-<p>The standard enthalpies of formation of for any element already in its standard states is zero.</p>
-<p><strong>Elements → 1Compound</strong></p>
-<h3 id="Using-Standard-Heats-of-Formation-in-Hess’s-Law"><a href="#Using-Standard-Heats-of-Formation-in-Hess’s-Law" class="headerlink" title="Using Standard Heats of Formation in Hess’s Law"></a>Using Standard Heats of Formation in Hess’s Law</h3><ol>
-<li><strong>reactants</strong> broken down → into their <strong>elements</strong> in standart state</li>
-<li><strong>elements</strong> in standard state assembled → into the <strong>products</strong> in their standard states</li>
+<h1 id="一、实际案例"><a href="#一、实际案例" class="headerlink" title="一、实际案例"></a>一、实际案例</h1><p>给你一个数列 {1, 2, 3, 4, 5, 6}，要求创建一颗二叉排序树（BST），并分析问题所在。<br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/AVL1.png" srcset="/img/loading.gif" alt=""></p>
+<p><strong>问题分析：</strong></p>
+<ol>
+<li>左子树全部为空，从形式上看，更像一个单链表</li>
+<li>插入速度没有影响</li>
+<li>查询速度明显降低（因为需要依次比较），不能发挥BST的优势，因为每次还需要比较左子树，其查询速度比单链表还慢</li>
+<li>解决方案-平衡二叉树（AVL）</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem18.png" srcset="/img/loading.gif" alt=""></p>
-<hr>
-<p><strong>ΔH° = ∑nΔH°<sub>f</sub>products - ∑nΔH°<sub>f</sub>reactants</strong></p>
-<hr>
-<h2 id="Calculating-ΔH-using-Bond-Energies"><a href="#Calculating-ΔH-using-Bond-Energies" class="headerlink" title="Calculating ΔH using Bond Energies"></a>Calculating ΔH using Bond Energies</h2><p>Bond energy is the <strong>average</strong> energy needed to break a given type of bond.</p>
-<hr>
-<p><strong>ΔH° = ∑n × D(bonds broken) - ∑n × D(bonds formed)</strong></p>
-<hr>
-<p><em>D</em> = bond energy per mole of bonds</p>
-<p><em>n</em> = moles (based on the equation coefficients</p>
-<hr>
-<h2 id="Thermodynamics-Entropy-and-Gibb’s-Free-Energy"><a href="#Thermodynamics-Entropy-and-Gibb’s-Free-Energy" class="headerlink" title="Thermodynamics, Entropy and Gibb’s Free Energy"></a>Thermodynamics, Entropy and Gibb’s Free Energy</h2><p><strong>Entropy</strong> - Molecular randomness or disorder</p>
-<p>The symbol of <strong>entropy</strong> if ΔS (Unit: J/mol·K</p>
-<ul>
-<li>ΔS is (+) when randonmness or disorder of a system increases</li>
-<li>ΔS is (-) when randonmness or disorder of a system decreases</li>
-</ul>
-<hr>
-<p><strong>ΔS° = ∑n×ΔS°<sub>f(products)</sub> - ∑n×ΔS°<sub>f(reactants)</sub></strong></p>
-<hr>
-<p>The value ΔG is a measure of the maximum amount of work a system can do as it approaches the end of reaction.</p>
-<hr>
-<p><strong>ΔG°=ΔH°-TΔS°</strong></p>
-<p><strong>ΔG<sub>rxn</sub>° = ∑n×ΔG°<sub>f(products)</sub> - ∑n×ΔG°<sub>f(reactants)</sub></strong></p>
-<hr>
-<p>ΔG° is negative (-) for spontaneous reaction</p>
-<p>ΔG° is positive (+) for non-spontaneous reaction</p>
-<p>ΔG° = 0 for a system that has both the forward and reverse reaction occuring at the same rate so the amount of products and reactants do not change</p>
-<hr>
-<h2 id="Reaction-Kinetics-Factors-Affecting-Rate"><a href="#Reaction-Kinetics-Factors-Affecting-Rate" class="headerlink" title="Reaction Kinetics-Factors Affecting Rate"></a>Reaction Kinetics-Factors Affecting Rate</h2><ol>
-<li>Nature of the reactant</li>
-<li>Concentration</li>
-<li>Surface area</li>
-<li>Temperature</li>
-<li>Catalysts</li>
+<h1 id="二、基本介绍"><a href="#二、基本介绍" class="headerlink" title="二、基本介绍"></a>二、基本介绍</h1><p>平衡二叉树又称平衡二叉搜索树（Self-balancing binary search tree），是<a target="_blank" rel="noopener" href="http://www.trotyl.xyz/2020/08/07/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BD%9CBinary%20Sort%20Tree/">二叉排序树</a>的一类，又被称为AVL树，可以<strong>保持查询效率</strong>比较高。</p>
+<p>具有一下特点：它是一颗空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一颗平衡二叉树。平衡二叉树的常用实现方法有红黑树、AVL（算法，不是指AVL树）、替罪羊树、Treap、伸展树等。</p>
+<p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/AVL2.png" srcset="/img/loading.gif" alt=""><br>上面的三个树只有左边两个是AVL树。</p>
+<h1 id="三、应用案例"><a href="#三、应用案例" class="headerlink" title="三、应用案例"></a>三、应用案例</h1><h2 id="1-单旋转—左旋转"><a href="#1-单旋转—左旋转" class="headerlink" title="1. 单旋转—左旋转"></a>1. 单旋转—左旋转</h2><h3 id="1）要求"><a href="#1）要求" class="headerlink" title="1）要求"></a>1）要求</h3><p>给你一个数列，创建出对应的平衡二叉树 {4, 3, 6, 5, 7, 8}</p>
+<h3 id="2）思路"><a href="#2）思路" class="headerlink" title="2）思路"></a>2）思路</h3><h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>当插入“8”时<code>rightHeight()-leftHeight()&gt;1</code>成立，此时，不再是一颗AVL树了</p>
+<h4 id="处理过程-进行左旋转："><a href="#处理过程-进行左旋转：" class="headerlink" title="处理过程-进行左旋转："></a>处理过程-进行左旋转：</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/AVL4.png" srcset="/img/loading.gif" alt=""></p>
+<ol>
+<li>创建新的结点，以当前根结点的值</li>
 </ol>
-<h2 id="Theories-of-Reaction-Rates"><a href="#Theories-of-Reaction-Rates" class="headerlink" title="Theories of Reaction Rates"></a>Theories of Reaction Rates</h2><h3 id="Factors-Influencing-Collision"><a href="#Factors-Influencing-Collision" class="headerlink" title="Factors Influencing Collision"></a>Factors Influencing Collision</h3><p><strong>1) Orientation</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem19.png" srcset="/img/loading.gif" alt=""></p>
-<p><strong>2) Energy of colliding molecules</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem20.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="Activation-Energies-and-Transition-States"><a href="#Activation-Energies-and-Transition-States" class="headerlink" title="Activation Energies and Transition States"></a>Activation Energies and Transition States</h2><p>An <strong>effective collision</strong> is one in which the<br>reactants collide with the correct orientation and energy to form an activated complex that leads to the<br>formation of products.</p>
-<p><strong>1) Energy Diagram for an Exothermic Reaction</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem21.png" srcset="/img/loading.gif" alt=""></p>
-<p><strong>2) Energy Diagram for an Endothermic Reaction</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem22.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="Catalysts"><a href="#Catalysts" class="headerlink" title="Catalysts"></a>Catalysts</h2><p>A catalyst is a substance that increases the reaction rate without increasing the number of collisions and without being consumed itself.</p>
-<ul>
-<li><strong>1<sup>st</sup> Kind</strong></li>
-</ul>
-<p>$A+B\overset{y}{\rightarrow}C+D$</p>
-<p><strong>y</strong> is a catalyst (usually heterogeneous)</p>
-<ul>
-<li><strong>2<sup>nd</sup> Kind</strong></li>
-</ul>
-<p>$A+y\rightarrow Ay$   (Ay is an intermediate)</p>
-<p>$Ay+B\rightarrow C+D+y$</p>
-<p><strong>y</strong> is a catalyst (usually homogeneous)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem23.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="Reaction-Mechanisms"><a href="#Reaction-Mechanisms" class="headerlink" title="Reaction Mechanisms"></a>Reaction Mechanisms</h2><p><strong>Reaction Mechanisms:</strong></p>
-<p>Reactions can be classified as being either simple or complex. A complex reaction consists of a number of steps. Each of these steps involves one collision and is known as an elementary step. A simple reaction consists of one elementary step. The step or series of steps that make up a reaction is known as the mechanism of that reaction. From a reaction equation it is not possible to determine if it is simple or complex.</p>
-<p><strong><em>Rate Determining Step:</em></strong></p>
-<p>Every mechanism has a rate-determining step. This is the <strong>slowest step</strong> in the reaction. If the first elementary step of the mechanism is the rate-determining step, then we can say that the overall reaction rate depends on this initial step and on the concentrations of the species involved in this step. Any subsequent step is faster and does not affect the overall rate.</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Elementary step</th>
-<th>Elementary step</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A → products</td>
-<td>Rate = k[A]</td>
-</tr>
-<tr>
-<td>A + A → products</td>
-<td>Rate = k[A]<sup>2</sup></td>
-</tr>
-<tr>
-<td>A + B → products</td>
-<td>Rate = k[A][B]</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="Unit-2-Atomic-Structure"><a href="#Unit-2-Atomic-Structure" class="headerlink" title="Unit 2|Atomic Structure"></a>Unit 2|Atomic Structure</h1><details>
-  <summary>course pack|Part 1</summary>
+<p><code>Node newNode = new Node(value);</code></p>
+<ol>
+<li>把新的结点的左子树设置成当前结点的左子树</li>
+</ol>
+<p><code>newNode.left = left;</code></p>
+<ol>
+<li>把新的结点的右子树设置成带你过去结点的右子树的左子树 </li>
+</ol>
+<p><code>newNode.right = right.left;</code></p>
+<ol>
+<li>把当前结点的值替换成右子结点的值</li>
+</ol>
+<p><code>value = right.value;</code></p>
+<ol>
+<li>把当前结点的右子树设置成当前结点右子树的右子树</li>
+</ol>
+<p><code>right = right.right;</code></p>
+<ol>
+<li>把当前结点的左子树(左子结点)设置成新的结点</li>
+</ol>
+<p><code>left = newNode;</code></p>
+<p>原来的那个“6”因为没有任何结点指向它，所以被系统当作垃圾回收掉了</p>
+<h2 id="2-单旋转—右旋转"><a href="#2-单旋转—右旋转" class="headerlink" title="2. 单旋转—右旋转"></a>2. 单旋转—右旋转</h2><h3 id="1）要求-1"><a href="#1）要求-1" class="headerlink" title="1）要求"></a>1）要求</h3><p>给你一个数列，创建出对应的平衡二叉树 {10, 12, 8, 9, 7, 6}</p>
+<h3 id="2）思路-1"><a href="#2）思路-1" class="headerlink" title="2）思路"></a>2）思路</h3><h4 id="问题：-1"><a href="#问题：-1" class="headerlink" title="问题："></a>问题：</h4><p>当插入“6”时`leftHeight()-rightHeight()&gt;1成立，此时，不再是一颗avl树了</p>
+<h4 id="处理过程-进行右旋转"><a href="#处理过程-进行右旋转" class="headerlink" title="处理过程-进行右旋转"></a>处理过程-进行右旋转</h4><p><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/AVL5.png" srcset="/img/loading.gif" alt=""></p>
+<ol>
+<li>创建新的结点，以当前根结点的值</li>
+</ol>
+<p><code>Node newNode = new Node(value);</code></p>
+<ol>
+<li>把新的结点的右子树设置成当前节点的右子树</li>
+</ol>
+<p><code>newNode.right = right;</code></p>
+<ol>
+<li>把新的结点的左子树设置成带你过去结点的左子树的右子树 </li>
+</ol>
+<p><code>newNode.left = left.right;</code></p>
+<ol>
+<li>把当前结点的值替换成左子结点的值</li>
+</ol>
+<p><code>value = left.value;</code></p>
+<ol>
+<li>把当前结点的左子树设置成当前结点左子树的左子树</li>
+</ol>
+<p><code>left = left.left;</code></p>
+<ol>
+<li>把当前结点的右子树(右子结点)设置成新的结点</li>
+</ol>
+<p><code>right = newNode;</code></p>
+<p>原来的那个“8”因为没有任何结点指向它，所以被系统当作垃圾回收掉了</p>
+<h2 id="3-双旋转"><a href="#3-双旋转" class="headerlink" title="3. 双旋转"></a>3. 双旋转</h2><h3 id="1）要求-2"><a href="#1）要求-2" class="headerlink" title="1）要求"></a>1）要求</h3><p>给你一个数列，创建出对应的平衡二叉树 {10, 11, 7, 6, 8, 9}</p>
+<h3 id="2）思路-2"><a href="#2）思路-2" class="headerlink" title="2）思路"></a>2）思路</h3><h4 id="问题：-2"><a href="#问题：-2" class="headerlink" title="问题："></a>问题：</h4><p>当插入“9”时`leftHeight()-rightHeight()&gt;1成立，此时，不再是一颗avl树了</p>
+<p><strong>运行结果：</strong></p>
+<blockquote>
+<p>树的高度=4<br>左子树的高度=1<br>右子树的高度=3<br>Root=Node [value=7]</p>
+</blockquote>
+<p><strong>问题分析：</strong><br><img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/note/d&amp;a/AVL6.png" srcset="/img/loading.gif" alt=""></p>
+<ol>
+<li>当符合右旋转的条件时</li>
+<li>如果它的左子树的右子树高度大于它的左子树的高度</li>
+<li>需要先对当前这个结点的左结点进行左旋转</li>
+<li>再对当前结点进行右旋转的操作即可</li>
+</ol>
+<h1 id="四、代码实现"><a href="#四、代码实现" class="headerlink" title="四、代码实现"></a>四、代码实现</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AVLTreeDemo</span> </span>&#123;
 
+	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">main</span>(<span class="hljs-params"><span class="hljs-built_in">String</span>[] args</span>)</span> &#123;
+		int[] arr = &#123; <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span> &#125;;
+		AVLTree avlTree = <span class="hljs-keyword">new</span> AVLTree();
+		<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;
+			avlTree.add(<span class="hljs-keyword">new</span> Node(arr[i]));
+		&#125;
+		System.out.println(<span class="hljs-string">&quot;树的高度=&quot;</span> + avlTree.getRoot().height());<span class="hljs-comment">//3</span>
+		System.out.println(<span class="hljs-string">&quot;左子树的高度=&quot;</span> + avlTree.getRoot().leftHeight());<span class="hljs-comment">//2</span>
+		System.out.println(<span class="hljs-string">&quot;右子树的高度=&quot;</span> + avlTree.getRoot().rightHeight());<span class="hljs-comment">//2</span>
+		System.out.println(<span class="hljs-string">&quot;根结点=&quot;</span> + avlTree.getRoot());<span class="hljs-comment">//8</span>
+		System.out.println(<span class="hljs-string">&quot;根结点的左子结点=&quot;</span> + avlTree.getRoot().left);<span class="hljs-comment">//7</span>
+	&#125;
+&#125;
 
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AVLTree</span> </span>&#123;
+	<span class="hljs-keyword">private</span> Node root;
 
-	<div class="row">
-		<iframe src="https://drive.google.com/file/d/1yfdNaXFm54y_Px4nVGoJkKy6YcMMxjnn/preview" style="width:100%; height:550px"></iframe>
-	</div>
+	<span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">getRoot</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> root;
+	&#125;
 
+	<span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">search</span>(<span class="hljs-params">int value</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">return</span> root.search(value);
+		&#125;
+	&#125;
 
+	<span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">searchParent</span>(<span class="hljs-params">int value</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">return</span> root.searchParent(value);
+		&#125;
+	&#125;
 
+	<span class="hljs-keyword">public</span> int <span class="hljs-function"><span class="hljs-title">delRightTreeMin</span>(<span class="hljs-params">Node node</span>)</span> &#123;
+		Node target = node;
+		<span class="hljs-keyword">while</span> (target.left != <span class="hljs-literal">null</span>) &#123;
+			target = target.left;
+		&#125;
 
+		delNode(target.value);
+		<span class="hljs-keyword">return</span> target.value;
+	&#125;
 
-</details>
+	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">delNode</span>(<span class="hljs-params">int value</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-keyword">return</span>;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			Node targetNode = search(value);
+			<span class="hljs-keyword">if</span> (targetNode == <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-keyword">return</span>;
+			&#125;
+			<span class="hljs-keyword">if</span> (root.left == <span class="hljs-literal">null</span> &amp;&amp; root.right == <span class="hljs-literal">null</span>) &#123;
+				root = <span class="hljs-literal">null</span>;
+				<span class="hljs-keyword">return</span>;
+			&#125;
+			Node parent = searchParent(value);
+			<span class="hljs-keyword">if</span> (targetNode.left == <span class="hljs-literal">null</span> &amp;&amp; targetNode.right == <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-keyword">if</span> (parent.left != <span class="hljs-literal">null</span> &amp;&amp; parent.left.value == value) &#123;
+					parent.left = <span class="hljs-literal">null</span>;
+				&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parent.right != <span class="hljs-literal">null</span> &amp;&amp; parent.right.value == value) &#123;
+					parent.right = <span class="hljs-literal">null</span>;
+				&#125;
+			&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (targetNode.left != <span class="hljs-literal">null</span> &amp;&amp; targetNode.right != <span class="hljs-literal">null</span>) &#123;
+				int minVal = delRightTreeMin(targetNode.right);
+				targetNode.value = minVal;
+			&#125; <span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-keyword">if</span> (targetNode.left != <span class="hljs-literal">null</span>) &#123;
+					<span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;
+						<span class="hljs-keyword">if</span> (parent.left.value == value) &#123;
+							parent.left = targetNode.left;
+						&#125; <span class="hljs-keyword">else</span> &#123;
+							parent.right = targetNode.left;
+						&#125;
+					&#125; <span class="hljs-keyword">else</span> &#123;
+						root = targetNode.left;
+					&#125;
+				&#125; <span class="hljs-keyword">else</span> &#123;
+					<span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;
+						<span class="hljs-keyword">if</span> (parent.left.value == value) &#123;
+							parent.left = targetNode.right;
+						&#125; <span class="hljs-keyword">else</span> &#123;
+							parent.right = targetNode.right;
+						&#125;
+					&#125; <span class="hljs-keyword">else</span> &#123;
+						root = targetNode.right;
+					&#125;
+				&#125;
+			&#125;
+		&#125;
+	&#125;
 
-<details>
-  <summary>course pack|Part 2</summary>
+	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">Node node</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) &#123;<span class="hljs-comment">// 如果是空树，直接让root指向node</span>
+			root = node;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			root.add(node);
+		&#125;
+	&#125;
 
+	<span class="hljs-comment">// 中序遍历</span>
+	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">infixOrder</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (root != <span class="hljs-literal">null</span>) &#123;
+			root.infixOrder();
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			System.out.println(<span class="hljs-string">&quot;Tree is Empty.&quot;</span>);
+		&#125;
+	&#125;
+&#125;
 
+<span class="hljs-comment">//创建Node节点</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>&#123;
+	int value;
+	Node left;
+	Node right;
 
-	<div class="row">
-		<iframe src="https://drive.google.com/file/d/1nkM79KGTwcToKF9Ld9YBDnTvmjfgGjNv/preview" style="width:100%; height:550px"></iframe>
-	</div>
+	<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">Node</span>(<span class="hljs-params">int value</span>)</span> &#123;
+		<span class="hljs-built_in">this</span>.value = value;
+	&#125;
 
+	<span class="hljs-keyword">public</span> int <span class="hljs-function"><span class="hljs-title">leftHeight</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (left == <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+		&#125;
+		<span class="hljs-keyword">return</span> left.height();
+	&#125;
 
+	<span class="hljs-keyword">public</span> int <span class="hljs-function"><span class="hljs-title">rightHeight</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (right == <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+		&#125;
+		<span class="hljs-keyword">return</span> right.height();
+	&#125;
 
+	<span class="hljs-comment">// return Height of this node</span>
+	<span class="hljs-keyword">public</span> int <span class="hljs-function"><span class="hljs-title">height</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.max(left == <span class="hljs-literal">null</span> ? <span class="hljs-number">0</span> : left.height(), right == <span class="hljs-literal">null</span> ? <span class="hljs-number">0</span> : right.height()) + <span class="hljs-number">1</span>;
+		<span class="hljs-comment">// A ？ B：C ，意思就是如果A为真执行B，否则执行C</span>
+	&#125;
 
-</details>
+	<span class="hljs-comment">// 左旋转</span>
+	<span class="hljs-keyword">private</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">leftRotate</span>(<span class="hljs-params"></span>)</span> &#123;
+		Node newNode = <span class="hljs-keyword">new</span> Node(value);
+		newNode.left = left;
+		newNode.right = right.left;
+		value = right.value;
+		right = right.right;
+		left = newNode;
+	&#125;
 
-<h2 id="Orbital-Shapes"><a href="#Orbital-Shapes" class="headerlink" title="Orbital Shapes"></a>Orbital Shapes</h2><p>The shapes of the orbitals are determined by the angular momentum<br>quantum number l and the corresponding letter designations s, p, d and f.</p>
-<p><img src="https://study.com/cimages/videopreview/videopreview-full/screen_shot_2015-11-23_at_8.49.38_am_117391.jpg" srcset="/img/loading.gif" alt=""></p>
-<h2 id="Electron-Configurations"><a href="#Electron-Configurations" class="headerlink" title="Electron Configurations"></a>Electron Configurations</h2><p><img src="https://ktharpesaachemistry.weebly.com/uploads/2/2/9/5/22951434/5168270_orig.gif" srcset="/img/loading.gif" alt=""></p>
-<p>Ex: <sub>32</sub>Ge</p>
-<p>1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>4s<sup>2</sup>3d<sup>10</sup>4p<sup>2</sup>(filling order) is arranged to<br>1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>10</sup>4s<sup>2</sup>4p<sup>2</sup>(shell order)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem24.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="Methods-of-Expressing-Electron-Configuration"><a href="#Methods-of-Expressing-Electron-Configuration" class="headerlink" title="Methods of Expressing Electron Configuration"></a>Methods of Expressing Electron Configuration</h2><h3 id="1-filling-order"><a href="#1-filling-order" class="headerlink" title="1) filling order"></a>1) filling order</h3><p>Ex: <sub>32</sub>Ge</p>
-<p>1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>4s<sup>2</sup>3d<sup>10</sup>4p<sup>2</sup></p>
-<h3 id="2-shorthand-electron-configuration"><a href="#2-shorthand-electron-configuration" class="headerlink" title="2) shorthand electron configuration"></a>2) shorthand electron configuration</h3><p>Ex: <sub>32</sub>Ge</p>
-<p>[K] 4s<sup>2</sup>3d<sup>10</sup>4p<sup>2</sup></p>
-<h3 id="3-orbital-diagram"><a href="#3-orbital-diagram" class="headerlink" title="3) orbital diagram"></a>3) orbital diagram</h3><p>Ex: <sub>32</sub>Ge</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem26.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="Orbital-Filling-Irregularities"><a href="#Orbital-Filling-Irregularities" class="headerlink" title="Orbital Filling Irregularities"></a>Orbital Filling Irregularities</h2><p>Since he energy levels of some orbitals are so close there are irregularities in the order of electron filling. For example with the transition metals Cr and Cu the decrease in energy from having an orbital with unpaired spins causes an unusually order of filling.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/note/RHHS/chem/chem25.png" srcset="/img/loading.gif" alt=""></p>
-<details>  
-  <summary>之后的单元</summary>
+	<span class="hljs-comment">// 右旋转</span>
+	<span class="hljs-keyword">private</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">rightRotate</span>(<span class="hljs-params"></span>)</span> &#123;
+		Node newNode = <span class="hljs-keyword">new</span> Node(value);
+		newNode.right = right;
+		newNode.left = left.right;
+		value = left.value;
+		left = left.left;
+		right = newNode;
+	&#125;
 
-# Unit 3|Equilibrum
+	<span class="hljs-comment">/**</span>
+<span class="hljs-comment">	 * </span>
+<span class="hljs-comment">	 * <span class="hljs-doctag">@param </span>value 希望删除的值</span>
+<span class="hljs-comment">	 * <span class="hljs-doctag">@return </span>如果找到返回该结点，否则返回null</span>
+<span class="hljs-comment">	 */</span>
+	<span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">search</span>(<span class="hljs-params">int value</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (value == <span class="hljs-built_in">this</span>.value) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+		&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-built_in">this</span>.value) &#123;
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left == <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+			&#125;
+			<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.left.search(value);
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right == <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+			&#125;
+			<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.right.search(value);
+		&#125;
+	&#125;
 
-/
+	<span class="hljs-keyword">public</span> Node <span class="hljs-function"><span class="hljs-title">searchParent</span>(<span class="hljs-params">int value</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> ((<span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-built_in">this</span>.left.value == value) || (<span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-built_in">this</span>.right.value == value)) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">if</span> (value &lt; <span class="hljs-built_in">this</span>.value &amp;&amp; <span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.left.searchParent(value);
+			&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &gt;= <span class="hljs-built_in">this</span>.value &amp;&amp; <span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.right.searchParent(value);
+			&#125; <span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+			&#125;
+		&#125;
 
-# Unit 4|Electrochemistry
+	&#125;
 
-/
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-keyword">public</span> <span class="hljs-built_in">String</span> <span class="hljs-function"><span class="hljs-title">toString</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Node [value=&quot;</span> + value + <span class="hljs-string">&quot;]&quot;</span>;
+	&#125;
 
-# Unit 5|Organic
+	<span class="hljs-comment">// 添加节点</span>
+	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">Node node</span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-keyword">return</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (node.value &lt; <span class="hljs-built_in">this</span>.value) &#123;
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left == <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-built_in">this</span>.left = node;
+			&#125; <span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-built_in">this</span>.left.add(node);<span class="hljs-comment">// 递归</span>
+			&#125;
+		&#125; <span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right == <span class="hljs-literal">null</span>) &#123;
+				<span class="hljs-built_in">this</span>.right = node;
+			&#125; <span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-built_in">this</span>.right.add(node);<span class="hljs-comment">// 递归</span>
+			&#125;
+		&#125;
+		<span class="hljs-keyword">if</span> (rightHeight() - leftHeight() &gt; <span class="hljs-number">1</span>) &#123;
+			<span class="hljs-keyword">if</span> (right != <span class="hljs-literal">null</span> &amp;&amp; right.leftHeight() &gt; right.rightHeight()) &#123;
+				right.rightRotate();
+			&#125;
+			leftRotate();
+			<span class="hljs-keyword">return</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (leftHeight() - rightHeight() &gt; <span class="hljs-number">1</span>) &#123;
+			<span class="hljs-keyword">if</span> (left != <span class="hljs-literal">null</span> &amp;&amp; left.rightHeight() &gt; left.leftHeight()) &#123;
+				left.leftRotate();
+			&#125;
+			rightRotate();
+		&#125;
+	&#125;
 
-/
-
-</details>
+	<span class="hljs-comment">// 中序遍历</span>
+	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">infixOrder</span>(<span class="hljs-params"></span>)</span> &#123;
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.left != <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-built_in">this</span>.left.infixOrder();
+		&#125;
+		System.out.println(<span class="hljs-built_in">this</span>);
+		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.right != <span class="hljs-literal">null</span>) &#123;
+			<span class="hljs-built_in">this</span>.right.infixOrder();
+		&#125;
+	&#125;
+&#125;</code></pre>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><pre><code class="hljs crmsh">树的高度=<span class="hljs-number">3</span>
+左子树的高度=<span class="hljs-number">2</span>
+右子树的高度=<span class="hljs-number">2</span>
+根结点=<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">8</span>]
+根结点的左子结点=<span class="hljs-keyword">Node</span> <span class="hljs-title">[value</span>=<span class="hljs-number">7</span>]</code></pre>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1E4411H73v?p=135">尚硅谷Java数据结构与java算法，韩顺平数据结构与算法</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
@@ -663,10 +618,19 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/RHHS/">RHHS</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/">数据结构与算法｜Data Structures and Algorithms</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/">树结构的应用｜Application of Tree Structures</a>
                     
                   </div>
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                  </div>
                 
               </div>
               
@@ -675,9 +639,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/27/Hexo%E8%BF%81%E7%A7%BB-%E4%BB%8Emac%E5%88%B0windows%E4%B8%8A/">
+                      <a href="/post/35477/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hexo迁移｜mac到windows</span>
+                        <span class="hidden-mobile">多路查找树｜Multi-Way Search Tree</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -685,8 +649,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/09/02/%E5%A5%BD%E7%94%A8%E7%9A%84%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E6%8E%A8%E8%8D%90/">
-                        <span class="hidden-mobile">好用的油猴脚本推荐｜持续更新</span>
+                      <a href="/post/29228/">
+                        <span class="hidden-mobile">二叉排序树｜Binary Sort Tree</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1286,7 +1250,7 @@ document.body.addEventListener('input', POWERMODE);
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/09/10/Grade-12-Chem/');
+          var target = decodeURI('/post/8178/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -1380,7 +1344,7 @@ document.body.addEventListener('input', POWERMODE);
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Grade 12 Chemistry（坑了）&nbsp;",
+        "平衡二叉树｜AVL Tree&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -1441,45 +1405,6 @@ document.body.addEventListener('input', POWERMODE);
 
 
 
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
-
-  
 
 
 
