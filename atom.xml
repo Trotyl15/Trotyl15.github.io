@@ -6,7 +6,7 @@
   <link href="http://trotyl.xyz/atom.xml" rel="self"/>
   
   <link href="http://trotyl.xyz/"/>
-  <updated>2020-12-15T02:09:40.835Z</updated>
+  <updated>2020-12-29T02:17:40.659Z</updated>
   <id>http://trotyl.xyz/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Java Server and Client实现聊天室</title>
     <link href="http://trotyl.xyz/post/38733/"/>
     <id>http://trotyl.xyz/post/38733/</id>
-    <published>2020-12-15T01:49:45.000Z</published>
-    <updated>2020-12-15T02:09:40.835Z</updated>
+    <published>2020-12-15T01:49:00.000Z</published>
+    <updated>2020-12-29T02:17:40.659Z</updated>
     
     
       
@@ -35,6 +35,8 @@
       
     
     
+    
+    <category term="RHHS" scheme="http://trotyl.xyz/categories/RHHS/"/>
     
     
     <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
