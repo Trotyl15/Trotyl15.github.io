@@ -1,8 +1,9 @@
+/* global Fluid */
+
 /**
  * Modify by https://blog.skk.moe/post/hello-darkmode-my-old-friend/
  */
-// eslint-disable-next-line no-unused-expressions
-!(function(window, document) {
+(function(window, document) {
   var rootElement = document.documentElement;
   var colorSchemaStorageKey = 'Fluid_Color_Scheme';
   var colorSchemaMediaQueryKey = '--color-mode';
@@ -31,18 +32,26 @@
     }
   }
 
-  function getModeFromCSSMediaQuery() {
-    var res = getComputedStyle(rootElement).getPropertyValue(
-      colorSchemaMediaQueryKey
-    );
-    if (res.length > 0) {
+  function getSchemaFromHTML() {
+    var res = rootElement.getAttribute(defaultColorSchemaAttributeName);
+    if (typeof res === 'string') {
       return res.replace(/["'\s]/g, '');
     }
     return null;
   }
 
-  function resetRootColorSchemaAttributeAndLS() {
-    rootElement.removeAttribute(userColorSchemaAttributeName);
+  function getSchemaFromCSSMediaQuery() {
+    var res = getComputedStyle(rootElement).getPropertyValue(
+      colorSchemaMediaQueryKey
+    );
+    if (typeof res === 'string') {
+      return res.replace(/["'\s]/g, '');
+    }
+    return null;
+  }
+
+  function resetSchemaAttributeAndLS() {
+    rootElement.setAttribute(userColorSchemaAttributeName, getDefaultColorSchema());
     removeLS(colorSchemaStorageKey);
   }
 
@@ -51,20 +60,21 @@
     light: true
   };
 
-  function getDefaultColorSchemaAttribute() {
+  function getDefaultColorSchema() {
     // 取默认字段的值
-    var schema = rootElement.getAttribute(defaultColorSchemaAttributeName);
+    var schema = getSchemaFromHTML();
     // 如果明确指定了 schema 则返回
     if (validColorSchemaKeys[schema]) {
       return schema;
     }
     // 默认优先按 prefers-color-scheme
-    schema = getModeFromCSSMediaQuery();
+    schema = getSchemaFromCSSMediaQuery();
     if (validColorSchemaKeys[schema]) {
       return schema;
     }
-    // 否则按本地时间是否大于 18 点
-    if (new Date().getHours() >= 18) {
+    // 否则按本地时间是否大于 18 点或凌晨 0 ~ 6 点
+    var hours = new Date().getHours();
+    if (hours >= 18 || (hours >= 0 && hours <= 6)) {
       return 'dark';
     }
     return 'light';
@@ -72,24 +82,27 @@
 
   function applyCustomColorSchemaSettings(schema) {
     // 接受从「开关」处传来的模式，或者从 localStorage 读取，否则按默认设置值
-    var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchemaAttribute();
+    var current = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
 
-    if (currentSetting === getModeFromCSSMediaQuery()) {
-      // 当用户自定义的显示模式和 prefers-color-scheme 相同时，重置到自动模式
-      resetRootColorSchemaAttributeAndLS();
-    } else if (validColorSchemaKeys[currentSetting]) {
+    if (current === getDefaultColorSchema()) {
+      // 当用户切换的显示模式和默认模式相同时，则恢复为自动模式
+      resetSchemaAttributeAndLS();
+    } else if (validColorSchemaKeys[current]) {
       rootElement.setAttribute(
         userColorSchemaAttributeName,
-        currentSetting
+        current
       );
     } else {
-      // 首次访问或从未使用过开关、localStorage 中没有存储的值，currentSetting 是 null
-      // 或者 localStorage 被篡改，currentSetting 不是合法值
-      resetRootColorSchemaAttributeAndLS();
+      // 特殊情况重置
+      resetSchemaAttributeAndLS();
+      return;
     }
 
     // 根据当前模式设置图标
-    setButtonIcon(currentSetting);
+    setButtonIcon(current);
+
+    // 设置其他应用
+    setApplications(current);
   }
 
   var invertColorSchemaObj = {
@@ -104,9 +117,16 @@
       // 从 localStorage 中读取模式，并取相反的模式
       currentSetting = invertColorSchemaObj[currentSetting];
     } else if (currentSetting === null) {
-      // localStorage 中没有相关值，或者 localStorage 抛了 Error
-      // 从 CSS 中读取当前 prefers-color-scheme 并取相反的模式
-      currentSetting = invertColorSchemaObj[getModeFromCSSMediaQuery()];
+      // 当 localStorage 中没有相关值，或者 localStorage 抛了 Error
+      // 先按照按钮的状态进行切换
+      var iconElement = document.getElementById(colorToggleIconName);
+      if (iconElement) {
+        currentSetting = iconElement.getAttribute('data');
+      }
+      if (!iconElement || !validColorSchemaKeys[currentSetting]) {
+        // 当 localStorage 中没有相关值，或者 localStorage 抛了 Error，则读取默认值并切换到相反的模式
+        currentSetting = invertColorSchemaObj[getSchemaFromCSSMediaQuery()];
+      }
     } else {
       return;
     }
@@ -129,15 +149,22 @@
           'class',
           'iconfont ' + icon
         );
+        iconElement.setAttribute(
+          'data',
+          invertColorSchemaObj[schema]
+        );
       } else {
         // 如果图标不存在则说明图标还没加载出来，等到页面全部加载再尝试切换
-        // eslint-disable-next-line no-undef
-        waitElementLoaded(colorToggleIconName, function() {
+        Fluid.utils.waitElementLoaded(colorToggleIconName, function() {
           var iconElement = document.getElementById(colorToggleIconName);
           if (iconElement) {
             iconElement.setAttribute(
               'class',
               'iconfont ' + icon
+            );
+            iconElement.setAttribute(
+              'data',
+              invertColorSchemaObj[schema]
             );
           }
         });
@@ -145,15 +172,38 @@
     }
   }
 
+  function setApplications(schema) {
+    // 设置 remark42 评论主题
+    if (window.REMARK42) {
+      window.REMARK42.changeTheme(schema);
+    }
+
+    // 设置 utterances 评论主题
+    var utterances = document.querySelector('iframe');
+    if (utterances) {
+      var theme = window.UtterancesThemeLight;
+      if (schema === 'dark') {
+        theme = window.UtterancesThemeDark;
+      }
+      const message = {
+        type : 'set-theme',
+        theme: theme
+      };
+      utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
   // 当页面加载时，将显示模式设置为 localStorage 中自定义的值（如果有的话）
   applyCustomColorSchemaSettings();
 
-  var oldLoadCs = window.onload;
-  window.onload = function() {
-    oldLoadCs && oldLoadCs();
-    document.getElementById(colorToggleButtonName).addEventListener('click', () => {
-      // 当用户点击「开关」时，获得新的显示模式、写入 localStorage、并在页面上生效
-      applyCustomColorSchemaSettings(toggleCustomColorSchema());
-    });
-  };
+  Fluid.utils.waitElementLoaded(colorToggleButtonName, function() {
+    applyCustomColorSchemaSettings();
+    var button = document.getElementById(colorToggleButtonName);
+    if (button) {
+      // 当用户点击切换按钮时，获得新的显示模式、写入 localStorage、并在页面上生效
+      button.addEventListener('click', () => {
+        applyCustomColorSchemaSettings(toggleCustomColorSchema());
+      });
+    }
+  });
 })(window, document);
