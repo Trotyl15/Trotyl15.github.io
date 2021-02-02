@@ -1,0 +1,896 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta name="baidu-site-verification" content="P41arb3jf5" />
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+    .pace .pace-progress {
+        background: #FFAA8D; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #FFAA8D, 0 0 5px     #FFAA8D; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #FFAA8D;    /*上边框颜色*/
+        border-left-color: #FFAA8D;    /*左边框颜色*/
+    }
+  </style>
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一个小博客">
+  <meta name="author" content="Trotyl">
+  <meta name="keywords" content="">
+  <title>Java Server and Client实现聊天室 - Trotyl&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"trotyl.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":false,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":"6eb11358040c833e07f6d5a8c94decad","google":"UA-177561089-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zcL2DBnP3JIFC9a8HE5uYMfm-MdYXbMMI","app_key":"fRsoWUTEoES4QglVrH0chpxV","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Trotyl's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Trotyl</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                Posts
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    Archives
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    Categories
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    Tags
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                Pages
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/comment/">
+                    <i class="iconfont icon-addrcard"></i>
+                    留言板
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/shuoshuo/">
+                    <i class="iconfont icon-speakernotes"></i>
+                    碎碎念
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java Server and Client实现聊天室">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Trotyl
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-14 20:49" pubdate>
+        December 14, 2020 8:49 PM
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      45
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java Server and Client实现聊天室</h1>
+            
+            <div class="markdown-body">
+              <p>cs的作业，这里放一下吧。肝了两天两夜，要写吐了。</p>
+<p>用java socket实现简易聊天室， 因为server端不是我写的，我就发下client端的.</p>
+<p>这是几个截图:<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/Img/note/RHHS/cs/1b8e3969c8422c0c566e83208e43c6b.png" srcset="/img/loading.gif" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/Img/note/RHHS/cs/82bcf8971585036abe13eed78f995ea.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/Img/note/RHHS/cs/96446f52b137b6b01061ab5e241834a.png" srcset="/img/loading.gif" alt=""></p>
+<p>下面是源码：<br><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">import javax.swing.*;<br>import java.awt.*;<br>import java.awt.event.ActionEvent;<br>import java.awt.event.ActionListener;<br>import java.awt.event.WindowEvent;<br>import java.awt.event.WindowListener;<br>import java.io.BufferedReader;<br>import java.io.IOException;<br>import java.io.InputStreamReader;<br>import java.io.PrintWriter;<br>import java.net.Socket;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * ChatClient.java</span><br><span class="hljs-comment"> * @version 1.0</span><br><span class="hljs-comment"> * @author Trotyl</span><br><span class="hljs-comment"> * @since 2020 Dec.3</span><br><span class="hljs-comment"> * The client side of a chat program</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">class</span> ChatClient &#123;<br>    <span class="hljs-keyword">private</span> JFrame connectWindow;<span class="hljs-comment">//first window</span><br>    <span class="hljs-keyword">private</span> JTextField typeField;<span class="hljs-comment">//type field</span><br>    <span class="hljs-keyword">private</span> JTextArea msgArea;<span class="hljs-comment">//message area</span><br>    <span class="hljs-keyword">private</span> Socket mySocket; <span class="hljs-comment">//socket for connection</span><br>    <span class="hljs-keyword">private</span> BufferedReader input; <span class="hljs-comment">//reader for network stream</span><br>    <span class="hljs-keyword">private</span> PrintWriter output;  <span class="hljs-comment">//printWriter for network output</span><br>    <span class="hljs-keyword">private</span> boolean running = <span class="hljs-literal">true</span>; <span class="hljs-comment">//thread status via boolean</span><br>    <span class="hljs-keyword">private</span> JLabel connectionError;<span class="hljs-comment">//label</span><br>    <span class="hljs-keyword">private</span> boolean isConnected = <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">private</span> JComboBox userList;<span class="hljs-comment">//list of all online users</span><br>    <span class="hljs-keyword">private</span> String userName;<span class="hljs-comment">//current user name</span><br>    <span class="hljs-keyword">private</span> JTextArea statusArea;<span class="hljs-comment">//area of all the users online</span><br>    <span class="hljs-keyword">private</span> JLabel label;<br>    <span class="hljs-keyword">private</span> String selected;<span class="hljs-comment">//selected user</span><br><br>    public static void main(String<span class="hljs-literal">[]</span> args) &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-constructor">ChatClient()</span>.get<span class="hljs-constructor">Port()</span>;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * window for entering the ip and port</span><br><span class="hljs-comment">     */</span><br>    public void get<span class="hljs-constructor">Port()</span> &#123;<br>        <span class="hljs-comment">//setting up the connecting window</span><br>        connectWindow = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JFrame(<span class="hljs-string">&quot;connect&quot;</span>)</span>;<br>        JPanel panel = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JPanel()</span>;<br>        panel.set<span class="hljs-constructor">PreferredSize(<span class="hljs-params">new</span> Dimension(400, 250)</span>);<br>        JLabel name = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;Connect&quot;</span>)</span>;<br>        name.set<span class="hljs-constructor">Bounds(170, 20, 70, 20)</span>;<br>        panel.set<span class="hljs-constructor">Layout(<span class="hljs-params">null</span>)</span>;<br>        JLabel hostL = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;ip   &quot;</span>)</span>;<br>        JTextField hostT = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        hostL.set<span class="hljs-constructor">Bounds(110, 70, 70, 20)</span>;<br>        hostT.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;127.0.0.1&quot;</span>)</span>;<br>        hostT.set<span class="hljs-constructor">Bounds(170, 70, 150, 20)</span>;<br>        JLabel portL = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;port   &quot;</span>)</span>;<br>        portL.set<span class="hljs-constructor">Bounds(110, 150, 70, 20)</span>;<br>        JTextField portT = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        portT.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;5000&quot;</span>)</span>;<br>        portT.set<span class="hljs-constructor">Bounds(170, 150, 150, 20)</span>;<br>        JButton connectButton = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JButton(<span class="hljs-string">&quot;connect&quot;</span>)</span>;<br>        connectButton.set<span class="hljs-constructor">Bounds(80, 200, 90, 30)</span>;<br>        connectionError = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>        connectionError.set<span class="hljs-constructor">Foreground(Color.<span class="hljs-params">red</span>)</span>;<br>        connectionError.set<span class="hljs-constructor">Bounds(200, 200, 200, 30)</span>;<br>        <span class="hljs-comment">//adding all the components</span><br>        panel.add(name);<br>        panel.add(hostL);<br>        panel.add(hostT);<br>        panel.add(portL);<br>        panel.add(portT);<br>        panel.add(connectionError);<br>        panel.add(connectButton);<br>        <span class="hljs-comment">//exit on close</span><br>        connectWindow.set<span class="hljs-constructor">DefaultCloseOperation(JFrame.EXIT_ON_CLOSE)</span>;<br>        connectWindow.add(panel);<br>        connectWindow.pack<span class="hljs-literal">()</span>;<br>        <span class="hljs-comment">//press the connect button when press enter</span><br>        connectWindow.get<span class="hljs-constructor">RootPane()</span>.set<span class="hljs-constructor">DefaultButton(<span class="hljs-params">connectButton</span>)</span>;<br>        <span class="hljs-comment">//open in the middle of the screen</span><br>        connectWindow.set<span class="hljs-constructor">LocationRelativeTo(<span class="hljs-params">null</span>)</span>;<br>        connectWindow.set<span class="hljs-constructor">Visible(<span class="hljs-params">true</span>)</span>;<br>        connectButton.add<span class="hljs-constructor">ActionListener(<span class="hljs-params">new</span> ActionListener()</span> &#123;<br>            @Override<br>            public void action<span class="hljs-constructor">Performed(ActionEvent <span class="hljs-params">e</span>)</span> &#123;<br>                String host = hostT.get<span class="hljs-constructor">Text()</span>;<br>                String port = portT.get<span class="hljs-constructor">Text()</span>;<br>                <span class="hljs-comment">//connect</span><br>                connect(host, port);<br>                hostT.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>                portT.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>                <span class="hljs-keyword">if</span> (isConnected) &#123;<br>                    <span class="hljs-comment">//open login page</span><br>                    log<span class="hljs-constructor">In()</span>;<br>                &#125;<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    public Socket connect(String ip, String port) &#123;<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Attempting to make a connection..&quot;</span>);<br>        <span class="hljs-comment">//default ip and port are 127.0.0.1 and 5000</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-built_in">int</span> port1 = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span>parse<span class="hljs-constructor">Int(<span class="hljs-params">port</span>)</span>;<br>            mySocket = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Socket(<span class="hljs-params">ip</span>, <span class="hljs-params">port1</span>)</span>; <span class="hljs-comment">//attempt socket connection (local address). This will wait until a connection is made</span><br>            InputStreamReader stream1 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">InputStreamReader(<span class="hljs-params">mySocket</span>.<span class="hljs-params">getInputStream</span>()</span>); <span class="hljs-comment">//Stream for network input</span><br>            input = <span class="hljs-keyword">new</span> <span class="hljs-constructor">BufferedReader(<span class="hljs-params">stream1</span>)</span>;<br>            output = <span class="hljs-keyword">new</span> <span class="hljs-constructor">PrintWriter(<span class="hljs-params">mySocket</span>.<span class="hljs-params">getOutputStream</span>()</span>); <span class="hljs-comment">//assign printWriter to network stream</span><br>            connectWindow.dispose<span class="hljs-literal">()</span>;<br>            isConnected = <span class="hljs-literal">true</span>;<br>        &#125; catch (Exception e) &#123;  <span class="hljs-comment">//connection error occurred</span><br>            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Connection to Server Failed&quot;</span>);<br>            connectionError.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;Wrong ip or port&quot;</span>)</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (isConnected<span class="hljs-operator"> == </span><span class="hljs-literal">true</span>) &#123;<br>            <span class="hljs-comment">//this is to get rid of the first and second welcome message that disturbs the login</span><br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-keyword">if</span> (input.ready<span class="hljs-literal">()</span>) &#123;<br>                    input.read<span class="hljs-constructor">Line()</span>;<br>                &#125;<br>            &#125; catch (IOException ex) &#123;<br>                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Failed to receive msg from the server&quot;</span>);<br>            &#125;<br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-keyword">if</span> (input.ready<span class="hljs-literal">()</span>) &#123;<br>                    input.read<span class="hljs-constructor">Line()</span>;<br>                &#125;<br>            &#125; catch (IOException ex) &#123;<br>                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Failed to receive msg from the server&quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Connection made.&quot;</span>);<br>        return mySocket;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * window for login</span><br><span class="hljs-comment">     */</span><br>    public void log<span class="hljs-constructor">In()</span> &#123;<br>        <span class="hljs-comment">//setting up the log in page</span><br>        JFrame logInWindow = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JFrame(<span class="hljs-string">&quot;LogIn&quot;</span>)</span>;<br>        JPanel panel = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JPanel()</span>;<br>        panel.set<span class="hljs-constructor">Layout((<span class="hljs-params">new</span> GridLayout(4, 2)</span>));<br>        JLabel passwordL = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;password&quot;</span>)</span>;<br>        JTextField passwordT = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        JLabel userNameL = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;username&quot;</span>)</span>;<br>        JTextField userNameT = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        JButton logInButton = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JButton(<span class="hljs-string">&quot;log in&quot;</span>)</span>;<br>        JButton registerButton = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JButton(<span class="hljs-string">&quot;register&quot;</span>)</span>;<br>        JLabel logInError = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>        JLabel blank = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>        logInError.set<span class="hljs-constructor">Foreground(Color.<span class="hljs-params">red</span>)</span>;<br>        <span class="hljs-comment">//adding all the components</span><br>        panel.add(userNameT);<br>        panel.add(userNameL);<br>        panel.add(passwordT);<br>        panel.add(passwordL);<br>        panel.add(logInButton);<br>        panel.add(registerButton);<br>        panel.add(logInError);<br>        panel.add(blank);<br>        logInWindow.set<span class="hljs-constructor">DefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE)</span>;<br>        logInWindow.add(BorderLayout.CENTER, panel);<br>        logInWindow.set<span class="hljs-constructor">Size(500, 200)</span>;<br>        logInWindow.set<span class="hljs-constructor">LocationRelativeTo(<span class="hljs-params">null</span>)</span>;<br>        logInWindow.set<span class="hljs-constructor">Visible(<span class="hljs-params">true</span>)</span>;<br>        logInWindow.get<span class="hljs-constructor">RootPane()</span>.set<span class="hljs-constructor">DefaultButton(<span class="hljs-params">logInButton</span>)</span>;<br>        <span class="hljs-comment">//when the log in button is pressed</span><br>        logInButton.add<span class="hljs-constructor">ActionListener(<span class="hljs-params">new</span> ActionListener()</span> &#123;<br>            @Override<br>            public void action<span class="hljs-constructor">Performed(ActionEvent <span class="hljs-params">e</span>)</span> &#123;<br>                userName = userNameT.get<span class="hljs-constructor">Text()</span>;<br>                String password = passwordT.get<span class="hljs-constructor">Text()</span>;<br>                <span class="hljs-comment">//check if username and password is blank</span><br>                <span class="hljs-keyword">if</span> (userName.equals(<span class="hljs-string">&quot;&quot;</span>)<span class="hljs-operator"> || </span>password.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;<br>                    logInError.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;username and password can&#x27;t be blank&quot;</span>)</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-comment">//pass in the password and username</span><br>                    output.println(userName + <span class="hljs-string">&quot;:&quot;</span> + password);<br>                    output.flush<span class="hljs-literal">()</span>;<br>                    <span class="hljs-comment">//read message</span><br>                    boolean loop = <span class="hljs-literal">true</span>;<br>                    <span class="hljs-keyword">while</span> (loop) &#123;<br>                        <span class="hljs-keyword">try</span> &#123;<br>                            <span class="hljs-keyword">if</span> (input.ready<span class="hljs-literal">()</span>) &#123;<br>                                <span class="hljs-comment">//check for an incoming message</span><br>                                String msg;<br>                                msg = input.read<span class="hljs-constructor">Line()</span>; <span class="hljs-comment">//read the message</span><br>                                <span class="hljs-keyword">if</span> (msg.equals(<span class="hljs-string">&quot;Username is currently online! Please use another account! \&quot;username:password\&quot;&quot;</span>)) &#123;<br>                                    logInError.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;user online, try another account&quot;</span>)</span>;<br>                                    loop = <span class="hljs-literal">false</span>;<br>                                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (msg.equals(<span class="hljs-string">&quot;Username or password incorrect! Please try again! \&quot;username:password\&quot;&quot;</span>)) &#123;<br>                                    logInError.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;username of password incorrect&quot;</span>)</span>;<br>                                    loop = <span class="hljs-literal">false</span>;<br>                                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (msg.starts<span class="hljs-constructor">With(<span class="hljs-string">&quot;Welcome&quot;</span>)</span>) &#123;<span class="hljs-comment">//if success</span><br>                                    <span class="hljs-comment">//close the log in window and open the message window</span><br>                                    logInWindow.dispose<span class="hljs-literal">()</span>;<br>                                    loop = <span class="hljs-literal">false</span>;<br>                                    start<span class="hljs-constructor">Messaging()</span>;<br>                                &#125;<br>                            &#125;<br>                        &#125; catch (IOException ex) &#123;<br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Failed to receive msg from the server&quot;</span>);<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;);<br><br>        <span class="hljs-comment">//when the register button is pressed</span><br>        registerButton.add<span class="hljs-constructor">ActionListener(<span class="hljs-params">new</span> ActionListener()</span> &#123;<br>            @Override<br>            public void action<span class="hljs-constructor">Performed(ActionEvent <span class="hljs-params">e</span>)</span> &#123;<br>                <span class="hljs-comment">//close the login widow and open a register window</span><br>                logInWindow.dispose<span class="hljs-literal">()</span>;<br>                register<span class="hljs-literal">()</span>;<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * window for registering an account</span><br><span class="hljs-comment">     */</span><br>    public void register<span class="hljs-literal">()</span> &#123;<br>        <span class="hljs-comment">//components</span><br>        JFrame registrationWindow = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JFrame(<span class="hljs-string">&quot;Registration&quot;</span>)</span>;<br>        JPanel panel = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JPanel()</span>;<br>        panel.set<span class="hljs-constructor">Layout((<span class="hljs-params">new</span> GridLayout(3, 3)</span>));<br>        JLabel userNameL = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;user name   &quot;</span>)</span>;<br>        JTextField userNameT = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        JLabel passwordL = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;password   &quot;</span>)</span>;<br>        JTextField passwordT = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        JButton registerButton = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JButton(<span class="hljs-string">&quot;register&quot;</span>)</span>;<br>        JButton logInButton = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JButton(<span class="hljs-string">&quot;log in&quot;</span>)</span>;<br>        JLabel text = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>        text.set<span class="hljs-constructor">Foreground(Color.<span class="hljs-params">red</span>)</span>;<br>        <span class="hljs-comment">//add the components to panel</span><br>        panel.add(userNameL);<br>        panel.add(userNameT);<br>        panel.add(registerButton);<br>        panel.add(passwordL);<br>        panel.add(passwordT);<br>        panel.add(logInButton);<br>        panel.add(text);<br>        <span class="hljs-comment">//exit on close</span><br>        registrationWindow.set<span class="hljs-constructor">DefaultCloseOperation(JFrame.EXIT_ON_CLOSE)</span>;<br>        registrationWindow.add(BorderLayout.CENTER, panel);<br>        registrationWindow.set<span class="hljs-constructor">Size(550, 170)</span>;<br>        registrationWindow.set<span class="hljs-constructor">LocationRelativeTo(<span class="hljs-params">null</span>)</span>;<br>        registrationWindow.set<span class="hljs-constructor">Visible(<span class="hljs-params">true</span>)</span>;<br>        <span class="hljs-comment">//when log in button is pressed</span><br>        logInButton.add<span class="hljs-constructor">ActionListener(<span class="hljs-params">new</span> ActionListener()</span> &#123;<br>            @Override<br>            public void action<span class="hljs-constructor">Performed(ActionEvent <span class="hljs-params">e</span>)</span> &#123;<br>                <span class="hljs-comment">//close the register window and open the log in window</span><br>                registrationWindow.dispose<span class="hljs-literal">()</span>;<br>                log<span class="hljs-constructor">In()</span>;<br>            &#125;<br>        &#125;);<br><br>        <span class="hljs-comment">//when register button is pressed</span><br>        registerButton.add<span class="hljs-constructor">ActionListener(<span class="hljs-params">new</span> ActionListener()</span> &#123;<br>            @Override<br>            public void action<span class="hljs-constructor">Performed(ActionEvent <span class="hljs-params">e</span>)</span> &#123;<br>                <span class="hljs-comment">//get the username and password</span><br>                String userName = userNameT.get<span class="hljs-constructor">Text()</span>;<br>                String password = passwordT.get<span class="hljs-constructor">Text()</span>;<br>                <span class="hljs-comment">//check if they are blank</span><br>                <span class="hljs-keyword">if</span> (userName.equals(<span class="hljs-string">&quot;&quot;</span>)<span class="hljs-operator"> || </span>password.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;<br>                    text.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;name and pwd can&#x27;t be blank&quot;</span>)</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-comment">//pass in the username and password to the server</span><br>                    output.println(<span class="hljs-string">&quot;register:&quot;</span> + userName + <span class="hljs-string">&quot;:&quot;</span> + password);<br>                    output.flush<span class="hljs-literal">()</span>;<br>                    boolean loop = <span class="hljs-literal">true</span>;<br>                    <span class="hljs-keyword">while</span> (loop) &#123;<br>                        <span class="hljs-keyword">try</span> &#123;<br>                            <span class="hljs-keyword">if</span> (input.ready<span class="hljs-literal">()</span>) &#123;<br>                                <span class="hljs-comment">//check for an incoming message</span><br>                                String msg;<br>                                msg = input.read<span class="hljs-constructor">Line()</span>; <span class="hljs-comment">//read the message</span><br>                                <span class="hljs-keyword">if</span> (msg.equals(<span class="hljs-string">&quot;Username already exists, please use another one&quot;</span>)) &#123;<br>                                    text.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;username already exists&quot;</span>)</span>;<br>                                    loop = <span class="hljs-literal">false</span>;<br>                                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (msg.starts<span class="hljs-constructor">With(<span class="hljs-string">&quot;Successfully&quot;</span>)</span>) &#123;<br>                                    registrationWindow.dispose<span class="hljs-literal">()</span>;<br>                                    loop = <span class="hljs-literal">false</span>;<br>                                    <span class="hljs-comment">//start login window</span><br>                                    log<span class="hljs-constructor">In()</span>;<br>                                &#125;<br>                            &#125;<br>                        &#125; catch (IOException ex) &#123;<br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Failed to receive msg from the server&quot;</span>);<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;);<br>        <span class="hljs-comment">//exit on close</span><br>        registrationWindow.set<span class="hljs-constructor">DefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE)</span>;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * message window</span><br><span class="hljs-comment">     */</span><br>    public void start<span class="hljs-constructor">Messaging()</span> &#123;<br>        <span class="hljs-comment">//send message to all users as default</span><br>        selected = <span class="hljs-string">&quot;All&quot;</span>;<br>        <span class="hljs-comment">//start two new threads</span><br>        Thread t = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Thread(<span class="hljs-params">new</span> CheckMessage()</span>);<br>        Thread t2 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Thread(<span class="hljs-params">new</span> <span class="hljs-params">checkUsers</span>()</span>);<br>        t.start<span class="hljs-literal">()</span>;<br>        t2.start<span class="hljs-literal">()</span>;<br>        <span class="hljs-comment">//frame and components</span><br>        JFrame window = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JFrame(<span class="hljs-string">&quot;Chat Client&quot;</span>)</span>;<br>        JPanel southPanel = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JPanel()</span>;<br>        southPanel.set<span class="hljs-constructor">Layout(<span class="hljs-params">new</span> GridLayout(2, 2)</span>);<br>        label = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JLabel(<span class="hljs-string">&quot;press [Enter] to send&quot;</span>)</span>;<br>        <span class="hljs-comment">//area that contains status of online users</span><br>        statusArea = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextArea(18, 14)</span>;<br>        statusArea.set<span class="hljs-constructor">Editable(<span class="hljs-params">false</span>)</span>;<br>        JButton sendButton = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JButton(<span class="hljs-string">&quot;SEND&quot;</span>)</span>;<br>        sendButton.add<span class="hljs-constructor">ActionListener(<span class="hljs-params">new</span> SendButtonListener()</span>);<br>        typeField = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextField(10)</span>;<br>        <span class="hljs-comment">//place where selecting which person to chat with</span><br>        userList = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JComboBox()</span>;<br>        userList.add<span class="hljs-constructor">Item(<span class="hljs-string">&quot;All&quot;</span>)</span>;<br>        msgArea = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JTextArea()</span>;<br>        msgArea.set<span class="hljs-constructor">Editable(<span class="hljs-params">false</span>)</span>;<br>        southPanel.add(userList);<br>        southPanel.add(label);<br>        southPanel.add(typeField);<br>        southPanel.add(sendButton);<br>        <span class="hljs-comment">//add a scroll pane to the two text areas</span><br>        JScrollPane jsp = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JScrollPane(<span class="hljs-params">msgArea</span>)</span>;<br>        JScrollPane jsp2 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">JScrollPane(<span class="hljs-params">statusArea</span>)</span>;<br>        window.add(BorderLayout.SOUTH, southPanel);<br>        window.add(jsp);<br>        window.add(BorderLayout.WEST, jsp2);<br>        <span class="hljs-comment">//exit on close</span><br>        window.set<span class="hljs-constructor">DefaultCloseOperation(JFrame.EXIT_ON_CLOSE)</span>;<br>        window.set<span class="hljs-constructor">Size(400, 400)</span>;<br>        window.set<span class="hljs-constructor">Visible(<span class="hljs-params">true</span>)</span>;<br>        <span class="hljs-comment">//getting all the users&#x27; information just after log in</span><br>        output.println(<span class="hljs-string">&quot;-list&quot;</span>);<br>        output.flush<span class="hljs-literal">()</span>;<br>        <span class="hljs-comment">//open at middle of the screen</span><br>        window.set<span class="hljs-constructor">LocationRelativeTo(<span class="hljs-params">null</span>)</span>;<br>        window.get<span class="hljs-constructor">RootPane()</span>.set<span class="hljs-constructor">DefaultButton(<span class="hljs-params">sendButton</span>)</span>;<br>        window.add<span class="hljs-constructor">WindowListener(<span class="hljs-params">new</span> WindowListener()</span> &#123;<br>            @Override<br>            public void window<span class="hljs-constructor">Opened(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>            &#125;<br><br>            @Override<br>            public void window<span class="hljs-constructor">Closing(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>                <span class="hljs-comment">//tell the server to close it&#x27;s socket when closing</span><br>                output.println(<span class="hljs-string">&quot;$closed$&quot;</span>);<br>                output.flush<span class="hljs-literal">()</span>;<br>            &#125;<br><br>            @Override<br>            public void window<span class="hljs-constructor">Closed(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>                running = <span class="hljs-literal">false</span>;<br>            &#125;<br><br>            @Override<br>            public void window<span class="hljs-constructor">Iconified(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>            &#125;<br><br>            @Override<br>            public void window<span class="hljs-constructor">Deiconified(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>            &#125;<br><br>            @Override<br>            public void window<span class="hljs-constructor">Activated(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>            &#125;<br><br>            @Override<br>            public void window<span class="hljs-constructor">Deactivated(WindowEvent <span class="hljs-params">e</span>)</span> &#123;<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-comment">//inner class that implements Runnable</span><br>    <span class="hljs-keyword">class</span> CheckMessage implements Runnable &#123;<br>        <span class="hljs-comment">//convert second to hours or minutes or still seconds</span><br>        String convert<span class="hljs-constructor">Time(String <span class="hljs-params">sec</span>)</span> &#123;<br>            <span class="hljs-built_in">int</span> second = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span>parse<span class="hljs-constructor">Int(<span class="hljs-params">sec</span>)</span>;<br>            <span class="hljs-keyword">if</span> (second &gt; <span class="hljs-number">86400</span>) &#123;<br>                return <span class="hljs-number">86400</span><span class="hljs-operator"> / </span><span class="hljs-number">24</span> + <span class="hljs-string">&quot; days&quot;</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (second &gt; <span class="hljs-number">3600</span>) &#123;<br>                return second<span class="hljs-operator"> / </span><span class="hljs-number">60</span> + <span class="hljs-string">&quot; hours&quot;</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (second &gt; <span class="hljs-number">60</span>) &#123;<br>                return second<span class="hljs-operator"> / </span><span class="hljs-number">60</span> + <span class="hljs-string">&quot; mins&quot;</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                return second + <span class="hljs-string">&quot; secs&quot;</span>;<br>            &#125;<br>        &#125;<br><br>        @Override<br>        public void run<span class="hljs-literal">()</span> &#123;<br>            <span class="hljs-keyword">while</span> (running) &#123;  <span class="hljs-comment">// loop unit a message is received</span><br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-keyword">if</span> (input.ready<span class="hljs-literal">()</span>) &#123;<span class="hljs-comment">//check for an incoming message</span><br>                        String msg;<br>                        msg = input.read<span class="hljs-constructor">Line()</span>; <span class="hljs-comment">//read the message</span><br>                        <span class="hljs-keyword">if</span> (msg.equals(<span class="hljs-string">&quot;use -pm:username:message to send a pm&quot;</span>)<span class="hljs-operator"> || </span>msg.equals(<span class="hljs-string">&quot;Online Users: &quot;</span>)<span class="hljs-operator"> || </span>msg.contains(<span class="hljs-string">&quot;, seen&quot;</span>)) &#123;<br>                            <span class="hljs-keyword">if</span> (msg.equals(<span class="hljs-string">&quot;Online Users: &quot;</span>)) &#123;<br>                                statusArea.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;Online Users:\n&quot;</span>)</span>;<br>                                selected = userList.get<span class="hljs-constructor">SelectedItem()</span> + <span class="hljs-string">&quot;&quot;</span>;<br>                                userList.remove<span class="hljs-constructor">AllItems()</span>;<br>                                userList.add<span class="hljs-constructor">Item(<span class="hljs-string">&quot;All&quot;</span>)</span>;<br>                                <span class="hljs-keyword">if</span> (!selected.equals(<span class="hljs-string">&quot;All&quot;</span>)) &#123;<br>                                    userList.add<span class="hljs-constructor">Item(<span class="hljs-params">selected</span>)</span>;<br>                                &#125;<br>                                userList.set<span class="hljs-constructor">SelectedItem(<span class="hljs-params">selected</span>)</span>;<br>                            &#125;<br>                            <span class="hljs-built_in">int</span> i = msg.index<span class="hljs-constructor">Of(<span class="hljs-string">&quot;, seen&quot;</span>)</span>;<br>                            <span class="hljs-keyword">if</span> (i != -<span class="hljs-number">1</span>) &#123;<br>                                String onlineUser = msg.substring(<span class="hljs-number">0</span>, i);<br>                                String userStatus = msg.substring(<span class="hljs-number">0</span>, i) + <span class="hljs-string">&quot;\nlast activity [&quot;</span> + convert<span class="hljs-constructor">Time(<span class="hljs-params">msg</span>.<span class="hljs-params">substring</span>(<span class="hljs-params">i</span> + 7, <span class="hljs-params">msg</span>.<span class="hljs-params">indexOf</span>(<span class="hljs-string">&quot;.&quot;</span>)</span>)) + <span class="hljs-string">&quot;] ago&quot;</span>;<br>                                statusArea.append(userStatus + <span class="hljs-string">&quot;\n&quot;</span>);<br>                                <span class="hljs-keyword">if</span> (!onlineUser.equals(userName)<span class="hljs-operator"> &amp;&amp; </span>!onlineUser.equals(selected)) &#123;<br>                                    userList.add<span class="hljs-constructor">Item(<span class="hljs-params">onlineUser</span>)</span>;<br>                                &#125;<br>                            &#125;<br>                        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (msg.equals(<span class="hljs-string">&quot;Unknown user!&quot;</span>)) &#123;<br>                            label.set<span class="hljs-constructor">Foreground(Color.<span class="hljs-params">red</span>)</span>;<br>                            label.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;[&quot;</span> + <span class="hljs-params">selected</span> + <span class="hljs-string">&quot;] is offline&quot;</span>)</span>;<br>                            userList.set<span class="hljs-constructor">SelectedItem(<span class="hljs-string">&quot;All&quot;</span>)</span>;<br>                        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!msg.starts<span class="hljs-constructor">With(<span class="hljs-string">&quot;use -&quot;</span>)</span>) &#123;<br>                            <span class="hljs-comment">//if it&#x27;s not a server instruction</span><br>                            msgArea.append(msg + <span class="hljs-string">&quot;\n&quot;</span>);<br>                            <span class="hljs-comment">//getting who is the one sending the message</span><br>                            <span class="hljs-built_in">int</span> i = msg.index<span class="hljs-constructor">Of(<span class="hljs-string">&quot;-&gt;&quot;</span>)</span>;<br>                            <span class="hljs-keyword">if</span> (i != -<span class="hljs-number">1</span>) &#123;<br>                                label.set<span class="hljs-constructor">Foreground(<span class="hljs-params">new</span> Color(0, 102, 0)</span>);<br>                                <span class="hljs-keyword">if</span> (msg.substring(<span class="hljs-number">0</span>, i).equals(userName)) &#123;<br>                                    label.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;You are talking only to [&quot;</span> + <span class="hljs-params">msg</span>.<span class="hljs-params">substring</span>(<span class="hljs-params">i</span> + 2, <span class="hljs-params">msg</span>.<span class="hljs-params">indexOf</span>(<span class="hljs-string">&quot;:&quot;</span>)</span>) + <span class="hljs-string">&quot;]&quot;</span>);<br>                                &#125; <span class="hljs-keyword">else</span> &#123;<br>                                    label.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;[&quot;</span> + <span class="hljs-params">msg</span>.<span class="hljs-params">substring</span>(0, <span class="hljs-params">i</span>)</span> + <span class="hljs-string">&quot;] is talking only to you&quot;</span>);<br>                                &#125;<br>                            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (msg.contains(<span class="hljs-string">&quot;:&quot;</span>)) &#123;<br>                                String name = msg.substring(<span class="hljs-number">0</span>, msg.index<span class="hljs-constructor">Of(<span class="hljs-string">&quot;:&quot;</span>)</span>);<br>                                label.set<span class="hljs-constructor">Foreground(Color.<span class="hljs-params">blue</span>)</span>;<br>                                <span class="hljs-keyword">if</span> (!name.equals(userName)) &#123;<br>                                    label.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;[&quot;</span> + <span class="hljs-params">msg</span>.<span class="hljs-params">substring</span>(0, <span class="hljs-params">msg</span>.<span class="hljs-params">indexOf</span>(<span class="hljs-string">&quot;:&quot;</span>)</span>) + <span class="hljs-string">&quot;] is talking to everyone&quot;</span>);<br>                                &#125; <span class="hljs-keyword">else</span> &#123;<br>                                    label.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;You are talking to everyone&quot;</span>)</span>;<br>                                &#125;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125; catch (IOException e) &#123;<br>                    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Failed to receive msg from the server&quot;</span>);<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">try</span> &#123;  <span class="hljs-comment">//after leaving the main loop we need to close all the sockets</span><br>                input.close<span class="hljs-literal">()</span>;<br>                output.close<span class="hljs-literal">()</span>;<br>                mySocket.close<span class="hljs-literal">()</span>;<br>                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>exit(<span class="hljs-number">0</span>);<br>            &#125; catch (Exception e) &#123;<br>                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;Failed to close socket&quot;</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//another inner class that implements Runnable</span><br>    <span class="hljs-keyword">class</span> checkUsers implements Runnable &#123;<br>        @Override<br>        <span class="hljs-comment">//check the status of all the users every second</span><br>        public void run<span class="hljs-literal">()</span> &#123;<br>            <span class="hljs-keyword">while</span> (running) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Thread</span>.</span></span>sleep(<span class="hljs-number">1000</span>);<br>                &#125; catch (InterruptedException e) &#123;<br>                &#125;<br>                output.println(<span class="hljs-string">&quot;-list&quot;</span>);<br>                output.flush<span class="hljs-literal">()</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//****** Inner Classes for Action Listeners ****</span><br>    <span class="hljs-comment">// send - send msg to server (also flush), then clear the JTextField</span><br>    <span class="hljs-keyword">class</span> SendButtonListener implements ActionListener &#123;<br>        public void action<span class="hljs-constructor">Performed(ActionEvent <span class="hljs-params">event</span>)</span> &#123;<br>            <span class="hljs-comment">//Send a message to the client</span><br>            msgArea.set<span class="hljs-constructor">CaretPosition(<span class="hljs-params">msgArea</span>.<span class="hljs-params">getText</span>()</span>.length<span class="hljs-literal">()</span>);<br>            String userSelected = userList.get<span class="hljs-constructor">SelectedItem()</span> + <span class="hljs-string">&quot;&quot;</span>;<br>            <span class="hljs-keyword">if</span> (!userSelected.equals(<span class="hljs-string">&quot;All&quot;</span>)) &#123;<br>                <span class="hljs-comment">//sending a private massage</span><br>                <span class="hljs-comment">/* added a space in the end because it&#x27;s going to have an</span><br><span class="hljs-comment">                error when blank massage is sent privately*/</span><br>                output.println(<span class="hljs-string">&quot;-pm:&quot;</span> + userSelected + <span class="hljs-string">&quot;:&quot;</span> + typeField.get<span class="hljs-constructor">Text()</span> + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                output.println(typeField.get<span class="hljs-constructor">Text()</span>);<br>            &#125;<br>            output.flush<span class="hljs-literal">()</span>;<br>            typeField.set<span class="hljs-constructor">Text(<span class="hljs-string">&quot;&quot;</span>)</span>;<br>        &#125;<br>    &#125;<br>&#125;<span class="hljs-comment">//end ChatClient class</span><br><br></code></pre></td></tr></table></figure></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/RHHS/">RHHS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/61834/">
+                        <span class="hidden-mobile">Hexo迁移｜mac到windows</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          enableQQ: ,
+          app_id: "cFjrGe19VYuw6oG028ogcCKX-MdYXbMMI",
+          app_key: "WV76W9zkR1pcORcdd3UjPpKA",
+          placeholder: "轻点骂（在上方留下你的邮箱，它不会被公开显示，收到回复的话会有邮件提醒｜Leave your email above to get a notification for replies)(在NickName一栏中填写QQ号或者在Email一栏填写qq邮箱[qq号+@qq.com]自动使用QQ头像)",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+          // 设置Bilibili表情包地址
+          emojiCDN: 'https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/', 
+          // 表情title和图片映射
+          emojiMaps: {
+            "tieba-1": "tieba-1.png",
+            "tieba-2": "tieba-2.png",
+            "tieba-3": "tieba-3.png",
+            "tieba-4": "tieba-4.png",
+            "tieba-5": "tieba-5.png",
+            "tieba-6": "tieba-6.png",
+            "tieba-7": "tieba-7.png",
+            "tieba-8": "tieba-8.png",
+            "tieba-9": "tieba-9.png",
+            "tieba-10": "tieba-10.png",
+            "tieba-11": "tieba-11.png",
+            "tieba-12": "tieba-12.png",
+            "tieba-13": "tieba-13.png",
+            "tieba-14": "tieba-14.png",
+            "tieba-15": "tieba-15.png",
+            "tieba-16": "tieba-16.png",
+            "tieba-17": "tieba-17.png",
+            "tieba-18": "tieba-18.png",
+            "tieba-19": "tieba-19.png",
+            "tieba-20": "tieba-20.png",
+            "tieba-21": "tieba-21.png",
+            "tieba-22": "tieba-22.png",
+            "tieba-23": "tieba-23.png",
+            "tieba-24": "tieba-24.png",
+            "tieba-25": "tieba-25.png",
+            "tieba-26": "tieba-26.png",
+            "tieba-27": "tieba-27.png",
+            "tieba-28": "tieba-28.png",
+            "tieba-29": "tieba-29.png",
+            "tieba-30": "tieba-30.png",
+            "tieba-31": "tieba-31.png",
+            "tieba-32": "tieba-32.png",
+            "tieba-33": "tieba-33.png",
+            "tieba-34": "tieba-34.png",
+            "tieba-35": "tieba-35.png",
+            "tieba-36": "tieba-36.png",
+            "tieba-37": "tieba-37.png",
+            "tieba-38": "tieba-38.png",
+            "tieba-54": "tieba-54.png",
+            "tieba-55": "tieba-55.png",
+            "tieba-56": "tieba-56.png",
+            "tieba-57": "tieba-57.png",
+            "tieba-58": "tieba-58.png",
+            "tieba-59": "tieba-59.png",
+            "tieba-60": "tieba-60.png",
+            "tieba-39": "tieba-39.png",
+            "tieba-40": "tieba-40.png",
+            "tieba-41": "tieba-41.png",
+            "tieba-42": "tieba-42.png",
+            "tieba-43": "tieba-43.png",
+            "tieba-44": "tieba-44.png",
+            "tieba-45": "tieba-45.png",
+            "tieba-46": "tieba-46.png",
+            "tieba-47": "tieba-47.png",
+            "tieba-48": "tieba-48.png",
+            "tieba-49": "tieba-49.png",
+            "tieba-50": "tieba-50.png",
+            "tieba-51": "tieba-51.png",
+            "tieba-52": "tieba-52.png",
+            "tieba-53": "tieba-53.png",
+            "weibo2": "weibo/d_aoteman.png",
+            "weibo3": "weibo/d_baibai.png",
+            "weibo4": "weibo/d_baobao.png",
+            "weibo5": "weibo/d_beishang.png",
+            "weibo6": "weibo/d_bingbujiandan.png",
+            "weibo7": "weibo/d_bishi.png",
+            "weibo8": "weibo/d_bizui.png",
+            "weibo9": "weibo/d_chanzui.png",
+            "weibo10": "weibo/d_chigua.png",
+            "weibo11": "weibo/d_chijing.png",
+            "weibo12": "weibo/d_dahaqi.png",
+            "weibo13": "weibo/d_dalian.png",
+            "weibo14": "weibo/d_ding.png",
+            "weibo15": "weibo/d_doge.png",
+            "weibo16": "weibo/d_erha.png",
+            "weibo17": "weibo/d_feijie.png",
+            "weibo18": "weibo/d_feizao.png",
+            "weibo19": "weibo/d_ganmao.png",
+            "weibo20": "weibo/d_guile.png",
+            "weibo21": "weibo/d_guzhang.png",
+            "weibo22": "weibo/d_haha.png",
+            "weibo23": "weibo/d_haixiu.png",
+            "weibo24": "weibo/d_han.png",
+            "weibo25": "weibo/d_hehe.png",
+            "weibo26": "weibo/d_heiheihei.png",
+            "weibo27": "weibo/d_heixian.png",
+            "weibo28": "weibo/d_heng.png",
+            "weibo29": "weibo/d_huaixiao.png",
+            "weibo30": "weibo/d_huaxin.png",
+            "weibo31": "weibo/d_jiyan.png",
+            "weibo32": "weibo/d_keai.png",
+            "weibo33": "weibo/d_kelian.png",
+            "weibo34": "weibo/d_ku.png",
+            "weibo35": "weibo/d_kulou.png",
+            "weibo36": "weibo/d_kun.png",
+            "weibo37": "weibo/d_landelini.png",
+            "weibo38": "weibo/d_lang.png",
+            "weibo39": "weibo/d_lei.png",
+            "weibo40": "weibo/d_miao.png",
+            "weibo41": "weibo/d_nanhaier.png",
+            "weibo42": "weibo/d_nu.png",
+            "weibo43": "weibo/d_numa.png",
+            "weibo44": "weibo/d_nvhaier.png",
+            "weibo45": "weibo/d_qian.png",
+            "weibo46": "weibo/d_qinqin.png",
+            "weibo47": "weibo/d_shayan.png",
+            "weibo48": "weibo/d_shengbing.png",
+            "weibo49": "weibo/d_shenshou.png",
+            "weibo50": "weibo/d_shiwang.png",
+            "weibo51": "weibo/d_shuai.png",
+            "weibo52": "weibo/d_shuijiao.png",
+            "weibo53": "weibo/d_sikao.png",
+            "weibo54": "weibo/d_taikaixin.png",
+            "weibo55": "weibo/d_tanshou.png",
+            "weibo56": "weibo/d_tian.png",
+            "weibo57": "weibo/d_touxiao.png",
+            "weibo58": "weibo/d_tu.png",
+            "weibo59": "weibo/d_tuzi.png",
+            "weibo60": "weibo/d_wabishi.png",
+            "weibo61": "weibo/d_weiqu.png",
+            "weibo62": "weibo/d_wu.png",
+            "weibo63": "weibo/d_xiaoku.png",
+            "weibo64": "weibo/d_xingxingyan.png",
+            "weibo65": "weibo/d_xiongmao.png",
+            "weibo66": "weibo/d_xixi.png",
+            "weibo67": "weibo/d_xu.png",
+            "weibo68": "weibo/d_yinxian.png",
+            "weibo69": "weibo/d_yiwen.png",
+            "weibo70": "weibo/d_youhengheng.png",
+            "weibo71": "weibo/d_yun.png",
+            "weibo72": "weibo/d_yunbei.png",
+            "weibo73": "weibo/d_zhuakuang.png",
+            "weibo74": "weibo/d_zhutou.png",
+            "weibo75": "weibo/d_zuiyou.png",
+            "weibo76": "weibo/emoji_0x1f31f.png",
+            "weibo77": "weibo/emoji_0x1f349.png",
+            "weibo78": "weibo/emoji_0x1f357.png",
+            "weibo79": "weibo/emoji_0x1f384.png",
+            "weibo80": "weibo/emoji_0x1f44f.png",
+            "weibo81": "weibo/emoji_0x1f47b.png",
+            "weibo82": "weibo/emoji_0x1f47f.png",
+            "weibo83": "weibo/emoji_0x1f48a.png",
+            "weibo84": "weibo/emoji_0x1f4a3.png",
+            "weibo85": "weibo/emoji_0x1f4a9.png",
+            "weibo86": "weibo/emoji_0x1f631.png",
+            "weibo87": "weibo/emoji_0x1f643.png",
+            "weibo88": "weibo/emoji_0x1f645.png",
+            "weibo89": "weibo/emoji_0x1f648.png",
+            "weibo90": "weibo/emoji_0x1f649.png",
+            "weibo91": "weibo/emoji_0x1f64a.png",
+            "weibo92": "weibo/emoji_0x1f64b.png",
+            "weibo93": "weibo/emoji_0x1f64f.png",
+            "weibo94": "weibo/emoji_0x1f913.png",
+            "weibo95": "weibo/emoji_0x1f917.png",
+            "weibo96": "weibo/emoji_0x26a1.png",
+            "weibo97": "weibo/h_buyao.png",
+            "weibo98": "weibo/h_good.png",
+            "weibo99": "weibo/h_haha.png",
+            "weibo100": "weibo/h_jiayou.png",
+            "weibo101": "weibo/h_lai.png",
+            "weibo102": "weibo/h_ok.png",
+            "weibo103": "weibo/h_quantou.png",
+            "weibo104": "weibo/h_ruo.png",
+            "weibo105": "weibo/h_woshou.png",
+            "weibo106": "weibo/h_ye.png",
+            "weibo107": "weibo/h_zan.png",
+            "weibo108": "weibo/h_zuoyi.png",
+            "alu2": "alu/不出所料.png",
+            "alu3": "alu/不说话.png",
+            "alu4": "alu/不高兴.png",
+            "alu5": "alu/中刀.png",
+            "alu6": "alu/中指.png",
+            "alu7": "alu/中枪.png",
+            "alu8": "alu/亲亲.png",
+            "alu9": "alu/便便.png",
+            "alu10": "alu/内伤.png",
+            "alu11": "alu/击掌.png",
+            "alu12": "alu/口水.png",
+            "alu13": "alu/吐.png",
+            "alu14": "alu/吐舌.png",
+            "alu15": "alu/吐血倒地.png",
+            "alu16": "alu/呲牙.png",
+            "alu17": "alu/咽气.png",
+            "alu18": "alu/哭泣.png",
+            "alu19": "alu/喜极而泣.png",
+            "alu20": "alu/喷水.png",
+            "alu21": "alu/喷血.png",
+            "alu22": "alu/坐等.png",
+            "alu23": "alu/害羞.png",
+            "alu24": "alu/小眼睛.png",
+            "alu25": "alu/尴尬.png",
+            "alu26": "alu/得意.png",
+            "alu27": "alu/惊喜.png",
+            "alu28": "alu/想一想.png",
+            "alu29": "alu/愤怒.png",
+            "alu30": "alu/扇耳光.png",
+            "alu31": "alu/投降.png",
+            "alu32": "alu/抠鼻.png",
+            "alu33": "alu/抽烟.png",
+            "alu34": "alu/无奈.png",
+            "alu35": "alu/无所谓.png",
+            "alu36": "alu/无语.png",
+            "alu37": "alu/暗地观察.png",
+            "alu38": "alu/期待.png",
+            "alu39": "alu/欢呼.png",
+            "alu40": "alu/汗.png",
+            "alu41": "alu/深思.png",
+            "alu42": "alu/狂汗.png",
+            "alu43": "alu/献花.png",
+            "alu44": "alu/献黄瓜.png",
+            "alu45": "alu/皱眉.png",
+            "alu46": "alu/看不见.png",
+            "alu47": "alu/看热闹.png",
+            "alu48": "alu/瞅你.png",
+            "alu49": "alu/肿包.png",
+            "alu50": "alu/脸红.png",
+            "alu51": "alu/蜡烛.png",
+            "alu52": "alu/装大款.png",
+            "alu53": "alu/观察.png",
+            "alu54": "alu/赞一个.png",
+            "alu55": "alu/邪恶.png",
+            "alu56": "alu/锁眉.png",
+            "alu57": "alu/长草.png",
+            "alu58": "alu/阴暗.png",
+            "alu59": "alu/高兴.png",
+            "alu60": "alu/黑线.png",
+            "alu61": "alu/鼓掌.png",
+            "alu62": "alu/思考.png",
+            "alu63": "alu/电脑.png",
+            "EveOneCat-1": "EveOneCat/EveOneCat_1.png",
+            "EveOneCat-2": "EveOneCat/EveOneCat_2.png",
+            "EveOneCat-3": "EveOneCat/EveOneCat_3.png",
+            "EveOneCat-4": "EveOneCat/EveOneCat_4.png",
+            "EveOneCat-5": "EveOneCat/EveOneCat_5.png",
+            "EveOneCat-6": "EveOneCat/EveOneCat_6.png",
+            "EveOneCat-7": "EveOneCat/EveOneCat_7.png",
+            "EveOneCat-8": "EveOneCat/EveOneCat_8.png",
+            "EveOneCat-9": "EveOneCat/EveOneCat_9.png",
+            "EveOneCat-10": "EveOneCat/EveOneCat_10.png",
+            "EveOneCat-11": "EveOneCat/EveOneCat_11.png",
+            "EveOneCat-12": "EveOneCat/EveOneCat_12.png",
+            "EveOneCat-13": "EveOneCat/EveOneCat_13.png",
+            "EveOneCat-14": "EveOneCat/EveOneCat_14.png",
+            "EveOneCat-15": "EveOneCat/EveOneCat_15.png",
+            "EveOneCat-16": "EveOneCat/EveOneCat_16.png",
+            "EveOneCat-17": "EveOneCat/EveOneCat_17.png",
+            "EveOneCat-18": "EveOneCat/EveOneCat_18.png",
+            "EveOneCat-19": "EveOneCat/EveOneCat_19.png",
+            "EveOneCat-20": "EveOneCat/EveOneCat_20.png"
+              // ... 更多表情
+          } 
+        });
+      });
+    }
+    //waitElementVisible('vcomments', loadValine)
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+  
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <span id="timeDate">正在烧脑计算建站时间...</span>
+      <span id="times"></span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("08/04/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站已默默无闻运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+          
+        }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+    <a href="https://icp.gov.moe" target="_blank">萌ICP备 </a><a href="https://icp.gov.moe/?keyword=20211001" target="_blank"> 20211001号</a>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+    <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=UcxdrvS_dG9ALI85fIcJskXg_hYsNi47T6wsr7OFVzo&co=7089a3&cmo=ffd099&cmn=ff7269&ct=ffffff'></script> -->
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=UcxdrvS_dG9ALI85fIcJskXg_hYsNi47T6wsr7OFVzo&co=7089a3&cmo=ffd099&cmn=ff7269'></script>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/suyin-long/activate-power-mode@1.0/dist/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+<!-- SCRIPTS -->
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6eb11358040c833e07f6d5a8c94decad";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-177561089-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  <script typr="text/javascript">
+    console.log("%c▄▄▄█████▓ ██▀███   ▒█████  ▄▄▄█████▓▓██   ██▓ ██▓    \n▓  ██▒ ▓▒▓██ ▒ ██▒▒██▒  ██▒▓  ██▒ ▓▒ ▒██  ██▒▓██▒    \n▒ ▓██░ ▒░▓██ ░▄█ ▒▒██░  ██▒▒ ▓██░ ▒░  ▒██ ██░▒██░    \n░ ▓██▓ ░ ▒██▀▀█▄  ▒██   ██░░ ▓██▓ ░   ░ ▐██▓░▒██░    \n  ▒██▒ ░ ░██▓ ▒██▒░ ████▓▒░  ▒██▒ ░   ░ ██▒▓░░██████▒\n  ▒ ░░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░   ▒ ░░      ██▒▒▒ ░ ▒░▓  ░\n    ░      ░▒ ░ ▒░  ░ ▒ ▒░     ░     ▓██ ░▒░ ░ ░ ▒  ░\n  ░        ░░   ░ ░ ░ ░ ▒    ░       ▒ ▒ ░░    ░ ░   \n            ░         ░ ░            ░ ░         ░  ░\n                                     ░ ░             \n","color: #7089A3;")
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/lambda.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>

@@ -1,0 +1,920 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta name="baidu-site-verification" content="P41arb3jf5" />
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+    .pace .pace-progress {
+        background: #FFAA8D; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #FFAA8D, 0 0 5px     #FFAA8D; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #FFAA8D;    /*上边框颜色*/
+        border-left-color: #FFAA8D;    /*左边框颜色*/
+    }
+  </style>
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="一个小博客">
+  <meta name="author" content="Trotyl">
+  <meta name="keywords" content="">
+  <title>Hexo迁移｜mac到windows - Trotyl&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"trotyl.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":false,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"onlypost":true},"web_analytics":{"enable":true,"baidu":"6eb11358040c833e07f6d5a8c94decad","google":"UA-177561089-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zcL2DBnP3JIFC9a8HE5uYMfm-MdYXbMMI","app_key":"fRsoWUTEoES4QglVrH0chpxV","server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Trotyl's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Trotyl</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                Posts
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    Archives
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    Categories
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    Tags
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                Pages
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/comment/">
+                    <i class="iconfont icon-addrcard"></i>
+                    留言板
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/shuoshuo/">
+                    <i class="iconfont icon-speakernotes"></i>
+                    碎碎念
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Hexo迁移｜mac到windows">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Trotyl
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-27 17:19" pubdate>
+        November 27, 2020 5:19 PM
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      931 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hexo迁移｜mac到windows</h1>
+            
+            <div class="markdown-body">
+              <p>最近换电脑了嘛，就想着得把博客搬到这个电脑上，网上找了找，都是windows迁到mac上的，完全没有从mac到win的。。<span class="heimu" title="你知道的太多了">windows现在已经这么过气了吗？泪目</span></p>
+<p>既然这样我就写一下步骤吧，虽然其实和别的系统差不多，但是毕竟我还是遇到了蛮多坑的。<img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/1.jpg" srcset="/img/loading.gif" width = "150"   align=justify /></p>
+<hr>
+<h1 id="在旧电脑（mac）上应该做的事"><a href="#在旧电脑（mac）上应该做的事" class="headerlink" title="在旧电脑（mac）上应该做的事"></a>在旧电脑（mac）上应该做的事</h1><p>搞个u盘或者之类的东西，把以下这些文件复制一下</p>
+<ul>
+<li>source(文件夹)</li>
+<li>themes/主题文件</li>
+<li>_config.yml</li>
+<li>package.json</li>
+<li>如果你有下一些需要你配置文件的插件，把那些需要的东西也复制下<ul>
+<li>比如说你有live2d的插件并且用的是自定义的模型，复制放模型的文件夹：live2d_models</li>
+</ul>
+</li>
+<li>如果你有CNAME文件，复制它</li>
+</ul>
+<h1 id="在新电脑（win）上"><a href="#在新电脑（win）上" class="headerlink" title="在新电脑（win）上"></a>在新电脑（win）上</h1><h2 id="一、安装node-js"><a href="#一、安装node-js" class="headerlink" title="一、安装node.js"></a>一、安装node.js</h2><h3 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1.下载nodejs"></a>1.下载nodejs</h3><p>建议手动下载，<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">这是官网链接</a><br>LTS的这个<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201127232937.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h3><p>安装就不用我教了吧，点就完事了<img src="https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/tieba-17.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="二、下载git并向Github添加SSH-Key"><a href="#二、下载git并向Github添加SSH-Key" class="headerlink" title="二、下载git并向Github添加SSH Key"></a>二、下载git并向Github添加SSH Key</h2><h3 id="1-创建SSH-Key"><a href="#1-创建SSH-Key" class="headerlink" title="1. 创建SSH Key"></a>1. 创建SSH Key</h3><p>1) 打开Gitbash<br>2) 输入<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br>这里得把你自己的邮箱地址替换上去<br>3) 一路回车<br>4) 在用户目录（user/xxx)下找到.ssh的文件夹<br>5) 找到<code>id_rsa.pub</code>的文件打开<strong>(一定要后缀是.pub的那个)</strong>，复制里面的东西</p>
+<h3 id="2-添加SSH-Key"><a href="#2-添加SSH-Key" class="headerlink" title="2. 添加SSH Key"></a>2. 添加SSH Key</h3><p>1) 登录GitHub<br>2) 点头像<br>3) 点开Settings<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201128001321.png" srcset="/img/loading.gif" alt=""><br><span class="heimu" title="你知道的太多了">话说再次让我感叹一下QQ截图真他娘的好用</span><br>4)左侧栏找到SSH and GPG keys，点进去<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201128001610.png" srcset="/img/loading.gif" alt=""><br>5)点New SSH key然后把刚才从<code>id_rsa.pub</code>文件里复制的东西复制到Key的那一栏里，Title那栏随便写<br><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/20201128001721.png" srcset="/img/loading.gif" alt=""><br>6)点击Add key，完成</p>
+<h2 id="三、以管理员模式打开cmd"><a href="#三、以管理员模式打开cmd" class="headerlink" title="三、以管理员模式打开cmd"></a>三、以管理员模式打开cmd</h2><p><strong>要管理员模式哈！！</strong></p>
+<h3 id="1-先check一下node和npm有没有安装成功"><a href="#1-先check一下node和npm有没有安装成功" class="headerlink" title="1.先check一下node和npm有没有安装成功"></a>1.先check一下node和npm有没有安装成功</h3><p>分别输入<code>node -v</code>回车和<code>npm -v</code>回车，如果显示版本号，那就说明成功了</p>
+<h3 id="2-国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）"><a href="#2-国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）" class="headerlink" title="2.国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）"></a>2.国内npm可能很慢，可以先用npm来安装一下cnpm（不嫌慢的这步也可以跳过）</h3><p>输入<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>回车</p>
+<p>如果安装了cnpm，后面我用npm的时候请自行替换成cnpm</p>
+<h2 id="四-安装和搭建Hexo"><a href="#四-安装和搭建Hexo" class="headerlink" title="四. 安装和搭建Hexo"></a>四. 安装和搭建Hexo</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>输入<code>npm install -g hexo-cli</code><br>可以用<code>hexo -v</code>验证一下是否成功。如果显示版本号，说明成功</p>
+<h3 id="2-建立一个放博客的文件夹"><a href="#2-建立一个放博客的文件夹" class="headerlink" title="2. 建立一个放博客的文件夹"></a>2. 建立一个放博客的文件夹</h3><p>我是在C盘下面建的（因为我不喜欢分盘），你可以在D盘或者别的什么地方建都可以<br>1) cd到那个地方<code>mkdir blog</code><br>不叫blog也行，有的人喜欢叫hexo什么的<br>2) 建立好了以后<code>cd blog</code>进去执行<code>hexo init</code>建立一个新的Hexo目录<br>3) 将之前从旧电脑上复制的package.json复制到新的目录下，把原来的文件覆盖掉</p>
+<p><strong>因为mac系统的原因，它会生成很多奇奇怪怪的隐藏文件，得先把那些.打头的文件删掉，所有文件夹里都看一遍，所有文件夹里的都得删除，否则会出现<code>hexo err: YAMLException: null byte is not allowed in input at line 1, column 1</code>等错误提示</strong></p>
+<p>4) 执行<code>hexo install</code><br>把剩下的那些从旧电脑上复制的文件和文件夹放到对应的位置<br>6) <code>hexo g</code>然后<code>hexo s</code>，打开<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a><br>看看有没有生成好</p>
+<h2 id="四、hexo-d一下看看能不能成功部署"><a href="#四、hexo-d一下看看能不能成功部署" class="headerlink" title="四、hexo d一下看看能不能成功部署"></a>四、hexo d一下看看能不能成功部署</h2><p>如果出现了<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">Please tell me who you are.<br><br><span class="hljs-keyword">Run</span><br><br><span class="bash">	git config --global user.email <span class="hljs-string">&quot;you@example.com&quot;</span></span><br>    git config --global <span class="hljs-keyword">user</span>.name <span class="hljs-string">&quot;Your Name&quot;</span><br></code></pre></td></tr></table></figure><br>1)输入<code>git config --global user.email &quot;你的邮箱“</code>这个邮箱得是你在GitHub里用的那个<br>2)输入`git config —global user.name “你的名字”<br>这个名字随便起就行了</p>
+<p>完事！！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Trotyl15/blogImg/img/blog/movingHexo/%EF%BC%92.gif" srcset="/img/loading.gif" width = "200" alt="好耶"  /></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/38733/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java Server and Client实现聊天室</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/3587/">
+                        <span class="hidden-mobile">Grade 12 Chemistry（已坟）</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          enableQQ: ,
+          app_id: "cFjrGe19VYuw6oG028ogcCKX-MdYXbMMI",
+          app_key: "WV76W9zkR1pcORcdd3UjPpKA",
+          placeholder: "轻点骂（在上方留下你的邮箱，它不会被公开显示，收到回复的话会有邮件提醒｜Leave your email above to get a notification for replies)(在NickName一栏中填写QQ号或者在Email一栏填写qq邮箱[qq号+@qq.com]自动使用QQ头像)",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+          // 设置Bilibili表情包地址
+          emojiCDN: 'https://gitee.com/Trotyl15/blogImage/raw/master/img/emoji/', 
+          // 表情title和图片映射
+          emojiMaps: {
+            "tieba-1": "tieba-1.png",
+            "tieba-2": "tieba-2.png",
+            "tieba-3": "tieba-3.png",
+            "tieba-4": "tieba-4.png",
+            "tieba-5": "tieba-5.png",
+            "tieba-6": "tieba-6.png",
+            "tieba-7": "tieba-7.png",
+            "tieba-8": "tieba-8.png",
+            "tieba-9": "tieba-9.png",
+            "tieba-10": "tieba-10.png",
+            "tieba-11": "tieba-11.png",
+            "tieba-12": "tieba-12.png",
+            "tieba-13": "tieba-13.png",
+            "tieba-14": "tieba-14.png",
+            "tieba-15": "tieba-15.png",
+            "tieba-16": "tieba-16.png",
+            "tieba-17": "tieba-17.png",
+            "tieba-18": "tieba-18.png",
+            "tieba-19": "tieba-19.png",
+            "tieba-20": "tieba-20.png",
+            "tieba-21": "tieba-21.png",
+            "tieba-22": "tieba-22.png",
+            "tieba-23": "tieba-23.png",
+            "tieba-24": "tieba-24.png",
+            "tieba-25": "tieba-25.png",
+            "tieba-26": "tieba-26.png",
+            "tieba-27": "tieba-27.png",
+            "tieba-28": "tieba-28.png",
+            "tieba-29": "tieba-29.png",
+            "tieba-30": "tieba-30.png",
+            "tieba-31": "tieba-31.png",
+            "tieba-32": "tieba-32.png",
+            "tieba-33": "tieba-33.png",
+            "tieba-34": "tieba-34.png",
+            "tieba-35": "tieba-35.png",
+            "tieba-36": "tieba-36.png",
+            "tieba-37": "tieba-37.png",
+            "tieba-38": "tieba-38.png",
+            "tieba-54": "tieba-54.png",
+            "tieba-55": "tieba-55.png",
+            "tieba-56": "tieba-56.png",
+            "tieba-57": "tieba-57.png",
+            "tieba-58": "tieba-58.png",
+            "tieba-59": "tieba-59.png",
+            "tieba-60": "tieba-60.png",
+            "tieba-39": "tieba-39.png",
+            "tieba-40": "tieba-40.png",
+            "tieba-41": "tieba-41.png",
+            "tieba-42": "tieba-42.png",
+            "tieba-43": "tieba-43.png",
+            "tieba-44": "tieba-44.png",
+            "tieba-45": "tieba-45.png",
+            "tieba-46": "tieba-46.png",
+            "tieba-47": "tieba-47.png",
+            "tieba-48": "tieba-48.png",
+            "tieba-49": "tieba-49.png",
+            "tieba-50": "tieba-50.png",
+            "tieba-51": "tieba-51.png",
+            "tieba-52": "tieba-52.png",
+            "tieba-53": "tieba-53.png",
+            "weibo2": "weibo/d_aoteman.png",
+            "weibo3": "weibo/d_baibai.png",
+            "weibo4": "weibo/d_baobao.png",
+            "weibo5": "weibo/d_beishang.png",
+            "weibo6": "weibo/d_bingbujiandan.png",
+            "weibo7": "weibo/d_bishi.png",
+            "weibo8": "weibo/d_bizui.png",
+            "weibo9": "weibo/d_chanzui.png",
+            "weibo10": "weibo/d_chigua.png",
+            "weibo11": "weibo/d_chijing.png",
+            "weibo12": "weibo/d_dahaqi.png",
+            "weibo13": "weibo/d_dalian.png",
+            "weibo14": "weibo/d_ding.png",
+            "weibo15": "weibo/d_doge.png",
+            "weibo16": "weibo/d_erha.png",
+            "weibo17": "weibo/d_feijie.png",
+            "weibo18": "weibo/d_feizao.png",
+            "weibo19": "weibo/d_ganmao.png",
+            "weibo20": "weibo/d_guile.png",
+            "weibo21": "weibo/d_guzhang.png",
+            "weibo22": "weibo/d_haha.png",
+            "weibo23": "weibo/d_haixiu.png",
+            "weibo24": "weibo/d_han.png",
+            "weibo25": "weibo/d_hehe.png",
+            "weibo26": "weibo/d_heiheihei.png",
+            "weibo27": "weibo/d_heixian.png",
+            "weibo28": "weibo/d_heng.png",
+            "weibo29": "weibo/d_huaixiao.png",
+            "weibo30": "weibo/d_huaxin.png",
+            "weibo31": "weibo/d_jiyan.png",
+            "weibo32": "weibo/d_keai.png",
+            "weibo33": "weibo/d_kelian.png",
+            "weibo34": "weibo/d_ku.png",
+            "weibo35": "weibo/d_kulou.png",
+            "weibo36": "weibo/d_kun.png",
+            "weibo37": "weibo/d_landelini.png",
+            "weibo38": "weibo/d_lang.png",
+            "weibo39": "weibo/d_lei.png",
+            "weibo40": "weibo/d_miao.png",
+            "weibo41": "weibo/d_nanhaier.png",
+            "weibo42": "weibo/d_nu.png",
+            "weibo43": "weibo/d_numa.png",
+            "weibo44": "weibo/d_nvhaier.png",
+            "weibo45": "weibo/d_qian.png",
+            "weibo46": "weibo/d_qinqin.png",
+            "weibo47": "weibo/d_shayan.png",
+            "weibo48": "weibo/d_shengbing.png",
+            "weibo49": "weibo/d_shenshou.png",
+            "weibo50": "weibo/d_shiwang.png",
+            "weibo51": "weibo/d_shuai.png",
+            "weibo52": "weibo/d_shuijiao.png",
+            "weibo53": "weibo/d_sikao.png",
+            "weibo54": "weibo/d_taikaixin.png",
+            "weibo55": "weibo/d_tanshou.png",
+            "weibo56": "weibo/d_tian.png",
+            "weibo57": "weibo/d_touxiao.png",
+            "weibo58": "weibo/d_tu.png",
+            "weibo59": "weibo/d_tuzi.png",
+            "weibo60": "weibo/d_wabishi.png",
+            "weibo61": "weibo/d_weiqu.png",
+            "weibo62": "weibo/d_wu.png",
+            "weibo63": "weibo/d_xiaoku.png",
+            "weibo64": "weibo/d_xingxingyan.png",
+            "weibo65": "weibo/d_xiongmao.png",
+            "weibo66": "weibo/d_xixi.png",
+            "weibo67": "weibo/d_xu.png",
+            "weibo68": "weibo/d_yinxian.png",
+            "weibo69": "weibo/d_yiwen.png",
+            "weibo70": "weibo/d_youhengheng.png",
+            "weibo71": "weibo/d_yun.png",
+            "weibo72": "weibo/d_yunbei.png",
+            "weibo73": "weibo/d_zhuakuang.png",
+            "weibo74": "weibo/d_zhutou.png",
+            "weibo75": "weibo/d_zuiyou.png",
+            "weibo76": "weibo/emoji_0x1f31f.png",
+            "weibo77": "weibo/emoji_0x1f349.png",
+            "weibo78": "weibo/emoji_0x1f357.png",
+            "weibo79": "weibo/emoji_0x1f384.png",
+            "weibo80": "weibo/emoji_0x1f44f.png",
+            "weibo81": "weibo/emoji_0x1f47b.png",
+            "weibo82": "weibo/emoji_0x1f47f.png",
+            "weibo83": "weibo/emoji_0x1f48a.png",
+            "weibo84": "weibo/emoji_0x1f4a3.png",
+            "weibo85": "weibo/emoji_0x1f4a9.png",
+            "weibo86": "weibo/emoji_0x1f631.png",
+            "weibo87": "weibo/emoji_0x1f643.png",
+            "weibo88": "weibo/emoji_0x1f645.png",
+            "weibo89": "weibo/emoji_0x1f648.png",
+            "weibo90": "weibo/emoji_0x1f649.png",
+            "weibo91": "weibo/emoji_0x1f64a.png",
+            "weibo92": "weibo/emoji_0x1f64b.png",
+            "weibo93": "weibo/emoji_0x1f64f.png",
+            "weibo94": "weibo/emoji_0x1f913.png",
+            "weibo95": "weibo/emoji_0x1f917.png",
+            "weibo96": "weibo/emoji_0x26a1.png",
+            "weibo97": "weibo/h_buyao.png",
+            "weibo98": "weibo/h_good.png",
+            "weibo99": "weibo/h_haha.png",
+            "weibo100": "weibo/h_jiayou.png",
+            "weibo101": "weibo/h_lai.png",
+            "weibo102": "weibo/h_ok.png",
+            "weibo103": "weibo/h_quantou.png",
+            "weibo104": "weibo/h_ruo.png",
+            "weibo105": "weibo/h_woshou.png",
+            "weibo106": "weibo/h_ye.png",
+            "weibo107": "weibo/h_zan.png",
+            "weibo108": "weibo/h_zuoyi.png",
+            "alu2": "alu/不出所料.png",
+            "alu3": "alu/不说话.png",
+            "alu4": "alu/不高兴.png",
+            "alu5": "alu/中刀.png",
+            "alu6": "alu/中指.png",
+            "alu7": "alu/中枪.png",
+            "alu8": "alu/亲亲.png",
+            "alu9": "alu/便便.png",
+            "alu10": "alu/内伤.png",
+            "alu11": "alu/击掌.png",
+            "alu12": "alu/口水.png",
+            "alu13": "alu/吐.png",
+            "alu14": "alu/吐舌.png",
+            "alu15": "alu/吐血倒地.png",
+            "alu16": "alu/呲牙.png",
+            "alu17": "alu/咽气.png",
+            "alu18": "alu/哭泣.png",
+            "alu19": "alu/喜极而泣.png",
+            "alu20": "alu/喷水.png",
+            "alu21": "alu/喷血.png",
+            "alu22": "alu/坐等.png",
+            "alu23": "alu/害羞.png",
+            "alu24": "alu/小眼睛.png",
+            "alu25": "alu/尴尬.png",
+            "alu26": "alu/得意.png",
+            "alu27": "alu/惊喜.png",
+            "alu28": "alu/想一想.png",
+            "alu29": "alu/愤怒.png",
+            "alu30": "alu/扇耳光.png",
+            "alu31": "alu/投降.png",
+            "alu32": "alu/抠鼻.png",
+            "alu33": "alu/抽烟.png",
+            "alu34": "alu/无奈.png",
+            "alu35": "alu/无所谓.png",
+            "alu36": "alu/无语.png",
+            "alu37": "alu/暗地观察.png",
+            "alu38": "alu/期待.png",
+            "alu39": "alu/欢呼.png",
+            "alu40": "alu/汗.png",
+            "alu41": "alu/深思.png",
+            "alu42": "alu/狂汗.png",
+            "alu43": "alu/献花.png",
+            "alu44": "alu/献黄瓜.png",
+            "alu45": "alu/皱眉.png",
+            "alu46": "alu/看不见.png",
+            "alu47": "alu/看热闹.png",
+            "alu48": "alu/瞅你.png",
+            "alu49": "alu/肿包.png",
+            "alu50": "alu/脸红.png",
+            "alu51": "alu/蜡烛.png",
+            "alu52": "alu/装大款.png",
+            "alu53": "alu/观察.png",
+            "alu54": "alu/赞一个.png",
+            "alu55": "alu/邪恶.png",
+            "alu56": "alu/锁眉.png",
+            "alu57": "alu/长草.png",
+            "alu58": "alu/阴暗.png",
+            "alu59": "alu/高兴.png",
+            "alu60": "alu/黑线.png",
+            "alu61": "alu/鼓掌.png",
+            "alu62": "alu/思考.png",
+            "alu63": "alu/电脑.png",
+            "EveOneCat-1": "EveOneCat/EveOneCat_1.png",
+            "EveOneCat-2": "EveOneCat/EveOneCat_2.png",
+            "EveOneCat-3": "EveOneCat/EveOneCat_3.png",
+            "EveOneCat-4": "EveOneCat/EveOneCat_4.png",
+            "EveOneCat-5": "EveOneCat/EveOneCat_5.png",
+            "EveOneCat-6": "EveOneCat/EveOneCat_6.png",
+            "EveOneCat-7": "EveOneCat/EveOneCat_7.png",
+            "EveOneCat-8": "EveOneCat/EveOneCat_8.png",
+            "EveOneCat-9": "EveOneCat/EveOneCat_9.png",
+            "EveOneCat-10": "EveOneCat/EveOneCat_10.png",
+            "EveOneCat-11": "EveOneCat/EveOneCat_11.png",
+            "EveOneCat-12": "EveOneCat/EveOneCat_12.png",
+            "EveOneCat-13": "EveOneCat/EveOneCat_13.png",
+            "EveOneCat-14": "EveOneCat/EveOneCat_14.png",
+            "EveOneCat-15": "EveOneCat/EveOneCat_15.png",
+            "EveOneCat-16": "EveOneCat/EveOneCat_16.png",
+            "EveOneCat-17": "EveOneCat/EveOneCat_17.png",
+            "EveOneCat-18": "EveOneCat/EveOneCat_18.png",
+            "EveOneCat-19": "EveOneCat/EveOneCat_19.png",
+            "EveOneCat-20": "EveOneCat/EveOneCat_20.png"
+              // ... 更多表情
+          } 
+        });
+      });
+    }
+    //waitElementVisible('vcomments', loadValine)
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+  
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <span id="timeDate">正在烧脑计算建站时间...</span>
+      <span id="times"></span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("08/04/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站已默默无闻运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+          
+        }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+    <a href="https://icp.gov.moe" target="_blank">萌ICP备 </a><a href="https://icp.gov.moe/?keyword=20211001" target="_blank"> 20211001号</a>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+    <!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=UcxdrvS_dG9ALI85fIcJskXg_hYsNi47T6wsr7OFVzo&co=7089a3&cmo=ffd099&cmn=ff7269&ct=ffffff'></script> -->
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=UcxdrvS_dG9ALI85fIcJskXg_hYsNi47T6wsr7OFVzo&co=7089a3&cmo=ffd099&cmn=ff7269'></script>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/suyin-long/activate-power-mode@1.0/dist/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+<!-- SCRIPTS -->
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6eb11358040c833e07f6d5a8c94decad";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-177561089-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  <script typr="text/javascript">
+    console.log("%c▄▄▄█████▓ ██▀███   ▒█████  ▄▄▄█████▓▓██   ██▓ ██▓    \n▓  ██▒ ▓▒▓██ ▒ ██▒▒██▒  ██▒▓  ██▒ ▓▒ ▒██  ██▒▓██▒    \n▒ ▓██░ ▒░▓██ ░▄█ ▒▒██░  ██▒▒ ▓██░ ▒░  ▒██ ██░▒██░    \n░ ▓██▓ ░ ▒██▀▀█▄  ▒██   ██░░ ▓██▓ ░   ░ ▐██▓░▒██░    \n  ▒██▒ ░ ░██▓ ▒██▒░ ████▓▒░  ▒██▒ ░   ░ ██▒▓░░██████▒\n  ▒ ░░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░   ▒ ░░      ██▒▒▒ ░ ▒░▓  ░\n    ░      ░▒ ░ ▒░  ░ ▒ ▒░     ░     ▓██ ░▒░ ░ ░ ▒  ░\n  ░        ░░   ░ ░ ░ ░ ▒    ░       ▒ ▒ ░░    ░ ░   \n            ░         ░ ░            ░ ░         ░  ░\n                                     ░ ░             \n","color: #7089A3;")
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/lambda.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
