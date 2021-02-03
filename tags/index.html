@@ -352,13 +352,14 @@
           for (var i = 0; i < areas.length; i++) {
             if (areas[i].indexOf(area) != -1) {
               document.getElementById("cdn").innerHTML = areas[i];
-              document.getElementById("ip").innerHTML = data.split("ip=")[1].split("\n")[0];
-              document.getElementById("httpos").innerHTML = data.split("visit_scheme=")[1].split("\n")[0];
-              document.getElementById("uag").innerHTML = data.split("uag=")[1].split("\n")[0];
-              document.getElementById("http").innerHTML = data.split("http=")[1].split("\n")[0];
               document.getElementById("loc").innerHTML = data.split("loc=")[1].split("\n")[0];
-              document.getElementById("tls").innerHTML = data.split("tls=")[1].split("\n")[0];
-              document.getElementById("warp").innerHTML = data.split("warp=")[1].split("\n")[0];
+              document.getElementById("ip").innerHTML = data.split("ip=")[1].split("\n")[0];
+              // document.getElementById("httpos").innerHTML = data.split("visit_scheme=")[1].split("\n")[0];
+              // document.getElementById("uag").innerHTML = data.split("uag=")[1].split("\n")[0];
+              // document.getElementById("http").innerHTML = data.split("http=")[1].split("\n")[0];
+    
+              // document.getElementById("tls").innerHTML = data.split("tls=")[1].split("\n")[0];
+              // document.getElementById("warp").innerHTML = data.split("warp=")[1].split("\n")[0];
               break;
             }
           }
