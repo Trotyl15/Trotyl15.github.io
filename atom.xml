@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Trotyl&#39;s Blog</title>
-  <icon>http://trotyl.xyz/icon.png</icon>
+  <icon>http://blog.trotyl.xyz/icon.png</icon>
   
-  <link href="http://trotyl.xyz/atom.xml" rel="self"/>
+  <link href="http://blog.trotyl.xyz/atom.xml" rel="self"/>
   
-  <link href="http://trotyl.xyz/"/>
+  <link href="http://blog.trotyl.xyz/"/>
   <updated>2020-12-29T02:17:40.659Z</updated>
-  <id>http://trotyl.xyz/</id>
+  <id>http://blog.trotyl.xyz/</id>
   
   <author>
     <name>Trotyl</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Java Server and Client实现聊天室</title>
-    <link href="http://trotyl.xyz/post/38733/"/>
-    <id>http://trotyl.xyz/post/38733/</id>
+    <link href="http://blog.trotyl.xyz/post/38733/"/>
+    <id>http://blog.trotyl.xyz/post/38733/</id>
     <published>2020-12-15T01:49:00.000Z</published>
     <updated>2020-12-29T02:17:40.659Z</updated>
     
@@ -36,17 +36,17 @@
     
     
     
-    <category term="RHHS" scheme="http://trotyl.xyz/categories/RHHS/"/>
+    <category term="RHHS" scheme="http://blog.trotyl.xyz/categories/RHHS/"/>
     
     
-    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    <category term="java" scheme="http://blog.trotyl.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>Hexo迁移｜mac到windows</title>
-    <link href="http://trotyl.xyz/post/61834/"/>
-    <id>http://trotyl.xyz/post/61834/</id>
+    <link href="http://blog.trotyl.xyz/post/61834/"/>
+    <id>http://blog.trotyl.xyz/post/61834/</id>
     <published>2020-11-27T22:19:00.000Z</published>
     <updated>2020-12-11T23:54:11.177Z</updated>
     
@@ -62,14 +62,14 @@
     
     
     
-    <category term="hexo" scheme="http://trotyl.xyz/tags/hexo/"/>
+    <category term="hexo" scheme="http://blog.trotyl.xyz/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>Grade 12 Chemistry（已坟）</title>
-    <link href="http://trotyl.xyz/post/3587/"/>
-    <id>http://trotyl.xyz/post/3587/</id>
+    <link href="http://blog.trotyl.xyz/post/3587/"/>
+    <id>http://blog.trotyl.xyz/post/3587/</id>
     <published>2020-09-10T19:54:00.000Z</published>
     <updated>2020-12-28T00:02:46.558Z</updated>
     
@@ -84,15 +84,15 @@
     
     
     
-    <category term="RHHS" scheme="http://trotyl.xyz/categories/RHHS/"/>
+    <category term="RHHS" scheme="http://blog.trotyl.xyz/categories/RHHS/"/>
     
     
   </entry>
   
   <entry>
     <title>好用的油猴脚本推荐｜持续更新</title>
-    <link href="http://trotyl.xyz/post/17599/"/>
-    <id>http://trotyl.xyz/post/17599/</id>
+    <link href="http://blog.trotyl.xyz/post/17599/"/>
+    <id>http://blog.trotyl.xyz/post/17599/</id>
     <published>2020-09-02T05:58:43.000Z</published>
     <updated>2020-12-27T06:16:40.556Z</updated>
     
@@ -109,14 +109,14 @@
     
     
     
-    <category term="杂七杂八" scheme="http://trotyl.xyz/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+    <category term="杂七杂八" scheme="http://blog.trotyl.xyz/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
     
   </entry>
   
   <entry>
     <title>图｜Graph</title>
-    <link href="http://trotyl.xyz/post/10412/"/>
-    <id>http://trotyl.xyz/post/10412/</id>
+    <link href="http://blog.trotyl.xyz/post/10412/"/>
+    <id>http://blog.trotyl.xyz/post/10412/</id>
     <published>2020-08-17T01:40:05.000Z</published>
     <updated>2020-11-28T17:57:34.599Z</updated>
     
@@ -131,19 +131,19 @@
     
     
     
-    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
     
-    <category term="图｜Graph" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%9B%BE%EF%BD%9CGraph/"/>
+    <category term="图｜Graph" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%9B%BE%EF%BD%9CGraph/"/>
     
     
-    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    <category term="java" scheme="http://blog.trotyl.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>多路查找树｜Multi-Way Search Tree</title>
-    <link href="http://trotyl.xyz/post/35477/"/>
-    <id>http://trotyl.xyz/post/35477/</id>
+    <link href="http://blog.trotyl.xyz/post/35477/"/>
+    <id>http://blog.trotyl.xyz/post/35477/</id>
     <published>2020-08-15T03:53:57.000Z</published>
     <updated>2020-11-28T17:57:34.606Z</updated>
     
@@ -158,19 +158,19 @@
     
     
     
-    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
     
-    <category term="多路查找树｜Multi-Way Search Tree" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BD%9CMulti-Way-Search-Tree/"/>
+    <category term="多路查找树｜Multi-Way Search Tree" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91%EF%BD%9CMulti-Way-Search-Tree/"/>
     
     
-    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    <category term="java" scheme="http://blog.trotyl.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>平衡二叉树｜AVL Tree</title>
-    <link href="http://trotyl.xyz/post/8178/"/>
-    <id>http://trotyl.xyz/post/8178/</id>
+    <link href="http://blog.trotyl.xyz/post/8178/"/>
+    <id>http://blog.trotyl.xyz/post/8178/</id>
     <published>2020-08-08T20:13:40.000Z</published>
     <updated>2020-11-28T17:57:34.611Z</updated>
     
@@ -185,19 +185,19 @@
     
     
     
-    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
     
-    <category term="树结构的应用｜Application of Tree Structures" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/"/>
+    <category term="树结构的应用｜Application of Tree Structures" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/"/>
     
     
-    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    <category term="java" scheme="http://blog.trotyl.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>二叉排序树｜Binary Sort Tree</title>
-    <link href="http://trotyl.xyz/post/29228/"/>
-    <id>http://trotyl.xyz/post/29228/</id>
+    <link href="http://blog.trotyl.xyz/post/29228/"/>
+    <id>http://blog.trotyl.xyz/post/29228/</id>
     <published>2020-08-07T15:32:49.000Z</published>
     <updated>2020-11-28T17:57:34.614Z</updated>
     
@@ -212,19 +212,19 @@
     
     
     
-    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
+    <category term="数据结构与算法｜Data Structures and Algorithms" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/"/>
     
-    <category term="树结构的应用｜Application of Tree Structures" scheme="http://trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/"/>
+    <category term="树结构的应用｜Application of Tree Structures" scheme="http://blog.trotyl.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BD%9CData-Structures-and-Algorithms/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%EF%BD%9CApplication-of-Tree-Structures/"/>
     
     
-    <category term="java" scheme="http://trotyl.xyz/tags/java/"/>
+    <category term="java" scheme="http://blog.trotyl.xyz/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>我的第一篇博客</title>
-    <link href="http://trotyl.xyz/post/63785/"/>
-    <id>http://trotyl.xyz/post/63785/</id>
+    <link href="http://blog.trotyl.xyz/post/63785/"/>
+    <id>http://blog.trotyl.xyz/post/63785/</id>
     <published>2020-08-04T00:46:00.000Z</published>
     <updated>2020-11-28T17:04:11.827Z</updated>
     
@@ -242,7 +242,7 @@
     
     
     
-    <category term="杂七杂八" scheme="http://trotyl.xyz/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+    <category term="杂七杂八" scheme="http://blog.trotyl.xyz/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
     
   </entry>
   
